@@ -1,10 +1,54 @@
 \chapter{Estado del Arte}\label{chapter:state-of-the-art}
 
-
 \begin{itemize}
     \item Empezar hablando de los algoritmos de ML y hablar de su uso en la actualidad.
     \item Luego hablar de bias y fairness en general.
     \item Hablar de las preocupaciones que existen por el bias y fairness en los algoritmos de ML.
+\end{itemize}
+
+Los algoritmos de aprendizaje autom\'atico han permeado pr\'acticamente todos los aspectos de la vida moderna,
+desde proporcionar recomendaciones de pel\'iculas y facilitar compras en l\'inea hasta influir en b\'usquedas en la web
+y sugerir conexiones emocionales con otras personas. Este fen\'omeno se extiende incluso a escenarios m\'as riesgosos,
+como el diagn\'ostico y tratamiento m\'edico, donde el uso de estos algoritmos ha experimentado un notable aumento.
+La versatilidad de estas herramientas abarca diversas \'areas, como la optimizaci\'on de procesos empresariales, la 
+mejora de la eficiencia de los sistemas de transporte \cite{autonomous_driving}, y la personalizaci\'on de servicios en 
+sectores como el financiero y el comercio.
+
+A medida que estos algoritmos se aplican con mayor frecuencia en \'ambitos m\'as cr\'iticos, como
+pr\'estamos bancarios \cite{fairness_def}, evaluaci\'on de riesgos de salud, contrataci\'on, evaluaci\'on de desempe\~no laboral y
+justicia penal \cite{compas}, se genera una creciente preocupaci\'on acerca de su capacidad para mantener de manera involuntaria 
+sesgos sociales y prejuicios hist\'oricos. 
+
+\section{Justicia y equidad en modelos de aprendizaje autom\'atico}
+
+Adentrarse en el terreno de las definiciones de equidad en el contexto de los modelos de aprendizaje de m\'aquinas nos lleva 
+a un panorama complejo y en constante evoluci\'on. A d\'ia de hoy, no existe una definici\'on \'unica y precisa
+de lo que constituye la equidad en este \'ambito. La implementaci\'on de algoritmos en la toma de decisiones automatizada ha desatado 
+debates acerca de c\'omo conceptualizar y medir tanto la equidad como la justicia. Estos conceptos no solo involucran concideraciones 
+t\'ecnicas, sino que tambi\'en se ven influidos por matices culturales y dilemas \'eticos.
+
+\subsection{Definiciones de equidad}
+Las diversas perspectivas sobre la equidad pueden agruparse en tres categor\'ias principales: a nivel de Grupos, Subgrupos y a nivel Individual. 
+A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relevantes a nivel de grupos:
+
+\begin{itemize}
+    \item \textbf{Demographic Parity}: \cite{fairness_def}
+    \item \textbf{Equal Opportunity}: \cite{fairness_def}
+    \item \textbf{Equalized Odds}: \cite{fairness_def}
+\end{itemize}
+
+Una m\'etrica muy relevante a nivel de subgrupos es:
+
+\begin{itemize}
+    \item \textbf{Subgroup Fairness}: \cite{subgroup_fairness}
+\end{itemize}
+
+Finalmente, a nivel individual tenemos:
+
+\begin{itemize}
+    \item \textbf{Fairness Through Awareness}: \cite{fair_awareness}
+    \item \textbf{Fairness Through Unawareness}: \cite{counterfactual}
+    \item \textbf{Conterfactual fairness}: \cite{counterfactual}
 \end{itemize}
 
 \section{Hablar de las fuentes de bias}
@@ -27,7 +71,12 @@
         \item Hablar del caso COMPAS, MEPS y Adult. Ver los paper que se mencionan en el Survey1 en pag 8
     \end{itemize}
 
-\section{Hablar de todas las definiciones que tengan que ver con bias y fairness}
+\section{Hablar de los datasets estudiados}
+    \begin{itemize}
+        \item Poner la tabla comparativa de los datasets
+        \item Decir algunos datos interesantes de cada uno
+        \item ¿Empezar a hablar de xq se escogio imdb?
+    \end{itemize}
 
-
+\section{Discusi\'on}
 
