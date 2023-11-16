@@ -1,11 +1,5 @@
 \chapter{Estado del Arte}\label{chapter:state-of-the-art}
 
-\begin{itemize}
-    \item Empezar hablando de los algoritmos de ML y hablar de su uso en la actualidad.
-    \item Luego hablar de bias y fairness en general.
-    \item Hablar de las preocupaciones que existen por el bias y fairness en los algoritmos de ML.
-\end{itemize}
-
 Los algoritmos de aprendizaje autom\'atico han permeado pr\'acticamente todos los aspectos de la vida moderna,
 desde proporcionar recomendaciones de pel\'iculas y facilitar compras en l\'inea hasta influir en b\'usquedas en la web
 y sugerir conexiones emocionales con otras personas. Este fen\'omeno se extiende incluso a escenarios m\'as riesgosos,
@@ -24,46 +18,91 @@ sesgos sociales y prejuicios hist\'oricos.
 Adentrarse en el terreno de las definiciones de equidad en el contexto de los modelos de aprendizaje de m\'aquinas nos lleva 
 a un panorama complejo y en constante evoluci\'on. A d\'ia de hoy, no existe una definici\'on \'unica y precisa
 de lo que constituye la equidad en este \'ambito. La implementaci\'on de algoritmos en la toma de decisiones automatizada ha desatado 
-debates acerca de c\'omo conceptualizar y medir tanto la equidad como la justicia. Estos conceptos no solo involucran concideraciones 
+debates acerca de c\'omo conceptualizar y medir tanto la equidad como la justicia. Estos conceptos no solo involucran consideraciones 
 t\'ecnicas, sino que tambi\'en se ven influidos por matices culturales y dilemas \'eticos.
 
 \subsection{Definiciones de equidad}
-Las diversas perspectivas sobre la equidad pueden agruparse en tres categor\'ias principales: a nivel de Grupos, Subgrupos y a nivel Individual. 
+Las diversas perspectivas sobre la equidad pueden agruparse en dos categor\'ias principales: a nivel de Grupos y a nivel Individual. 
 A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relevantes a nivel de grupos:
 
 \begin{itemize}
-    \item \textbf{Demographic Parity}: \cite{fairness_def}
-    \item \textbf{Equal Opportunity}: \cite{fairness_def}
-    \item \textbf{Equalized Odds}: \cite{fairness_def}
+    \item \textbf{Demographic Parity}: Un algoritmo predictor $\hat{Y}$ satisface \textit{Demographic Parity}
+    con respecto a un atributo $A$ con valores en el conjunto $\{0,1\}$ si se cumple $P(\hat{Y} | A = 0) = P(\hat{Y} | A = 1)$. 
+    Esto significa que la probabilidad de un resultado positivo debería ser la misma sin importar si el individuo pertenece a
+    un grupo protegido \cite{fairness_def}.
+
+    \item \textbf{Equal Opportunity}: Un predictor binario $\hat{Y}$ satisface \textit{Equal Opportunity} con 
+    respecto a un atributo $A$ y salida $Y$ si $P(\hat{Y} = 1 | A = 1, Y = 1) = P(\hat{Y} = 1 | A = 0, Y = 1)$. Esto significa
+    que la probabilidad de que a una persona en la clase positiva le sea asignada un resultado positivo 
+    deber\'ia ser igual para miembros tanto de grupos protegidos como no protegidos \cite{fairness_def}.
+
+    \item \textbf{Equalized Odds}: Un predictor $\hat{Y}$ satisface \textit{Equalized Odds} con respecto a un atributo
+    protegido $A$ y predicci\'on $Y$, si $P(\hat{Y} = 1 | A = 1, Y = y) = P(\hat{Y} = 1 | A = 0, Y = y)$, es decir,
+    $\hat{Y}$ y $A$ son independientemente condicionales a $Y$. Esto significa que la probabilidad de que a una persona 
+    en la clase positiva le sea asignada correctamente una predicci\'on positiva y la probabilidad de que a una persona en la 
+    clase negativa le sea incorrectamente asignada una predicci\'on positiva deber\'ia se la misma para miembros de grupos 
+    protegidos y no protegidos \cite{fairness_def}.
 \end{itemize}
 
-Una m\'etrica muy relevante a nivel de subgrupos es:
+Otras m\'etricas muy relevantes a nivel individual son:
 
 \begin{itemize}
-    \item \textbf{Subgroup Fairness}: \cite{subgroup_fairness}
+    \item \textbf{Fairness Through Awareness}: Individuos que comparten caracter\'isticas similares seg\'un alg\'un criterio 
+    definido deber\'ian obtener resultados parecidos \cite{fair_awareness}.
+    \item \textbf{Fairness Through Unawareness}: Un algoritmo se considera imparcial cuando no basa sus decisiones en el 
+    atributo protegido \cite{counterfactual}.
+    \item \textbf{Conterfactual fairness}: Una decisi\'on es considerada imparcial hacia un individuo cuando es la misma
+    tanto en la situaci\'on real como en una situaci\'on hipot\'etica donde el individuo pertenece a otro grupo \cite{counterfactual}.
 \end{itemize}
 
-Finalmente, a nivel individual tenemos:
+\section{Fuentes y tipos de sesgos}
+
+Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
+con los usuarios \cite{resp_data}. El sesgo puede surgir cuando los conjuntos de datos utilizados para entrenar modelos contienen 
+desigualdades sistem\'aticas. Esto puede deberse a la falta de representaci\'on de ciertos grupos en los datos, desequilibrios en 
+la recopilaci\'on de datos o incluso en la presencia de estereotipos culturales que afectan la calidad y diversidad de los datos.
+
+Cuando se trata de algoritmos, el sesgo puede surgir cuando se eligen caracter\'isticas espec\'ificas para la toma de desiciones, 
+o se ponderan ciertos atributos  de manera desigual. Si el dise\~o no se realiza de manera imparcial y considerando la equidad, los 
+modelos pueden aprender y perpetuar sesgos hist\'oricos.
+
+La interacci\'on de un usuario con un sistema puede generar sesgos emergentes, ya sea porque el usuario inconscientemente 
+favorece ciertos grupos o porque el sistema se adapta a las preferencias del usuario. Tambi\'en puede ocurrir que el usuario
+interact\'ue solo con cierto contenido o con elementos que ocupen posiciones privilegiadas en la interfaz, dando lugar a una
+falta de diversidad en las experiencias y consecuentemente a la perpetuaci\'on de sesgos.
+
+No hay una desici\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
+algunos siempre son contemplados y se reconocen como los m\'as relevantes \cite{survey}. Entre estos se 
+encuentran: (no estoy claro de este parrafo, aqui quiero dar como una intro para empezar a hablar de los tipos 
+de sesgos divididos en los grupos siguientes)
+(que es como los dividen en el survey 2, haciendo referencia al ciclo de vida de los datos que esta bastante interesante)
+
+\subsection{Sesgos de los datos al algoritmo}
+Aqui hablar algo general de los datos -> algoritmo
 
 \begin{itemize}
-    \item \textbf{Fairness Through Awareness}: \cite{fair_awareness}
-    \item \textbf{Fairness Through Unawareness}: \cite{counterfactual}
-    \item \textbf{Conterfactual fairness}: \cite{counterfactual}
+    \item \textbf{Sesgo por medici\'on}:
+    \item \textbf{Sesgo por variable omitida}:
+    \item \textbf{Sesgo por representaci\'on}:
+    \item Preguntar al profe si hay alguno importante que falte
 \end{itemize}
 
-\section{Hablar de las fuentes de bias}
+\subsection{Sesgos del algoritmo al usuario}
+Aqui hablar algo general de los algoritmos -> usuario
 \begin{itemize}
-    \item hablar de los tres tipos mas comunes de sesgos que se mencionan en "Julia Stoyanovich, Bill Howe, and HV Jagadish. Responsible data management. Proceedings of the VLDB
-    Endowment, 13(12):3474–3488, 2020.": ¿Hacer enfasis en el sesgo de la data?
-    \begin{itemize}
-        \item pre-existente: proviene de la data
-        \item tecnologico: proviene de los algoritmos
-        \item emergente: proviene de la interaccion con los usuarios
-    \end{itemize}
-    \item hablar algo de las 23 fuentes mas comunes de bias 
-    que se mencionan en "Ninareh Mehrabi, Fred Morstatter, Nripsuta Saxena, Kristina Lerman, and Aram Galstyan. A survey on bias and
-    fairness in machine learning. ACM Comput. Surv., 54(6), jul 2021."
+    \item \textbf{Sesgo por dise\~no}:(por dise\~no del algoritmo)
+    \item \textbf{Sesgo por la interacci\'on del usuario}:(hablar de presentacion y de ranking)
+    \item \textbf{Sesgo emergente:}
 \end{itemize}
+
+\subsection{Sesgos del usuario a los datos}
+Aqui hablar algo general de los usuarios -> datos
+\begin{itemize}
+    \item \textbf{Sesgo hist\'orico}:
+    \item \textbf{Sesgo poblacional}:
+    \item \textbf{Sesgo social}:
+\end{itemize}
+
 
 \section{Hablar de Casos reales donde se haya detectado sesgos}
 
