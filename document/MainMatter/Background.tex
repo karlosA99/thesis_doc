@@ -1,4 +1,4 @@
-\chapter{Estado del Arte}\label{chapter:state-of-the-art}
+\chapter{Justicia y equidad en modelos de aprendizaje autom\'atico}\label{chapter:state-of-the-art}
 
 - Justicia / Sesgos / Equidad
 - Casos Controversiales.
@@ -20,9 +20,73 @@ pr\'estamos bancarios \cite{fairness_def}, evaluaci\'on de riesgos de salud, con
 justicia penal \cite{compas}, se genera una creciente preocupaci\'on acerca de su capacidad para mantener de manera involuntaria 
 sesgos sociales y prejuicios hist\'oricos. 
 
-\section{Justicia y equidad en modelos de aprendizaje autom\'atico <- tal vez titulo del cap?}
+\section{Hablar de Casos reales donde se haya detectado sesgos}
 
-Adentrarse en el terreno de las definiciones de equidad en el contexto de los modelos de aprendizaje de m\'aquinas nos lleva 
+    \begin{itemize}
+        \item Hablar del caso COMPAS, MEPS y Adult. Ver los paper que se mencionan en el Survey1 en pag 8
+    \end{itemize}
+
+\section{Fuentes y tipos de sesgos}
+
+    Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
+    con los usuarios \cite{resp_data}.
+    
+    No existe una desici\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
+    algunos siempre son contemplados y se reconocen como los m\'as relevantes \cite{survey}. La figura $PONER FIGURA DEL CICLO$ muestra 
+    el ciclo de vida de los datos en un sistema de aprendizaje autom\'atico; siguiendo este enfoque los sesgos pueden clasificarse 
+    en funci\'on de la fase espec\'ifica en que puedan surgir dentro de dicho ciclo: \textbf{sesgos de los datos al algoritmo}, 
+    \textbf{sesgos del algoritmo al usuario} y \textbf{sesgos del usuario a los datos}.
+    
+    \subsection{Sesgos de los datos al algoritmo}
+    
+    \begin{itemize}
+        \item \textbf{Sesgo por medici\'on}: Este sesgo surge de como se eligen, utilizan y miden atributos particulares. Un ejemplo de esto se observa 
+        en la herramienta de predicci\'on de riesgo de reincidencia COMPAS, donde detenciones anteriores y detenciones de amigos o familiares se utilizaron 
+        como variables para medir peligrosidad.
+        
+        \item \textbf{Sesgo por variable omitida}: Este sesgo ocurre cuando una o m\'as variables importantes son excluidas del modelo. Decir algo mas
+        
+        \item \textbf{Sesgo por representaci\'on}: Este sesgo se produce de c\'omo se seleccionan las muestras de una poblaci\'on durante el proceso de
+        recopilaci\'on de datos. Las muestras no representativas carecen de la diversidad de la poblaci\'on, con subgrupos faltantes y otras anomal\'ias.
+    \end{itemize}
+    
+    \subsection{Sesgos del algoritmo al usuario}
+
+    \begin{itemize}
+        \item \textbf{Sesgo por algor\'itmico}: El sesgo algor\'itmico se presenta cuando el sesgo no est\'a presente en los datos de entrada
+        y se agrega puramente por el algoritmo. Las elecciones de dise\~no algor\'itmico, como el uso de ciertas funciones de optimizaci\'on, 
+        regularizaciones, decisiones en la aplicaci\'on de modelos de regresi\'on en los datos en su totalidad o considerando subgrupos, y el uso
+        general de estimadores estad\'isticamente sesgados en algoritmos, todos pueden contribuir a decisiones algor\'itmicas sesgadas que 
+        afectan los resultados de los algoritmos. 
+        
+        \item \textbf{Sesgo por la interacci\'on del usuario}: El sesgo de interacci\'on del usuario no solo puede observarse en la web, sino que 
+        tambi\'en puede ser producido por dos fuentes: la interfaz de usuario y cuando el propio usuario impone su comportamiento sesgado.
+        
+        \item \textbf{Sesgo de evaluaci\'on}: El sesgo de evaluci\'on ocurre durante la evaluaci\'on del modelo. Esto incluye el uso de m\'etricas
+        inapropiadas y desproporcionadas para la evaluaci\'on del modelo. Un ejemplo de esto son las m\'etricas \textit{Adience} y \textit{IJB-A}, 
+        que se utilizan en la evaluaci\'on de sistemas de reconocimiento facial que estaban sesgados hacia el color de la piel y el g\'enero.
+    \end{itemize}
+    
+    \subsection{Sesgos del usuario a los datos}
+
+    \begin{itemize}
+        \item \textbf{Sesgo hist\'orico}: El sesgo hist\'orico es el sesgo y los problemas sociot\'ecnicos ya existentes en el mundo y puede 
+        generarse desde el proceso de generaci\'on de datos incluso con un muestreo y selecci\'on de caracter\'isticas perfectos.
+
+        \item \textbf{Sesgo poblacional}: El sesgo poblacional surge cuando las estad\'isticas, demograf\'ias, representantes y caracter\'isticas 
+        de los usuarios son diferentes en la poblaci\'on de usuarios de la plataforma con respecto a la poblaci\'on objetivo original, creando datos no
+        representativos. Un ejemplo de este tipo de sesgo puede surgir de las diferentes demograf\'ias de usuarios en las plataformas sociales, como las
+        mujeres que son m\'as propensas a usar \textit{Pinterest}, \textit{Facebook}, \textit{Instagram}, mientras que los hombres son m\'as activos en 
+        foros en l\'inea como \textit{Reddit} o \textit{X}.
+
+        \item \textbf{Sesgo social}: El sesgo social se produce cuando las acciones de otros afectan el juicio de una persona. Un ejemplo de este tipo de 
+        sesgo podr\'ia ser un caso en el que la persona quiere calificar o revisar un elemento con puntuaci\'on baja, pero al ser influenciada por otras
+        calificaciones altas, cambia su puntuaci\'on a una calificaci\'on m\'as alta, pensando que quiz\'as esta siendo demasiado severa.
+    \end{itemize}
+
+\section{Detecci\'on y mitigaci\'on de sesgos}
+
+Las definiciones de equidad en el contexto de los modelos de aprendizaje de m\'aquinas nos llevan 
 a un panorama complejo y en constante evoluci\'on. A d\'ia de hoy, no existe una definici\'on \'unica y precisa
 de lo que constituye la equidad en este \'ambito. La implementaci\'on de algoritmos en la toma de decisiones automatizada ha desatado 
 debates acerca de c\'omo conceptualizar y medir tanto la equidad como la justicia. Estos conceptos no solo involucran consideraciones 
@@ -51,7 +115,7 @@ A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relev
     protegidos y no protegidos \cite{fairness_def}.
 \end{itemize}
 
-Otras m\'etricas muy relevantes a nivel individual son:
+Otros enfoques relevantes para tratar los sesgos a nivel individual son:
 
 \begin{itemize}
     \item \textbf{Fairness Through Awareness}: Individuos que comparten caracter\'isticas similares seg\'un alg\'un criterio 
@@ -62,66 +126,16 @@ Otras m\'etricas muy relevantes a nivel individual son:
     tanto en la situaci\'on real como en una situaci\'on hipot\'etica donde el individuo pertenece a otro grupo \cite{counterfactual}.
 \end{itemize}
 
-\section{Fuentes y tipos de sesgos}
+\subsection{Algoritmos de mitigaci\'on de sesgos}
 
-Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
-con los usuarios \cite{resp_data}. El sesgo puede surgir cuando los conjuntos de datos utilizados para entrenar modelos contienen 
-desigualdades sistem\'aticas. Esto puede deberse a la falta de representaci\'on de ciertos grupos en los datos, desequilibrios en 
-la recopilaci\'on de datos o incluso en la presencia de estereotipos culturales que afectan la calidad y diversidad de los datos.
-
-Cuando se trata de algoritmos, el sesgo puede surgir cuando se eligen caracter\'isticas espec\'ificas para la toma de desiciones, 
-o se ponderan ciertos atributos  de manera desigual. Si el dise\~o no se realiza de manera imparcial y considerando la equidad, los 
-modelos pueden aprender y perpetuar sesgos hist\'oricos.
-
-La interacci\'on de un usuario con un sistema puede generar sesgos emergentes, ya sea porque el usuario inconscientemente 
-favorece ciertos grupos o porque el sistema se adapta a las preferencias del usuario. Tambi\'en puede ocurrir que el usuario
-interact\'ue solo con cierto contenido o con elementos que ocupen posiciones privilegiadas en la interfaz, dando lugar a una
-falta de diversidad en las experiencias y consecuentemente a la perpetuaci\'on de sesgos.
-
-No hay una desici\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
-algunos siempre son contemplados y se reconocen como los m\'as relevantes \cite{survey}. Entre estos se 
-encuentran: (no estoy claro de este parrafo, aqui quiero dar como una intro para empezar a hablar de los tipos 
-de sesgos divididos en los grupos siguientes)
-(que es como los dividen en el survey 2, haciendo referencia al ciclo de vida de los datos que esta bastante interesante)
-
-\subsection{Sesgos de los datos al algoritmo}
-Aqui hablar algo general de los datos -> algoritmo
-
-\begin{itemize}
-    \item \textbf{Sesgo por medici\'on}:
-    \item \textbf{Sesgo por variable omitida}:
-    \item \textbf{Sesgo por representaci\'on}:
-    \item Preguntar al profe si hay alguno importante que falte
-\end{itemize}
-
-\subsection{Sesgos del algoritmo al usuario}
-Aqui hablar algo general de los algoritmos -> usuario
-\begin{itemize}
-    \item \textbf{Sesgo por dise\~no}:(por dise\~no del algoritmo)
-    \item \textbf{Sesgo por la interacci\'on del usuario}:(hablar de presentacion y de ranking)
-    \item \textbf{Sesgo emergente:}
-\end{itemize}
-
-\subsection{Sesgos del usuario a los datos}
-Aqui hablar algo general de los usuarios -> datos
-\begin{itemize}
-    \item \textbf{Sesgo hist\'orico}:
-    \item \textbf{Sesgo poblacional}:
-    \item \textbf{Sesgo social}:
-\end{itemize}
-
-
-\section{Hablar de Casos reales donde se haya detectado sesgos}
-
-    \begin{itemize}
-        \item Hablar del caso COMPAS, MEPS y Adult. Ver los paper que se mencionan en el Survey1 en pag 8
-    \end{itemize}
+Hablar ahora aqui algo sencillo y muy general sobre los algos de mitigacion
 
 \section{Hablar de los datasets estudiados}
     \begin{itemize}
         \item Poner la tabla comparativa de los datasets
         \item Decir algunos datos interesantes de cada uno
         \item ¿Empezar a hablar de xq se escogio imdb?
+        \item hablar de que hace los datasets ayudan a mitigar y todo eso(ver donde ponerlo si al final del sub anterior o principio de este)
     \end{itemize}
 
 \section{Discusi\'on}
