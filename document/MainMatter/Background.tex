@@ -1,9 +1,9 @@
 \chapter{Justicia y equidad en modelos de aprendizaje autom\'atico}\label{chapter:state-of-the-art}
 
-- Justicia / Sesgos / Equidad
-- Casos Controversiales.
-- Fuentes de Sesgos
-- (Definiciones / Algoritmos) para tratar los sesgos
+- Justicia / Sesgos / Equidad ok
+- Casos Controversiales. ok
+- Fuentes de Sesgos ok
+- (Definiciones / Algoritmos) para tratar los sesgos ok
 - Datasets Recursos de sesgos
 - Discusi'on
 
@@ -20,11 +20,33 @@ pr\'estamos bancarios \cite{fairness_def}, evaluaci\'on de riesgos de salud, con
 justicia penal \cite{compas}, se genera una creciente preocupaci\'on acerca de su capacidad para mantener de manera involuntaria 
 sesgos sociales y prejuicios hist\'oricos. 
 
-\section{Hablar de Casos reales donde se haya detectado sesgos}
+\section{Sistemas sesgados}
 
-    \begin{itemize}
-        \item Hablar del caso COMPAS, MEPS y Adult. Ver los paper que se mencionan en el Survey1 en pag 8
-    \end{itemize}
+    La presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico es un tema cr\'itico que ha sido
+    ampliamente estudiado en los \'ultimos a\~nos. En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS
+    \footnote{\url{https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}}
+    (en ingl\'es \textit{Correctional Offender Management Profiling for Alternative Sanctions}). Este sistema es un algoritmo de predicci\'on
+    de riesgo de reincidencia criminal que se ha utilizado en las cortes de Estados Unidos para ayudar a los jueces a determinar la 
+    probabilidad de que una persona reincurra en un delito. Se demostr\'o que el software estaba sesgado hacia las personas 
+    afroamericanas, o sea, dados dos individuos con el mismo perfil criminal, solo basta que uno sea afroamericano para que el
+    sistema prediga que tiene una mayor probabilidad de reincidir respecto al que no lo es. En un estudio, se determin\'o que, 
+    en comparaci\'on con la evaluaci\'on realizada por personas no expertas, el desempe\~no del sistema no demostr\'o mejoras 
+    significativas \cite{compas2}. 
+
+    Los datos de la Encuesta de Gastos M\'edicos (\texttt{MEPS}\footnote{\url{https://meps.ahrq.gov/mepsweb/about_meps/spanish.jsp}}, 
+    por sus siglas en ingl\'es) son una colecci\'on de encuestas representativas a nivel nacional, de acceso p\'ublico, que proporcionan 
+    datos sobre el uso y los costos de los servicios de atenci\'on m\'edica para la poblaci\'on civil no institucionalizada de los Estados Unidos. 
+    Es com\'un el empleo de estos datos para el desarrollo de modelos predictivos de gastos de salud con el objetivo de guiar decisiones 
+    en la gesti\'on de la atenci\'on m\'edica, enfermedades y costos asociados. Se ha comprobado que estos modelos tambi\'en capturan sesgos, 
+    generando uun sesgo significativo en perjuicio de las personas afroamericanas. Concretamentea, existe una menor probabilidad de que 
+    las personas afroamericanas sean identificadas como pacientes con altos gastos futuros en comparaci\'on con las personas personas blancas, 
+    lo que resulta en una menor probabilidad de recibir gesti\'on de atenci\'on \cite{understanding}.
+
+    Los sesgos y prejuicios presentes en la sociedad tambi\'en se han identificado en anuncios generados por modelos de aprendizaje autom\'atico
+    \cite{sweeney2013discrimination,datta2015automated} y en motores de b\'usqueda web \cite{unequal_rep}, pricipalmente en relaci\'on al 
+    g\'enero. Adem\'as, se han identificado sesgos en otros sistemas como los chatbots \cite{chatbot_bias}, as\'i como en sistemas de 
+    reconocimiento facial \cite{facial_bias} y de voz \cite{voice_bias}, y algunos sistemas empleados en concursos de belleza(poner esto al pie
+    https://www.theguardian.com/technology/2016/sep/08/artificial-intelligence-beauty-contest-doesnt-like-black-people).
 
 \section{Fuentes y tipos de sesgos}
 
@@ -118,7 +140,7 @@ A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relev
 Otros enfoques relevantes para tratar los sesgos a nivel individual son:
 
 \begin{itemize}
-    \item \textbf{Fairness Through Awareness}: Individuos que comparten caracter\'isticas similares seg\'un alg\'un criterio 
+    \item \textbf{Fairness Through Awareness}: Individuos con caracter\'isticas similares seg\'un alg\'un criterio 
     definido deber\'ian obtener resultados parecidos \cite{fair_awareness}.
     \item \textbf{Fairness Through Unawareness}: Un algoritmo se considera imparcial cuando no basa sus decisiones en el 
     atributo protegido \cite{counterfactual}.
@@ -126,9 +148,36 @@ Otros enfoques relevantes para tratar los sesgos a nivel individual son:
     tanto en la situaci\'on real como en una situaci\'on hipot\'etica donde el individuo pertenece a otro grupo \cite{counterfactual}.
 \end{itemize}
 
-\subsection{Algoritmos de mitigaci\'on de sesgos}
+\subsection{Mitigaci\'on de sesgos}
 
-Hablar ahora aqui algo sencillo y muy general sobre los algos de mitigacion
+Los m\'etodos para la mitigaci\'on de sesgos se pueden clasificar esencialmente en m\'etodos de pre-procesamiento \cite{osti_10182459}, 
+durante el procesamiento \cite{ml_in_admissions} y post-procesamiento \cite{gitiaux2019multidifferential}, seg\'un la fase del proceso de 
+aprendizaje en que se realizen. Recientemente, han surgido nuevos m\'etodos llamados meta-algoritmos que ofrecen resultados interesantes 
+en diversos escenarios.
+
+Las estrategias de pre-procesamiento buscan la equidad al modificar la representaci\'on de los datos antes de aplicar un modelo de aprendizaje
+autom\'atico. En este proceso se pueden aplicar diversas t\'ecnicas sobre los datos, como eliminar atributos protegidos y atributos correlacionados
+con estos, o bien, modificar las etiquetas de algunos objetos en el datset \cite{preproc}. Una ventaja de estas t\'ecnicas es que son independientes
+al modelo. Sin embargo, requieren ajustes de hiperpar\'ametros tanto propios como del modelo seleccionado para optimizar su desempe\~no.
+
+Los m\'etodos aplicados durante el procesamiento, modifican los algoritmos de aprendizaje para eliminar la fuente de discriminaci\'on. Esto se 
+logra mediante ajustes en la funci\'on objetivo o la aplicaci\'on de restricciones espec\'ificas \cite{donini2020empirical,zafar17a}. A pesar de 
+que estas t\'ecnicas pueden ser altamente efectivas para la clase espec\'ifica de modelos para la cual fueron dise\~nadas, resulta dif\'icil, e 
+incluso en ocasiones imposible, extenderlas a nuevas clases de modelos.
+
+Las t\'ecnicas de post-procesamiento se implementan despu\'es de que el modelo ha sido entrenado, utilizando un conjunto de datos que no haya
+participado en dicho proceso. Mediante este procesamiento, las clasificaciones generadas por el modelo se reasignan mediante una funci\'on 
+espec\'ifica \cite{d_Alessandro_2017}.
+Entre las t\'ecnicas de post-procesamiento, se incluyen aquellas que buscan identificar los atributos protegidos que afectan el resultado del 
+modelo, y a partir de esto, ajustan la predicci\'on \cite{seymour2018bias}. La principal limitaci\'on radica en que ajustar la predicci\'on 
+en esta fase es inherentemente sub\'optimo y puede resultar en un peor equilibrio entre eficacia y equidad.
+
+Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos, una categor\'ia de m\'etodos recientemente propuesta para problemas de 
+mitigaci\'on de sesgos. Estos simplifican la tarea de mitigaci\'on de sesgos a una serie de problemas de clasificaci\'on, cada uno con 
+un costo asociado a sus errores de predicci\'on \cite{agarwal2018reductions, agarwal2019fair}.
+A diferencia de4 los m\'etodos operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
+clasificador base, solo dependen de la capacidad de este para ser reentrenado repetidamente. Las soluciones a estos problemas suelen generar
+un clasificador randomizado.
 
 \section{Hablar de los datasets estudiados}
     \begin{itemize}
