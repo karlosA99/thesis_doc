@@ -175,17 +175,43 @@ en esta fase es inherentemente sub\'optimo y puede resultar en un peor equilibri
 Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos, una categor\'ia de m\'etodos recientemente propuesta para problemas de 
 mitigaci\'on de sesgos. Estos simplifican la tarea de mitigaci\'on de sesgos a una serie de problemas de clasificaci\'on, cada uno con 
 un costo asociado a sus errores de predicci\'on \cite{agarwal2018reductions, agarwal2019fair}.
-A diferencia de4 los m\'etodos operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
+A diferencia de los m\'etodos operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
 clasificador base, solo dependen de la capacidad de este para ser reentrenado repetidamente. Las soluciones a estos problemas suelen generar
 un clasificador randomizado.
 
-\section{Hablar de los datasets estudiados}
+\section{Datasets en el tratamiento de sesgos}
     \begin{itemize}
-        \item Poner la tabla comparativa de los datasets
+        \item empezar hablando de como los datasets ayudan a desarrollar y evaluar tecnicas de evaluacion y mitigacion de sesgos
+        \item luego mencionar y decir algo de los datasets clasicos con datos tabulares
+        \item luego empezar a hablar de datasets con datos no tabulares en general y decir que hay pocos y que son dificiles de conseguir 
+        \item hablar luego de datasets interesantes que se pueden utilizar para esto (los estudiados)
         \item Decir algunos datos interesantes de cada uno
-        \item ¿Empezar a hablar de xq se escogio imdb?
-        \item hablar de que hace los datasets ayudan a mitigar y todo eso(ver donde ponerlo si al final del sub anterior o principio de este)
     \end{itemize}
 
+    Los datasets juegan un papel fundamental en el desarrollo y evaluaci\'on de t\'ecnicas destinadas a mitigar sesgos. Estos proporcionan la 
+    informaci\'on necesaria para la identificaci\'on, cuantificaci\'on y abordaje de sesgos, permitiendo as\'i 
+    la creaci\'on y validaci\'on de t\'ecnicas dirigidas a mejorar la equidad y justicia en modelos de aprendizaje autom\'atico. 
+    Un dataset representativo y diverso es esencial para el desarrollo de estrategias eficaces que mitiguen sesgos en diversas aplicaciones.
+    
+    \subsection{An\'alisis de datasets con sesgos}
+    Los datasets pueden categorizarse en dos grupos seg\'un la configuraci\'on de sus datos: 
+    aquellos con datos tabulares y aquellos con datos no tabulares. Entre los datasets con estructura
+    tabular m\'as relevantes utilizados para el an\'alisis y la evaluaci\'on de modelos destinados 
+    a la mitigaci\'on de sesgos \cite{calmon2017optimized,wang2023mitigating,compas}, se incluyen:
+
+    \begin{itemize}
+        \item \textbf{Adult}: Tambi\'en conocido como \textit{Census Income}, este dataset contiene 48842 registros de 
+        datos sobre el censo de 1994 en Estados Unidos. Incluye 14 atributos, como edad, educaci\'on, estado civil,
+        ocupaci\'on, raza, g\'enero, pa\'is de origen, horas de trabajo por semana, entre otros. Adem\'as para cada 
+        persona dice si sus ingresos son mayores o menores a 50 mil d\'olares anuales.
+        \item \textbf{Compas}: Este dataset contiene 18610 registros de los acusados del condado de Broward, Florida,
+        indicando sus tiempos en la c\'arcel y prisi\'on, datos demogr\'aficos, antecedentes penales y puntuaciones 
+        de riesgo, desde 2013 hasta 2014.
+        \item \textbf{Meps}: 
+        \item \textbf{German Credit}: 
+        \item \textbf{Communities and Crime}: 
+    \end{itemize}
+
+    \subsection{Datasets con datos no tabulares}
 \section{Discusi\'on}
 
