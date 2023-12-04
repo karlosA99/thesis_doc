@@ -22,8 +22,8 @@
 \RequirePackage{footmisc}
 \RequirePackage{csquotes}
 \RequirePackage[
-	style=apa,
-	citestyle=authoryear,
+	style=numeric,
+	citestyle=numeric,
   hyperref=true,
 	backref=true
 	]{biblatex}
@@ -88,7 +88,7 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\parencite}[\mkbibparens]
+\DeclareCiteCommand{\parencite}[\mkbibbrackets]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
     \printtext[bibhyperref]{\usebibmacro{cite}}}
