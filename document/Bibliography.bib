@@ -267,15 +267,6 @@ series = {SIGCSE '21}
   url = "http://ceur-ws.org/Vol-2103/",
 }
 
-@misc{gitiaux2019multidifferential,
-      title={Multi-Differential Fairness Auditor for Black Box Classifiers}, 
-      author={Xavier Gitiaux and Huzefa Rangwala},
-      year={2019},
-      eprint={1903.07609},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-
 @misc{agarwal2018reductions,
       title={A Reductions Approach to Fair Classification}, 
       author={Alekh Agarwal and Alina Beygelzimer and Miroslav Dudík and John Langford and Hanna Wallach},
@@ -347,3 +338,77 @@ series = {SIGCSE '21}
       archivePrefix={arXiv},
       primaryClass={q-fin.ST}
 }
+
+@misc{fairmodels,
+      title={fairmodels: A Flexible Tool For Bias Detection, Visualization, And Mitigation}, 
+      author={Jakub Wiśniewski and Przemysław Biecek},
+      year={2022},
+      eprint={2104.00507},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}
+}
+
+@inproceedings{dis_impact_rem,
+author = {Feldman, Michael and Friedler, Sorelle A. and Moeller, John and Scheidegger, Carlos and Venkatasubramanian, Suresh},
+title = {Certifying and Removing Disparate Impact},
+year = {2015},
+isbn = {9781450336642},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2783258.2783311},
+doi = {10.1145/2783258.2783311},
+abstract = {What does it mean for an algorithm to be biased? In U.S. law, unintentional bias is encoded via disparate impact, which occurs when a selection process has widely different outcomes for different groups, even as it appears to be neutral. This legal determination hinges on a definition of a protected class (ethnicity, gender) and an explicit description of the process.When computers are involved, determining disparate impact (and hence bias) is harder. It might not be possible to disclose the process. In addition, even if the process is open, it might be hard to elucidate in a legal setting how the algorithm makes its decisions. Instead of requiring access to the process, we propose making inferences based on the data it uses.We present four contributions. First, we link disparate impact to a measure of classification accuracy that while known, has received relatively little attention. Second, we propose a test for disparate impact based on how well the protected class can be predicted from the other attributes. Third, we describe methods by which data might be made unbiased. Finally, we present empirical evidence supporting the effectiveness of our test for disparate impact and our approach for both masking bias and preserving relevant information in the data. Interestingly, our approach resembles some actual selection practices that have recently received legal scrutiny.},
+booktitle = {Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+pages = {259–268},
+numpages = {10},
+keywords = {machine learning, fairness, disparate impact},
+location = {Sydney, NSW, Australia},
+series = {KDD '15}
+}
+
+@misc{soumah2023radar,
+      title={Radar de Parit\'e: An NLP system to measure gender representation in French news stories}, 
+      author={Valentin-Gabriel Soumah and Prashanth Rao and Philipp Eibl and Maite Taboada},
+      year={2023},
+      eprint={2304.09982},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{dinan2020multidimensional,
+      title={Multi-Dimensional Gender Bias Classification}, 
+      author={Emily Dinan and Angela Fan and Ledell Wu and Jason Weston and Douwe Kiela and Adina Williams},
+      year={2020},
+      eprint={2005.00614},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@online{examples_dis,
+author = {Terence Shin},
+title = {Real-Life Examples of Discriminating Artificial Intelligence},
+year = {2020},
+url = {https://towardsdatascience.com/real-life-examples-of-discriminating-artificial-intelligence-cae395a90070},
+note = {Accedido: 1-12-2023}
+
+}
+
+@InProceedings{10.1007/978-3-031-35320-8_39,
+author="Hirota, Haruka
+and Kertkeidkachorn, Natthawut
+and Shirai, Kiyoaki",
+editor="M{\'e}tais, Elisabeth
+and Meziane, Farid
+and Sugumaran, Vijayan
+and Manning, Warren
+and Reiff-Marganiec, Stephan",
+title="Weakly-Supervised Multimodal Learning for Predicting the Gender of Twitter Users",
+booktitle="Natural Language Processing and Information Systems",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="522--532",
+abstract="Social media platforms, e.g. Twitter, are significant sources of information, with various users posting vast amounts of content every day. Analyzing such content has the potential to offer valuable insights for commercial and research purposes. To gain a comprehensive understanding of the information, it is crucial to consider the demographics of users, with gender being a particularly important factor. Nevertheless, the gender of Twitter's users is not usually available. Predicting the gender of Twitter's users from tweet data becomes more challenging. In this paper, we introduce a weakly supervised method to automatically build the supervision data. The experimental result show that our weak supervision component could generate well-annotated data automatically with an accuracy rate exceeding 85{\%}. Furthermore, we conduct a comparative analysis of various multimodal learning architectures to predict the gender of Twitter users using weak supervision data. In the study, five multimodal learning architectures: 1) Early Fusion, 2) Late Fusion, 3) Dense Fusion, 4) Caption Fusion, and 5) Ensemble Fusion, are proposed. The experimental results on the evaluation data indicate that Caption Fusion outperforms the other multimodal learning architectures and baselines.",
+isbn="978-3-031-35320-8"
+}
+
