@@ -23,8 +23,7 @@ sesgos sociales y prejuicios hist\'oricos.
 \section{Sistemas sesgados}
 
     La presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico es un tema cr\'itico que ha sido
-    ampliamente estudiado en los \'ultimos a\~nos. En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS
-    \footnote{\url{https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}}
+    ampliamente estudiado en los \'ultimos a\~nos. En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS \parencite{propublica}
     (en ingl\'es \textit{Correctional Offender Management Profiling for Alternative Sanctions}). Este sistema es un algoritmo de predicci\'on
     de riesgo de reincidencia criminal que se ha utilizado en las cortes de Estados Unidos para ayudar a los jueces a determinar la 
     probabilidad de que una persona reincurra en un delito. Se demostr\'o que el software estaba sesgado hacia las personas 
@@ -45,8 +44,7 @@ sesgos sociales y prejuicios hist\'oricos.
     Los sesgos presentes en la sociedad tambi\'en se han identificado en anuncios generados por modelos de aprendizaje autom\'atico
     \parencite{sweeney2013discrimination,datta2015automated} y en motores de b\'usqueda web \parencite{unequal_rep}, pricipalmente en relaci\'on al 
     g\'enero. Adem\'as, se han identificado sesgos en otros sistemas como los chatbots \parencite{chatbot_bias}, as\'i como en sistemas de 
-    reconocimiento facial \parencite{facial_bias} y algunos sistemas empleados en concursos de belleza(poner esto como biblio
-    https://www.theguardian.com/technology/2016/sep/08/artificial-intelligence-beauty-contest-doesnt-like-black-people).
+    reconocimiento facial \parencite{facial_bias} y algunos sistemas empleados en concursos de belleza \parencite{beauty}.
 
 \section{Fuentes y tipos de sesgos}
 
@@ -188,13 +186,14 @@ un clasificador randomizado.
         \item Decir algunos datos interesantes de cada uno
     \end{itemize}
 
-    Los datasets juegan un papel fundamental en el desarrollo y evaluaci\'on de t\'ecnicas destinadas a mitigar sesgos. Estos proporcionan la 
-    informaci\'on necesaria para la identificaci\'on, cuantificaci\'on y abordaje de sesgos, permitiendo as\'i 
-    la creaci\'on y validaci\'on de t\'ecnicas dirigidas a mejorar la equidad y justicia en modelos de aprendizaje autom\'atico. 
+    Los datasets con atributos protegidos anotados juegan un papel fundamental en el desarrollo y evaluaci\'on de t\'ecnicas destinadas 
+    a mitigar sesgos. Estos proporcionan la informaci\'on necesaria para la identificaci\'on, cuantificaci\'on y abordaje de sesgos, 
+    permitiendo as\'i la creaci\'on y validaci\'on de t\'ecnicas dirigidas a mejorar la equidad y justicia en modelos de aprendizaje 
+    autom\'atico. 
     Un dataset representativo y diverso es esencial para el desarrollo de estrategias eficaces que mitiguen sesgos en diversas aplicaciones. 
     Los datasets pueden categorizarse en dos grupos seg\'un la configuraci\'on de sus datos: 
-    aquellos con datos tabulares\footnote{Est\'a organizado en forma de tabla, donde los datos se presentan en filas y columnas. Cada fila representa
-    una entrada individual, y cada columna es una caracter\'istica espec\'ifica con valores num\'ericos, categ\'oricos u otros.} 
+    aquellos con datos tabulares\footnote{Est\'a organizado en forma de tabla, donde los datos se presentan en filas y columnas. Cada fila 
+    representa una entrada individual, y cada columna es una caracter\'istica espec\'ifica con valores num\'ericos, categ\'oricos u otros.} 
     y aquellos con datos no tabulares\footnote{No sigue la estructura de una tabla tradicional, puede tener informaci\'on m\'as compleja, como 
     texto, im\'agenes o audio}.
     
@@ -222,9 +221,9 @@ un clasificador randomizado.
     \end{itemize}
 
     \subsection{Datasets con datos no tabulares}
-    Los datasets con datos no tabulares, como im\'agenes, audio, texto y otros formatos complejos, son considerablemente menos comunes
-    que los datasets con datos tabulares. Esto se debe a la complejidad y el costo asociado a la recopilaci\'on, etiquetado y mantenimiento
-    de datos no tabulares.
+    Los datasets con datos no tabulares y atributos protegidos anotados, como im\'agenes, audio, texto y otros formatos complejos, 
+    son considerablemente menos comunes que los datasets con datos tabulares. Esto se debe a la complejidad y el costo asociado a la 
+    recopilaci\'on, etiquetado y mantenimientode datos no tabulares.
 
     Mientras que los datos tabulares son adecuados para problemas estructurados, los datos no tabulares permiten abordar tareas m\'as diversas, 
     como reconocimiento de im\'agenes, procesamiento de lenguaje natural, an\'alisis de audio y textos. Esto los convierte en un recurso muy importantes
@@ -234,52 +233,72 @@ un clasificador randomizado.
     \begin{table}[htpb]
         \centering
         \resizebox{\textwidth}{!}{
-            \begin{tabular}{lp{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}}
+            \begin{tabular}{lp{0.34\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
             \toprule
             \toprule
-                \textbf{Dataset}   & \textbf{Twitter Gender}                          & \textbf{Md Gender Funpedia}                         & \textbf{Bias in Toxicity}       \\
+                \textbf{Dataset}     & \textbf{Twitter Gender}                          & \textbf{Md Gender Funpedia}                         & \textbf{Bias in Toxicity}       \\
                 \toprule
                 \toprule
-                Tipo de datos      & Texto                                            & Texto                                               & Texto                           \\
+                Tipo de datos        & Texto                                            & Texto                                               & Texto                           \\
                 \midrule
-                Atributo sensible  & Existencia o no de sesgo                         & G\'enero                                            & G\'enero, \'etnia y religi\'on  \\
+                Atributos protegidos & Existencia o no de sesgo                         & G\'enero                                            & G\'enero, raza, religi\'on, orientaci\'on sexual y discapacidad  \\
                 \midrule
-                Idioma             & Espa\~nol                                        & Ingl\'es                                            & Ingl\'es                        \\
+                Idioma               & Espa\~nol                                        & Ingl\'es                                            & Ingl\'es                        \\
                 \midrule
-                Lenguaje           & Chitchat                                         & Formal                                              & Informal                        \\
+                Lenguaje             & Chitchat                                         & Formal                                              & Informal                        \\
                 \midrule
-                Tama\~no           & 1.9K                                             & 29.8K                                               & 1.9M                            \\
+                Tama\~no             & 1.9K                                             & 29.8K                                               & 1.9M                            \\
                 \midrule
-                Tipo de Ann.       & Poner Algo                                       & Preanotado autom\'aticamente y revisado manualmente & Manual                          \\
+                Tipo de Ann.         & Poner Algo                                       & Preanotado autom\'aticamente y revisado manualmente & Manual                          \\
                 \midrule
-                Fuente de datos    & P\'aginas web que abordan los sesgos de g\'enero & Noticias, redes sociales, wikipedia                 & Plataforma Civil Comments       \\
+                Fuente de datos      & P\'aginas web que abordan los sesgos de g\'enero & Wikipedia                                           & Plataforma Civil Comments       \\
                 \toprule
                 \toprule
-                \textbf{Dataset}   & \textbf{Fair Face}                               & \textbf{UTKFace}                                    & \textbf{Imagenes o audio}                 \\
+                \textbf{Dataset}     & \textbf{Fair Face}                               & \textbf{UTKFace}                                    & \textbf{Bias Translation}       \\
                 \toprule
                 \toprule
-                Tipo de datos      & Im\'agenes                                       & Im\'agenes                                          & Im\'agenes o audio                      \\
+                Tipo de datos        & Im\'agenes                                       & Im\'agenes                                          & Texto                           \\
                 \midrule
-                Atributo sensible  & G\'enero, \'etnia y edad                         & G\'enero, \'etnia y edad \\
+                Atributo sensible    & G\'enero, raza y edad                            & G\'enero, raza y edad                               & G\'enero                        \\
                 \midrule
-                Idioma             & -                                                & - \\
+                Idioma               & -                                                & -                                                   & Ingl\'es, espa\~nol, ar\'abico, franc\'es, alem\'an, hind\'u, italiano, portugu\'es y ruso\\
                 \midrule
-                Lenguaje           & -                                                & - \\
+                Lenguaje             & -                                                & -                                                   & Informal                        \\
                 \midrule
-                Tama\~no           & 108K                                             & 20K \\
+                Tama\~no             & 108K                                             & 20K                                                 & 4K                              \\
                 \midrule
-                Tipo de Ann.       & Manual                                           & Semi-autom\'atica\\
+                Tipo de Ann.         & Manual                                           & Semi-autom\'atica                                   & Manual                          \\
                 \midrule
-                Fuente de datos    & Flickr, Twitter, peri\'odicos y web              & Datasets MORPH y CACD y web\\
+                Fuente de datos      &  Dataset YFCC-100M Flickr                        & Datasets MORPH y CACD y web                         & Wikipedia                       \\
                 \bottomrule
                 \bottomrule
-            \end{tabular}
-        }
+            \end{tabular}}
         \caption{Datasets con datos no tabulares}
         \label{table:datasets}
     \end{table}
+    
+    El dataset \textit{Twitter Gender}\footnote{\url{https://www.kaggle.com/datasets/kevinmorgado/gender-bias-spanish}} est\'a conformado por 
+    tweets en espa\~nol etiquetados con la categor\'ia de sesgado o no sesgado. Inicialmente el dataset no est\'a dividido en subconjuntos de 
+    entrenamiento y prueba.
 
+    El dataset \textit{Md Gender Funpedia}\footnote{\url{https://huggingface.co/datasets/md_gender_bias/viewer/funpedia}} contiene oraciones de 
+    Wikipedia, reformuladas de una manera m\'as conversacional \parencite{dinan2020multidimensional}. Se conservan \'unicamente las oraciones 
+    vinculadas a biograf\'ias. Cada oraci\'on est\'a etiquetada con el g\'enero de quien se habla. Adem\'as est\'a dividido en subconjuntos de 
+    entrenamiento, prueba y validaci\'on.
 
+    El dataset \textit{Bias in Toxicity}\footnote{\url{https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification}}
+    est\'a formado por comentarios, con gran cantidad de atributos protegidos anotados: male, female, white, asian, entre otros. Tambi\'en se 
+    indica el nivel de toxicidad y toxicidad severa de cada comentario. Cada atributo es un valor entre $0$ y $1$ que indica la probabilidad de 
+    que el comentario pertenezca a la clase correspondiente. Este dataset aporta tambi\'en los subconjuntos de entrenamiento y prueba, adem\'as 
+    de otros subconjuntos relacionados con la anotaci\'on del mismo.  
+
+    El dataset \textit{Fair Face}\footnote{\url{https://github.com/joojs/fairface}} contiene im\'agenes de rostros, con los atributos edad, 
+    g\'enero y raza anotados. Est\'a balanceado respecto a la raza \parencite{karkkainenfairface} e incluye los subconjuntos de entrenamiento y 
+    validaci\'on.
+
+    El dataset \textit{UTKFace}.
+
+    El dataset \textit{Bias Translation}.
 
 \section{Discusi\'on}
 
