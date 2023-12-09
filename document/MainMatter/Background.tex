@@ -1,11 +1,11 @@
 \chapter{Justicia y equidad en modelos de aprendizaje autom\'atico}\label{chapter:state-of-the-art}
 
-- Justicia / Sesgos / Equidad ok
-- Casos Controversiales. ok
-- Fuentes de Sesgos ok
-- (Definiciones / Algoritmos) para tratar los sesgos ok
-- Datasets Recursos de sesgos
-- Discusi'on
+% - Justicia / Sesgos / Equidad ok
+% - Casos Controversiales. ok
+% - Fuentes de Sesgos ok
+% - (Definiciones / Algoritmos) para tratar los sesgos ok
+% - Datasets Recursos de sesgos
+% - Discusi'on
 
 Los algoritmos de aprendizaje autom\'atico est\'an presentes en casi todos los aspectos de la vida moderna,
 desde proporcionar recomendaciones de pel\'iculas y facilitar compras en l\'inea hasta influir en b\'usquedas en la web
@@ -254,12 +254,12 @@ un clasificador randomizado.
                 Fuente de datos      & P\'aginas web que abordan los sesgos de g\'enero & Wikipedia                                           & Plataforma Civil Comments       \\
                 \toprule
                 \toprule
-                \textbf{Dataset}     & \textbf{Fair Face}                               & \textbf{UTKFace}                                    & \textbf{Bias Translation}       \\
+                \textbf{Dataset}     & \textbf{Fair Face}                               & \textbf{UTKFace}                                    & \textbf{MTGenEval}              \\
                 \toprule
                 \toprule
                 Tipo de datos        & Im\'agenes                                       & Im\'agenes                                          & Texto                           \\
                 \midrule
-                Atributo sensible    & G\'enero, raza y edad                            & G\'enero, raza y edad                               & G\'enero                        \\
+                Atributos protegidos & G\'enero, raza y edad                            & G\'enero, raza y edad                               & G\'enero                        \\
                 \midrule
                 Idioma               & -                                                & -                                                   & Ingl\'es, espa\~nol, ar\'abico, franc\'es, alem\'an, hind\'u, italiano, portugu\'es y ruso\\
                 \midrule
@@ -296,9 +296,32 @@ un clasificador randomizado.
     g\'enero y raza anotados. Est\'a balanceado respecto a la raza \parencite{karkkainenfairface} e incluye los subconjuntos de entrenamiento y 
     validaci\'on.
 
-    El dataset \textit{UTKFace}.
+    El dataset \textit{UTKFace}\footnote{\url{https://www.kaggle.com/datasets/jangedoo/utkface-new}} est\'a formado por im\'agenes de rostros, que 
+    presentan una gran variaci\'on en la pose, expresi\'on facial, iluminaci\'on, oclusi\'on y resoluci\'on \parencite{zhang2017age}. 
+    Tiene anotados los atributos protegidos edad, g\'enero y raza. Presenta desbalance respecto estos atributos, con predominio de la raza 
+    blanca y el g\'enero masculino. Inicialmente no se incluyen los subconjuntos de entrenamiento y prueba.
 
-    El dataset \textit{Bias Translation}.
+    El dataset \textit{MTGenEval}\footnote{\url{https://github.com/amazon-science/machine-translation-gender-eval}} contiene oraciones en 
+    diferentes idiomas que se traducen mejor considerando el contexto inter-sentencial\footnote{Se refiere a la informaci\'on que se puede 
+    inferir de la oraci\'on} y oraciones que se traducen mejor cuando se cambia una palabra o frase espec\'ifica. Incluye atributos protegidos 
+    relacionados con el g\'enero, ejemplos de oraciones estereotipadas y antiestereotipadas. Se utiliza para entrenar y evaluar modelos de 
+    traducci\'on autom\'atica, prestando especial atenci\'on a la equidad de g\'enero en dichas traducciones \parencite{Currey2022}.
 
 \section{Discusi\'on}
+
+Los datasets presentados anteriormente constituyen un recurso valioso para apoyar el estudio, desarrollo y evaluaci\'on de t\'ecnicas de 
+mitigaci\'on de sesgos en modelos de aprendizaje autom\'atico. Sin embargo, la principal limitante de estos es que ninguno ofrece 
+informaci\'on sobre decisiones tomadas sobre los sujetos, como la decisi\'on de otorgar un pr\'estamo o la de contratar a una persona.
+
+Esta limitaci\'on es significativa porque impide una evaluaci\'on completa de si las decisiones tomadas por los algoritmos basados 
+en los datos son sesgadas o no. Por ejemplo, si un algoritmo se utiliza para tomar decisiones de contrataci\'on bas\'andose en datos
+sobre solicitantes de empleo, incluyendo su g\'enero y raza, ser\'ia \'util conocer si a cada solicitante se le ofreci\'o 
+un trabajo o no. Esta informaci\'on permitir\'ia evaluar si el algoritmo se inclina a ofrecer trabajos a personas con cierto g\'enero o raza
+por encima de otras.
+
+Por lo tanto, en el contexto de esta tesis, que tiene como objetivo el dise\~no y evaluaci\'on de un dataset de datos no tabulares
+con atributos protegidos anotados, es importante considerar la inclusi\'on de informaci\'on sobre las decisiones tomadas sobre los sujetos.
+Este nuevo dataset apoya con mayor eficacia el estudio, desarrollo y evaluaci\'on de t\'ecnicas relacionadas con la mitigaci\'on y 
+cuantificaci\'on de sesgos en modelos de aprendizaje autom\'atico.
+
 
