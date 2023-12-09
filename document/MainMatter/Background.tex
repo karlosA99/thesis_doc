@@ -31,7 +31,7 @@ sesgos sociales y prejuicios hist\'oricos.
     sistema prediga que tiene una mayor probabilidad de reincidir respecto al que no lo es. En un estudio, se determin\'o que, 
     en comparaci\'on con la evaluaci\'on realizada por personas no expertas, el desempe\~no del sistema no demostr\'o mejoras 
     significativas \parencite{compas2}. 
-
+    %#TODO Preguntar al profe cuando se utiliza texttt xq vi que mederos lo usaba cuando iba a poner algo al pie
     Los datos de la Encuesta de Gastos M\'edicos (\texttt{MEPS}\footnote{\url{https://meps.ahrq.gov/mepsweb/about_meps/spanish.jsp}}, 
     por sus siglas en ingl\'es) son una colecci\'on de encuestas representativas a nivel nacional, de acceso p\'ublico, que proporcionan 
     datos sobre el uso y los costos de los servicios de atenci\'on m\'edica para la poblaci\'on civil no institucionalizada de los Estados Unidos. 
@@ -50,7 +50,7 @@ sesgos sociales y prejuicios hist\'oricos.
 
     Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
     con los usuarios \parencite{resp_data}.
-    
+    %#TODO acabar de hacer la figura del ciclo de vida de los datos con los sesgos
     No existe una decisi\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
     algunos siempre son contemplados y se reconocen como los m\'as relevantes \parencite{survey}. La figura $PONER FIGURA DEL CICLO$ muestra 
     el ciclo de vida de los datos en un sistema de aprendizaje autom\'atico; siguiendo este enfoque los sesgos pueden clasificarse 
@@ -178,13 +178,13 @@ clasificador base, solo dependen de la capacidad de este para ser reentrenado re
 un clasificador randomizado.
 
 \section{Datasets en el tratamiento de sesgos}
-    \begin{itemize}
-        \item empezar hablando de como los datasets ayudan a desarrollar y evaluar tecnicas de evaluacion y mitigacion de sesgos
-        \item luego mencionar y decir algo de los datasets clasicos con datos tabulares
-        \item luego empezar a hablar de datasets con datos no tabulares en general y decir que hay pocos y que son dificiles de conseguir 
-        \item hablar luego de datasets interesantes que se pueden utilizar para esto (los estudiados)
-        \item Decir algunos datos interesantes de cada uno
-    \end{itemize}
+    % \begin{itemize}
+    %     \item empezar hablando de como los datasets ayudan a desarrollar y evaluar tecnicas de evaluacion y mitigacion de sesgos
+    %     \item luego mencionar y decir algo de los datasets clasicos con datos tabulares
+    %     \item luego empezar a hablar de datasets con datos no tabulares en general y decir que hay pocos y que son dificiles de conseguir 
+    %     \item hablar luego de datasets interesantes que se pueden utilizar para esto (los estudiados)
+    %     \item Decir algunos datos interesantes de cada uno
+    % \end{itemize}
 
     Los datasets con atributos protegidos anotados juegan un papel fundamental en el desarrollo y evaluaci\'on de t\'ecnicas destinadas 
     a mitigar sesgos. Estos proporcionan la informaci\'on necesaria para la identificaci\'on, cuantificaci\'on y abordaje de sesgos, 
@@ -200,7 +200,7 @@ un clasificador randomizado.
     \subsection{Datasets con datos tabulares}
     Entre los datasets con estructura tabular m\'as relevantes utilizados para el an\'alisis y la evaluaci\'on de modelos destinados 
     a la mitigaci\'on de sesgos \parencite{calmon2017optimized,wang2023mitigating,compas}, se incluyen:
-
+    %#TODO deberia annadir una tabla tambien de tabulares?????
     \begin{itemize}
         \item \textbf{Adult}: Tambi\'en conocido como \textit{Census Income}, este dataset contiene 48842 registros de 
         datos sobre el censo de 1994 en Estados Unidos. Incluye 14 atributos, como edad, educaci\'on, estado civil,
@@ -229,6 +229,9 @@ un clasificador randomizado.
     como reconocimiento de im\'agenes, procesamiento de lenguaje natural, an\'alisis de audio y textos. Esto los convierte en un recurso muy importantes
     para el desarrollo y evaluaci\'on de t\'ecnicas de mitigaci\'on de sesgos en estos escenarios. A continuaci\'on, se presentan algunos ejemplos 
     relevantes de datasets con datos no tabulares de inter\'es para el an\'alisis de sesgos.
+
+    %#TODO Preguntar al profe que cree de esta tabla, yo la veo rara, tal vez por el tamanno. Tal vez sea mejor la info de la tabla integrarla a los parrafos que hablan otros datos
+    %de los datasets. 
 
     \begin{table}[htpb]
         \centering
@@ -285,7 +288,7 @@ un clasificador randomizado.
     Wikipedia, reformuladas de una manera m\'as conversacional \parencite{dinan2020multidimensional}. Se conservan \'unicamente las oraciones 
     vinculadas a biograf\'ias. Cada oraci\'on est\'a etiquetada con el g\'enero de quien se habla. Adem\'as est\'a dividido en subconjuntos de 
     entrenamiento, prueba y validaci\'on.
-
+    %#TODO ver como hacer para que las urls no me queden tan largan en los pie de pagina
     El dataset \textit{Bias in Toxicity}\footnote{\url{https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification}}
     est\'a formado por comentarios, con gran cantidad de atributos protegidos anotados: male, female, white, asian, entre otros. Tambi\'en se 
     indica el nivel de toxicidad y toxicidad severa de cada comentario. Cada atributo es un valor entre $0$ y $1$ que indica la probabilidad de 
@@ -324,4 +327,5 @@ con atributos protegidos anotados, es importante considerar la inclusi\'on de in
 Este nuevo dataset apoya con mayor eficacia el estudio, desarrollo y evaluaci\'on de t\'ecnicas relacionadas con la mitigaci\'on y 
 cuantificaci\'on de sesgos en modelos de aprendizaje autom\'atico.
 
-
+%#TODO Preguntarle al profe si por como conforme la intro y el sota en este punto ya deberia haber mencionado que iba a usar el ImDB
+%o decirlo en la propuesta, yo creo que debe ser en la propuesta
