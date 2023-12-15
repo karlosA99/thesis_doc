@@ -28,13 +28,26 @@ los pueblos nativos de Am\'erica del Norte y "Asian" para personas asi\'aticas. 
 ninguna raza en el texto. N\'otese que, en caso de ser necesario la anotaci\'on de la raza de un texto puede incluir m\'as de un valor.
 
 \section{Proceso de anotaci\'on}
-El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos extra\'idos 
-de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}, previamente anotados 
-con g\'enero, producto de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as extra\'idos de la misma fuente,
-con el objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan de manera aleatoria.
+El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos 
+extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}, 
+previamente anotados con g\'enero, producto de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as 
+extra\'idos de la misma fuente, con el objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan 
+de manera aleatoria.
 
+Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en dos(tres) fases 
+fundamentales:
+%#TODO: Expertos en que? en anotar? en el tema? en que?
+%#TODO: Poner una 3ra fase??
+\begin{enumerate}
+    \item Anotaci\'on exhaustiva de ambos atributos protegidos por parte de dos anotadores no expertos. Generando as\'i dos anotaciones 
+    independientes.
+    \item Mezcla de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
+    anotaci\'on m\'as acertada.
+    \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.??
+\end{enumerate}
 
-
+Luego de estas dos(tres) fases, el conjunto de textos anotados manualmente y revisados constituye el corpus, el cual debe ser evaluado 
+como se describe en la secci\'on (ver como referenciar secciones).
 \subsection{Evaluaci\'on de la anotaci\'on}
 
 
