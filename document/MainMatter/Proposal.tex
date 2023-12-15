@@ -1,12 +1,13 @@
 \chapter{Descripci\'on del Corpus}\label{chapter:proposal}
-En este cap\'itulo se propone una metodolog\'ia de anotaci\'on de prop\'osito general de atributos protegidos
+En este cap\'itulo se propone un modelo de anotaci\'on de prop\'osito general de atributos protegidos
 en textos. 
 AQUI HAY QUE HACER UN PARRAFITO DESCRIBIENDO TODO LO QUE SE VA A HACER EN ESTE CAPITULO Y COMO SE VA A ORGANIZAR
 
 \section{Esquema de anotaci\'on}
+%#TODO: Preguntar al profe si cada seccion hay que empezarla describiendo que se va a hacer en ella.
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
 %Hablar de cuales son los atributos protegidos que se anotaron. ok
-%Hablar de los valores de cada atributo protegido y mas cosas relacionadas.
+%Hablar de los valores de cada atributo protegido y mas cosas relacionadas.ok/2
 En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo y no una oraci\'on individual. 
 Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, 
 lo cual es importante para poder realizar un an\'alisis m\'as profundo de (decir algo aqui como que es mejor asi para tratar los sesgos).
@@ -27,36 +28,43 @@ los pueblos nativos de Am\'erica del Norte y "Asian" para personas asi\'aticas. 
 ninguna raza en el texto. N\'otese que, en caso de ser necesario la anotaci\'on de la raza de un texto puede incluir m\'as de un valor.
 
 \section{Proceso de anotaci\'on}
+El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos extra\'idos 
+de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}, previamente anotados 
+con g\'enero, producto de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as extra\'idos de la misma fuente,
+con el objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan de manera aleatoria.
+
+
 
 \subsection{Evaluaci\'on de la anotaci\'on}
+
+
 \begin{table}[htpb]
     \centering
     \resizebox{\textwidth}{!}{
         \begin{tabular}{llccc}
         \toprule
-        \toprule
-        \textbf{M\'etrica de concordancia} &&\textbf{$A_1$ vs $A_2$} & \textbf{$A_1$ vs $F$} & \textbf{$A_2$ vs $F$} \\
+        \textbf{M\'etrica de concordancia} &&\textbf{Anot1 vs Anot2} & \textbf{Anot1 vs Final} & \textbf{Anot2 vs Final} \\
         \midrule
         \midrule
-        \multirow{3}{4em}{G\'enero} & Media & & & \\
+        \multirow{3}{*}{G\'enero} & $\mu$                & 0.873 & 0.917 & 0.943\\
         \cmidrule{2-5}
-        & Varianza & & & \\
+                                  & $\sigma$             & 0.324 & 0.268 & 0.228\\
         \cmidrule{2-5}
-        & Desviaci\'on est\'andar & & & \\
-        \midrule
-        \multirow{3}{4em}{Raza} & Media & & & \\
+                                  & $\sigma^2$           & 0.105 & 0.072 & 0.052\\
+        \midrule\midrule
+        \multirow{3}{*}{Raza}     & $\mu$                & 0.898 & 0.917 & 0.981\\
         \cmidrule{2-5}
-        & Varianza & & & \\
+                                  & $\sigma$             & 0.279 & 0.256 & 0.124\\
         \cmidrule{2-5}
-        & Desviaci\'on est\'andar & & & \\
-        \midrule
-        \multirow{4}{4em}{G\'enero y Raza} & Macro Agr & & & \\
+                                  & $\sigma^2$           & 0.078 & 0.066 & 0.015\\
+        \midrule\midrule
+        \multirow{4}{*}{General}  & $\mu$ Micro Agr      & 0.870 & 0.903 & 0.956\\
         \cmidrule{2-5}
-        & Media Micro Agr & & & \\
+                                  & $\sigma$ Micro Agr   & 0.263 & 0.232 & 0.173\\
         \cmidrule{2-5}
-        & Varianza Micro Agr & & & \\
+                                  & $\sigma^2$ Micro Agr & 0.069 & 0.054 & 0.030\\
         \cmidrule{2-5}
-        & Desviaci\'on est\'andar Micro Agr & & & \\
+                                  & Macro Agr            & 0.886 & 0.917 & 0.962\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de m\'etricas de coincidencia entre anotadores.}
