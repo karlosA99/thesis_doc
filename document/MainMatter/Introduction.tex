@@ -1,48 +1,61 @@
 \chapter*{Introducción}\label{chapter:introduction}
 \addcontentsline{toc}{chapter}{Introducción}
+%ML everywhere
+En la actualidad, los algoritmos de aprendizaje autom\'atico han adquirido significativa importancia, extendiendo su aplicaci\'on a 
+diversas esferas de la vida. Estos algoritmos se han convertido en una herramienta fundamental para la toma de decisiones y la 
+automatizaci\'on de tareas complejas. Entre las tareas m\'as destacadas se encuentran: sistemas de recomendaci\'on en 
+plataformas \parencite{esmaeilzadeh2022abuse, bhattacharya2022augmenting}, facilitar compras en l\'inea, mejoras en la eficiencia 
+de los sistemas de transporte \parencite{autonomous_driving} y predicciones en \'areas como la salud \parencite{roy2023machine} y 
+las finanzas \parencite{sen2021machine}.
 
-En la actualidad, los algoritmos de aprendizaje autom\'atico han adquirido significativa importancia, extendiendo su aplicaci\'on a diversas 
-esferas de la vida. Desde sistemas de recomendaci\'on en plataformas de streaming \parencite{esmaeilzadeh2022abuse, bhattacharya2022augmenting},
-hasta realizar predicciones en \'areas como la salud \parencite{roy2023machine} o las finanzas \parencite{sen2021machine}, los algoritmos de 
-aprendizaje autom\'atico se han convertido en una herramienta fundamental para la toma de decisiones y la automatizaci\'on de tareas complejas.
+%ML model has been proved to contain bias
+Las computadoras poseen la capacidad de procesar y analizar extensos vol\'umenes de informaci\'on. Adem\'as, ellas pueden considerar 
+m\'ultiples variablessimult\'aneamente en un tiempo considerablemente menor al que le tomar\'ia a un ser humano. Estas caracter\'isticas 
+hacen muy atractivo el uso de dichos algoritmos en beneficio de la sociedad. Sin embargo, un problema emergente en este campo es la 
+existencia de sesgos e injusticias en las decisiones tomadas por estos algoritmos. Se ha evidenciado en numerosas ocasiones que algunos 
+modelos de aprendizaje autom\'atico no muestran imparcialidad en sus predicciones. En cambio, se observa que dichos modelos tienden a 
+favorecer a ciertos segmentos o grupos de la poblaci\'on \parencite{survey}.
 
-Las m\'aquinas poseen la capacidad de procesar y analizar extensos vol\'umenes de informaci\'on. Adem\'as, pueden considerar m\'ultiples variables
-simult\'aneamente en un tiempo considerablemente menor al que le tomar\'ia a un ser humano. Estas caracter\'isticas hacen muy atractivo el uso de
-dichos algoritmos en beneficio de la sociedad. Sin embargo, un problema emergente y de creciente preocupaci\'on en este campo es la existencia de 
-sesgos e injusticias en las decisiones tomadas por estos algoritmos. Se ha evidenciado en numerosas ocasiones que algunos modelos de aprendizaje 
-autom\'atico no muestran imparcialidad en sus predicciones. En cambio, se observa que dichos modelos tienden a favorecer a ciertos segmentos 
-o grupos de la poblaci\'on \parencite{survey}.
- 
-Es de vital importancia el trabajo en la detecci\'on y mitigaci\'on de sesgos e injusticias debido a la creciente dependencia y utilidad
-de estos algoritmos. Sin esfuerzos en la detecci\'on y mitigaci\'on, los sesgos pueden perpetuarse y amplificarse a medida que los 
-algoritmos se utilizan y actualizan con el tiempo, llevando a resultados cada vez m\'as perjudiciales. 
+%It is important to detect and mitigate bias
+Es de vital importancia el trabajo en la detecci\'on y mitigaci\'on de sesgos e injusticias debido a la creciente dependencia y 
+utilidad de estos algoritmos. Sin esfuerzos en la detecci\'on y mitigaci\'on, los sesgos pueden perpetuarse y amplificarse a medida 
+que los algoritmos se utilizan y actualizan con el tiempo, llevando a resultados cada vez m\'as perjudiciales.
 
+%There are several techniques to detect and mitigate bias
 Entre las t\'ecnicas para la detecci\'on de sesgos se destacan las basadas en la equidad de grupos \parencite{fairmodels}. 
-En estas t\'ecnicas se identifican grupos de individuos que comparten uno o m\'as atributos "protegidos". Entre los atributos que se asocian con 
-mayor frecuencia a grupos vulnerables se encuentran el g\'enero, la raza, la orientaci\'on sexual y la nacionalidad. Siguiendo esta l\'inea se 
-han logrado detectar injusticias en sistemas de contrataci\'on \parencite{examples_dis}, sistemas de seguros de salud 
-\parencite{examples_dis}, e incluso en modelos de reconocimiento de voz \parencite{voice_bias}.
+En estas t\'ecnicas se identifican grupos de individuos que comparten uno o m\'as atributos "protegidos". Existe tambi\'en una 
+t\'ecnica muy interesante que se basa en la anotaci\'on autom\'atica de atributos protegidos en los datasets 
+\parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39}.Entre los atributos que se asocian con mayor 
+frecuencia a grupos vulnerables se encuentran el g\'enero, la raza, la orientaci\'on sexual y la nacionalidad. 
+Siguiendo esta l\'inea se han logrado detectar injusticias en sistemas de contrataci\'on \parencite{examples_dis}, sistemas de 
+seguros de salud \parencite{examples_dis}, e incluso en modelos de reconocimiento de voz \parencite{voice_bias}.
 
-Ante la necesidad de garantizar la imparcialidad y equidad en modelos de aprendizaje autom\'atico, se han desarrollado diversas t\'ecnicas 
-para mitigar los sesgos existentes. Entre ellas se encuentran: \textit{disparate impact remover} \parencite{dis_impact_rem} y 
-\textit{fairness through awareness} \parencite{fair_awareness}, utilizadas antes y despu\'es del procesamiento del algoritmo respectivamente. 
-Existe tambi\'en un enfoque muy interesante que se basa en la anotaci\'on autom\'atica de atributos protegidos en los datasets 
-\parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39}.
+% Ante la necesidad de garantizar la imparcialidad y equidad en modelos de aprendizaje autom\'atico, se han desarrollado diversas 
+% t\'ecnicas para mitigar los sesgos existentes. Entre ellas se encuentran: \textit{disparate impact remover} \parencite{dis_impact_rem} 
+% y \textit{fairness through awareness} \parencite{fair_awareness}, utilizadas antes y despu\'es del procesamiento del algoritmo 
+% respectivamente. Existe tambi\'en un enfoque muy interesante que se basa en la anotaci\'on autom\'atica de atributos protegidos en 
+% los datasets \parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39}.
 
-Una caracter\'istica inherente a todas las t\'ecnicas de detecci\'on y mitigaci\'on de sesgos es la necesidad de datasets con atributos protegidos 
-correctamente anotados y balanceados. Por ende, es importante disponer de dichos datasets con el fin de asistir al desarrollo y evaluaci\'on 
-de estas t\'ecnicas. No obstante, existen casos m\'as complejos donde un dataset que incluya datos tabulares y atributos protegidos no se adapta 
-al problema en cuesti\'on. Ejemplo de esto es la detecci\'on y mitigaci\'on de sesgos en casos como: el an\'alisis de sentimientos en textos, 
-modelos de traducci\'on autom\'atica para lenguajes con diversidad de g\'enero, o la detecci\'on de emociones en im\'agenes. 
+\subsection*{Problem\'atica}
+%Need for a corpus to develop and evaluate these techniques - existence of complex cases where what is needed is non-tabular data
+Una caracter\'istica inherente a todas las t\'ecnicas de detecci\'on y mitigaci\'on de sesgos es la necesidad de datasets con 
+atributos protegidos correctamente anotados y balanceados. Por ende, es importante disponer de dichos datasets con el fin de 
+asistir al desarrollo y evaluaci\'on de estas t\'ecnicas. No obstante, existen casos m\'as complejos donde un dataset que incluya 
+datos tabulares y atributos protegidos no se adapta al problema en cuesti\'on. Ejemplo de esto es la detecci\'on y mitigaci\'on de 
+sesgos en casos como: el an\'alisis de sentimientos en textos, modelos de traducci\'on autom\'atica para lenguajes con diversidad 
+de g\'enero, o la detecci\'on de emociones en im\'agenes.
 
+%Datasets with non-tabular data and annotated protected attributes are scarce - solving this problem would be great
 La carencia y complejidad asociada a la obtenci\'on de datasets que incorporen datos no tabulares y atributos protegidos constituye un 
-desaf\'io de gran relevancia y discusi\'on en la literatura. La insuficiencia de recursos de este tipo impone restricciones significativas 
-al desarrollo de investigaciones en el \'area. Es por eso que resolver este problema permitir\'ia un avance sustancial en el an\'alisis de 
-sesgos en algoritmos de aprendizaje autom\'atico. 
+desaf\'io de gran relevancia y discusi\'on en la literatura. La insuficiencia de recursos de este tipo impone restricciones 
+significativas al desarrollo de investigaciones en el \'area. Es por eso que resolver este problema permitir\'ia un avance sustancial 
+en el an\'alisis de sesgos en algoritmos de aprendizaje autom\'atico.
 
 \section*{Objetivos}
 Este trabajo propone como objetivo fundamental el dise\~no y validaci\'on de un corpus de datos no tabulares para
-asistir en el desarrollo y evaluaci\'on de t\'ecnicas destinadas a la mitigaci\'on de sesgos.
+asistir en el desarrollo y evaluaci\'on de t\'ecnicas destinadas a la mitigaci\'on de sesgos. El contenido del corpus
+es de tipo textual y de dominio general. Adem\'as, se garantiza que contenga entidades nombradas, sustantivos y pronombres
+que hagan referencia a atributos protegidos. Estos atributos son el g\'enero y la raza.
 
 Se proponen los siguientes objetivos espec\'ificos:
 \begin{itemize}
@@ -60,7 +73,7 @@ autom\'atico. Al abordad la carencia de datasets con datos no tabulares y atribu
 m\'as exhaustivas y aplicaciones pr\'acticas que impactar\'an positivamente en la equidad y justicia de los algoritmos de aprendizaje autom\'atico.
 
 \section*{Organizaci\'on de la Tesis}
-El contenido de la tesis se organiza de la siguiente forma. El cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del arte en los temas
-relacionados con el problema a resolver. Luego el cap\'itulo 2 presenta detalladamente el m\'etodo de soluci\'on propuesto. 
-El cap\'itulo 3 describe la experimentaci\'on realizada, los resultados obtenidos y un an\'alisis en profundidad de los mismos. Finalmente se 
+El contenido de la tesis se organiza de la siguiente forma. El Cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del arte en los temas
+relacionados con el problema a resolver. Luego el Cap\'itulo 2 presenta detalladamente el m\'etodo de soluci\'on propuesto. 
+El Cap\'itulo 3 describe la experimentaci\'on realizada, los resultados obtenidos y un an\'alisis en profundidad de los mismos. Finalmente se 
 arriban a conclusiones y se discuten la l\'ineas de investigaci\'on futuras.  
