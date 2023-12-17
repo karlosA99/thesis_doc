@@ -3,8 +3,7 @@ En este cap\'itulo se propone un modelo de anotaci\'on de prop\'osito general de
 en textos. 
 AQUI HAY QUE HACER UN PARRAFITO DESCRIBIENDO TODO LO QUE SE VA A HACER EN ESTE CAPITULO Y COMO SE VA A ORGANIZAR
 
-\section{Esquema de anotaci\'on}
-%#TODO: Preguntar al profe si cada seccion hay que empezarla describiendo que se va a hacer en ella.
+\section{Esquema de anotaci\'on}\label{section:annotation_scheme}
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
 %Hablar de cuales son los atributos protegidos que se anotaron. ok
 %Hablar de los valores de cada atributo protegido y mas cosas relacionadas.ok/2
@@ -28,28 +27,29 @@ originarias de los pueblos nativos de Am\'erica del Norte y ``Asian'' para perso
 ``Null'' indica que no se detecta ninguna raza en el texto. N\'otese que, en caso de ser necesario la anotaci\'on de la raza de un 
 texto puede incluir m\'as de un valor.
 
-\section{Proceso de anotaci\'on}
+\section{Proceso de anotaci\'on}\label{section:annotation_process}
 El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos 
 extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}, 
 previamente anotados con g\'enero, producto de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as 
 extra\'idos de la misma fuente, con el objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan 
 de manera aleatoria.
 
-Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en dos(tres) fases 
+Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en tres fases 
 fundamentales:
-%#TODO: Expertos en que? en anotar? en el tema? en que? en la problematica
-%#TODO: Poner una 3ra fase??
+
 \begin{enumerate}
-    \item Anotaci\'on exhaustiva de ambos atributos protegidos por parte de dos anotadores no expertos. Generando as\'i dos anotaciones 
-    independientes.
+    \item Anotaci\'on exhaustiva de ambos atributos protegidos por parte de dos anotadores no expertos en la prolem\'tica. 
+    Generando as\'i dos anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas
+    con un anotador experto, pero no deben discutir las oraciones espec\'ificas que anotan.
     \item Mezcla de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
-    anotaci\'on m\'as acertada.
-    \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.??
+    anotaci\'on m\'as acertada. Esta etapa puede ser asistida por \emph{scripts} de mezcla que detecten y resalten autom\'aticamente
+    los conflictos.
+    \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.
 \end{enumerate}
 
-Luego de estas dos(tres) fases, el conjunto de textos anotados manualmente y revisados constituye el corpus, el cual debe ser evaluado 
-como se describe en la secci\'on (ver como referenciar secciones).
-\subsection{Evaluaci\'on de la anotaci\'on}
+Luego de estas tres fases, el conjunto de textos anotados manualmente y revisados constituye el corpus, el cual debe ser evaluado 
+como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
+\subsection{Evaluaci\'on de la anotaci\'on}\label{subsection:annotation_evaluation}
 
 
 \begin{table}[htpb]
