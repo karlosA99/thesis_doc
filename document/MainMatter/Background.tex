@@ -18,19 +18,24 @@
 % A medida que estos algoritmos se aplican con mayor frecuencia en \'ambitos m\'as cr\'iticos, como
 % pr\'estamos bancarios \parencite{fairness_def}, evaluaci\'on de riesgos de salud, contrataci\'on, evaluaci\'on de desempe\~no laboral y
 % justicia penal \parencite{compas}, se genera una creciente preocupaci\'on acerca de su capacidad para mantener de manera involuntaria 
-% sesgos sociales y prejuicios hist\'oricos. 
+% sesgos sociales y prejuicios hist\'oricos.
+Este cap\'itulo proporciona una base te\'orica s\'olida para los desaf\'ios que enfrentan los modelos de aprendizaje autom\'atico en t\'erminos
+de sesgos e injusticias. Para ello, se discute la presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico, como 
+el sistema COMPAS y los datos de la Encuesta de Gastos M\'edicos. Se presentan diversas fuentes y tipos de sesgos
 
 \section{Sistemas sesgados}
 
     La presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico es un tema cr\'itico que ha sido
-    ampliamente estudiado en los \'ultimos a\~nos. En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS \parencite{propublica}
+    ampliamente estudiado en los \'ultimos a\~nos. 
+    
+    En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS~\parencite{propublica}
     (en ingl\'es \textit{Correctional Offender Management Profiling for Alternative Sanctions}). Este sistema es un algoritmo de predicci\'on
     de riesgo de reincidencia criminal que se ha utilizado en las cortes de Estados Unidos para ayudar a los jueces a determinar la 
     probabilidad de que una persona reincurra en un delito. Se demostr\'o que el software estaba sesgado hacia las personas 
     afroamericanas, o sea, dados dos individuos con el mismo perfil criminal, solo basta que uno sea afroamericano para que el
     sistema prediga que tiene una mayor probabilidad de reincidir respecto al que no lo es. En un estudio, se determin\'o que, 
     en comparaci\'on con la evaluaci\'on realizada por personas no expertas, el desempe\~no del sistema no demostr\'o mejoras 
-    significativas \parencite{compas2}. 
+    significativas~\parencite{compas2}. 
     
     Los datos de la Encuesta de Gastos M\'edicos (\texttt{MEPS}\footnote{\url{https://meps.ahrq.gov/mepsweb/about_meps/spanish.jsp}}, 
     por sus siglas en ingl\'es) son una colecci\'on de encuestas representativas a nivel nacional, de acceso p\'ublico, que proporcionan 
@@ -39,24 +44,26 @@
     en la gesti\'on de la atenci\'on m\'edica, enfermedades y costos asociados. Se ha comprobado que estos modelos tambi\'en capturan sesgos, 
     generando uun sesgo significativo en perjuicio de las personas afroamericanas. Concretamentea, existe una menor probabilidad de que 
     las personas afroamericanas sean identificadas como pacientes con altos gastos futuros en comparaci\'on con las personas personas blancas, 
-    lo que resulta en una menor probabilidad de recibir gesti\'on de atenci\'on \parencite{understanding}.
+    lo que resulta en una menor probabilidad de recibir gesti\'on de atenci\'on~\parencite{understanding}.
+
     %#TODO: Poner mas casos de sistemas sesgados-
-    Los sesgos presentes en la sociedad tambi\'en se han identificado en anuncios generados por modelos de aprendizaje autom\'atico
-    \parencite{sweeney2013discrimination,datta2015automated} y en motores de b\'usqueda web \parencite{unequal_rep}, pricipalmente en relaci\'on al 
-    g\'enero. Adem\'as, se han identificado sesgos en otros sistemas como los chatbots \parencite{chatbot_bias}, as\'i como en sistemas de 
-    reconocimiento facial \parencite{facial_bias} y algunos sistemas empleados en concursos de belleza \parencite{beauty}.
+    Los sesgos presentes en la sociedad tambi\'en se han identificado en anuncios generados por modelos de aprendizaje 
+    autom\'atico~\parencite{sweeney2013discrimination,datta2015automated} y en motores de b\'usqueda web~\parencite{unequal_rep}, 
+    pricipalmente en relaci\'on al g\'enero. Adem\'as, se han identificado sesgos en otros sistemas como los 
+    chatbots~\parencite{chatbot_bias}, as\'i como en sistemas de reconocimiento facial~\parencite{facial_bias} y algunos 
+    sistemas empleados en concursos de belleza~\parencite{beauty}.
 
 \section{Fuentes y tipos de sesgos}
 
     Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
-    con los usuarios \parencite{resp_data}.
+    con los usuarios~\parencite{resp_data}.
     %#TODO acabar de hacer la figura del ciclo de vida de los datos con los sesgos
     No existe una decisi\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
-    algunos siempre son contemplados y se reconocen como los m\'as relevantes \parencite{survey}. La figura $PONER FIGURA DEL CICLO$ muestra 
-    el ciclo de vida de los datos en un sistema de aprendizaje autom\'atico; siguiendo este enfoque los sesgos pueden clasificarse 
-    en funci\'on de la fase espec\'ifica en que puedan surgir dentro de dicho ciclo: \textbf{sesgos de los datos al algoritmo}, 
-    \textbf{sesgos del algoritmo al usuario} y \textbf{sesgos del usuario a los datos}.
-    
+    algunos siempre son contemplados y se reconocen como los m\'as relevantes~\parencite{survey}. La figura $PONER FIGURA DEL CICLO$ 
+    muestra el ciclo de vida de los datos en un sistema de aprendizaje autom\'atico; siguiendo este enfoque los sesgos pueden 
+    clasificarse en funci\'on de la fase espec\'ifica en que puedan surgir dentro de dicho ciclo: 
+    \textbf{sesgos de los datos al algoritmo}, \textbf{sesgos del algoritmo al usuario} y \textbf{sesgos del usuario a los datos}.
+
     \subsection{Sesgos de los datos al algoritmo}
     
     \begin{itemize}
@@ -120,19 +127,19 @@ A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relev
     \item \textbf{Demographic Parity}: Un algoritmo predictor $\hat{Y}$ satisface \textit{Demographic Parity}
     con respecto a un atributo $A$ con valores en el conjunto $\{0,1\}$ si se cumple $P(\hat{Y} | A = 0) = P(\hat{Y} | A = 1)$. 
     Esto significa que la probabilidad de un resultado positivo debería ser la misma sin importar si el individuo pertenece a
-    un grupo protegido \parencite{fairness_def}.
+    un grupo protegido~\parencite{fairness_def}.
 
     \item \textbf{Equal Opportunity}: Un predictor binario $\hat{Y}$ satisface \textit{Equal Opportunity} con 
     respecto a un atributo $A$ y salida $Y$ si $P(\hat{Y} = 1 | A = 1, Y = 1) = P(\hat{Y} = 1 | A = 0, Y = 1)$. Esto significa
     que la probabilidad de que a una persona en la clase positiva le sea asignada un resultado positivo 
-    deber\'ia ser igual para miembros tanto de grupos protegidos como no protegidos \parencite{fairness_def}.
+    deber\'ia ser igual para miembros tanto de grupos protegidos como no protegidos~\parencite{fairness_def}.
 
     \item \textbf{Equalized Odds}: Un predictor $\hat{Y}$ satisface \textit{Equalized Odds} con respecto a un atributo
     protegido $A$ y predicci\'on $Y$, si $P(\hat{Y} = 1 | A = 1, Y = y) = P(\hat{Y} = 1 | A = 0, Y = y)$, es decir,
     $\hat{Y}$ y $A$ son independientemente condicionales a $Y$. Esto significa que la probabilidad de que a una persona 
     en la clase positiva le sea asignada correctamente una predicci\'on positiva y la probabilidad de que a una persona en la 
     clase negativa le sea incorrectamente asignada una predicci\'on positiva deber\'ia se la misma para miembros de grupos 
-    protegidos y no protegidos \parencite{fairness_def}.
+    protegidos y no protegidos~\parencite{fairness_def}.
 \end{itemize}
 
 % Otros enfoques relevantes para tratar los sesgos a nivel individual son:
@@ -149,33 +156,36 @@ A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relev
 \subsection{Mitigaci\'on de sesgos}
 
 Los m\'etodos para la mitigaci\'on de sesgos se pueden clasificar esencialmente en m\'etodos de pre-procesamiento \cite{osti_10182459}, 
-durante el procesamiento \parencite{ml_in_admissions} y post-procesamiento \parencite{compas}, seg\'un la fase del proceso de 
+durante el procesamiento~\parencite{ml_in_admissions} y post-procesamiento~\parencite{compas}, seg\'un la fase del proceso de 
 aprendizaje en que se realizen. Recientemente, han surgido nuevos m\'etodos llamados meta-algoritmos que ofrecen resultados interesantes 
 en diversos escenarios.
 
 Las estrategias de pre-procesamiento buscan la equidad al modificar la representaci\'on de los datos antes de aplicar un modelo de aprendizaje
 autom\'atico. En este proceso se pueden aplicar diversas t\'ecnicas sobre los datos, como eliminar atributos protegidos y atributos correlacionados
-con estos, o bien, modificar las etiquetas de algunos objetos en el datset \parencite{preproc}. Una ventaja de estas t\'ecnicas es que son independientes
+con estos, o bien, modificar las etiquetas de algunos objetos en el datset~\parencite{preproc}. Una ventaja de estas t\'ecnicas es que son independientes
 al modelo. Sin embargo, requieren ajustes de hiperpar\'ametros tanto propios como del modelo seleccionado para optimizar su desempe\~no.
 
 Los m\'etodos aplicados durante el procesamiento, modifican los algoritmos de aprendizaje para eliminar la fuente de discriminaci\'on. Esto se 
-logra mediante ajustes en la funci\'on objetivo o la aplicaci\'on de restricciones espec\'ificas \parencite{donini2020empirical,zafar17a}. A pesar de 
+logra mediante ajustes en la funci\'on objetivo o la aplicaci\'on de restricciones espec\'ificas~\parencite{donini2020empirical,zafar17a}. A pesar de 
 que estas t\'ecnicas pueden ser altamente efectivas para la clase espec\'ifica de modelos para la cual fueron dise\~nadas, resulta dif\'icil, e 
 incluso en ocasiones imposible, extenderlas a nuevas clases de modelos.
 
 Las t\'ecnicas de post-procesamiento se implementan despu\'es de que el modelo ha sido entrenado, utilizando un conjunto de datos que no haya
 participado en dicho proceso. Mediante este procesamiento, las clasificaciones generadas por el modelo se reasignan mediante una funci\'on 
-espec\'ifica \parencite{d_Alessandro_2017}.
+espec\'ifica~\parencite{d_Alessandro_2017}.
 Entre las t\'ecnicas de post-procesamiento, se incluyen aquellas que buscan identificar los atributos protegidos que afectan el resultado del 
-modelo, y a partir de esto, ajustan la predicci\'on \parencite{seymour2018bias}. La principal limitaci\'on radica en que ajustar la predicci\'on 
+modelo, y a partir de esto, ajustan la predicci\'on~\parencite{seymour2018bias}. La principal limitaci\'on radica en que ajustar la predicci\'on 
 en esta fase es inherentemente sub\'optimo y puede resultar en un peor equilibrio entre eficacia y equidad.
 
 Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos, una categor\'ia de m\'etodos recientemente propuesta para problemas de 
 mitigaci\'on de sesgos. Estos simplifican la tarea de mitigaci\'on de sesgos a una serie de problemas de clasificaci\'on, cada uno con 
-un costo asociado a sus errores de predicci\'on \parencite{agarwal2018reductions, agarwal2019fair}.
+un costo asociado a sus errores de predicci\'on~\parencite{agarwal2018reductions, agarwal2019fair}.
 A diferencia de los m\'etodos operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
 clasificador base, solo dependen de la capacidad de este para ser reentrenado repetidamente. Las soluciones a estos problemas suelen generar
 un clasificador randomizado.
+
+\subsection{Anotaci\'on autom\'atica de atributos protegidos}
+
 
 \section{Datasets en el tratamiento de sesgos}
     % \begin{itemize}
@@ -199,7 +209,8 @@ un clasificador randomizado.
     
     \subsection{Datasets con datos tabulares}
     Entre los datasets con estructura tabular m\'as relevantes utilizados para el an\'alisis y la evaluaci\'on de modelos destinados 
-    a la mitigaci\'on de sesgos \parencite{calmon2017optimized,wang2023mitigating,compas}, se incluyen:
+    a la mitigaci\'on de sesgos~\parencite{calmon2017optimized,wang2023mitigating,compas}, se incluyen:
+
     %#TODO deberia annadir una tabla tambien de tabulares?????
     \begin{itemize}
         \item \textbf{Adult}: Tambi\'en conocido como \textit{Census Income}, este dataset contiene 48842 registros de 
@@ -286,7 +297,7 @@ un clasificador randomizado.
     entrenamiento y prueba.
 
     El dataset \textit{Md Gender Funpedia}\footnote{\url{https://huggingface.co/datasets/md_gender_bias/viewer/funpedia}} contiene oraciones de 
-    Wikipedia, reformuladas de una manera m\'as conversacional \parencite{dinan2020multidimensional}. Se conservan \'unicamente las oraciones 
+    Wikipedia, reformuladas de una manera m\'as conversacional~\parencite{dinan2020multidimensional}. Se conservan \'unicamente las oraciones 
     vinculadas a biograf\'ias. Cada oraci\'on est\'a etiquetada con el g\'enero de quien se habla. Adem\'as est\'a dividido en subconjuntos de 
     entrenamiento, prueba y validaci\'on.
     %#TODO ver como hacer para que las urls no me queden tan largan en los pie de pagina
@@ -297,11 +308,11 @@ un clasificador randomizado.
     de otros subconjuntos relacionados con la anotaci\'on del mismo.  
 
     El dataset \textit{Fair Face}\footnote{\url{https://github.com/joojs/fairface}} contiene im\'agenes de rostros, con los atributos edad, 
-    g\'enero y raza anotados. Est\'a balanceado respecto a la raza \parencite{karkkainenfairface} e incluye los subconjuntos de entrenamiento y 
+    g\'enero y raza anotados. Est\'a balanceado respecto a la raza~\parencite{karkkainenfairface} e incluye los subconjuntos de entrenamiento y 
     validaci\'on.
 
     El dataset \textit{UTKFace}\footnote{\url{https://www.kaggle.com/datasets/jangedoo/utkface-new}} est\'a formado por im\'agenes de rostros, que 
-    presentan una gran variaci\'on en la pose, expresi\'on facial, iluminaci\'on, oclusi\'on y resoluci\'on \parencite{zhang2017age}. 
+    presentan una gran variaci\'on en la pose, expresi\'on facial, iluminaci\'on, oclusi\'on y resoluci\'on~\parencite{zhang2017age}. 
     Tiene anotados los atributos protegidos edad, g\'enero y raza. Presenta desbalance respecto estos atributos, con predominio de la raza 
     blanca y el g\'enero masculino. Inicialmente no se incluyen los subconjuntos de entrenamiento y prueba.
 
@@ -309,7 +320,7 @@ un clasificador randomizado.
     diferentes idiomas que se traducen mejor considerando el contexto inter-sentencial\footnote{Se refiere a la informaci\'on que se puede 
     inferir de la oraci\'on} y oraciones que se traducen mejor cuando se cambia una palabra o frase espec\'ifica. Incluye atributos protegidos 
     relacionados con el g\'enero, ejemplos de oraciones estereotipadas y antiestereotipadas. Se utiliza para entrenar y evaluar modelos de 
-    traducci\'on autom\'atica, prestando especial atenci\'on a la equidad de g\'enero en dichas traducciones \parencite{Currey2022}.
+    traducci\'on autom\'atica, prestando especial atenci\'on a la equidad de g\'enero en dichas traducciones~\parencite{Currey2022}.
 
 \section{Discusi\'on}
 
