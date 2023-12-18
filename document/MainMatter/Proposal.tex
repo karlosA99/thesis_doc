@@ -29,10 +29,9 @@ texto puede incluir m\'as de un valor.
 
 \section{Proceso de anotaci\'on}\label{section:annotation_process}
 El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos 
-extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}, 
-previamente anotados con g\'enero, producto de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as 
-extra\'idos de la misma fuente, con el objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan 
-de manera aleatoria.
+extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.imdb.com/}}, previamente anotados con g\'enero, producto 
+de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as extra\'idos de la misma fuente, con el 
+objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan de manera aleatoria.
 
 Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en tres fases 
 fundamentales:
@@ -101,12 +100,74 @@ se encarga de guiar al anotador en todo este proceso, mostrando los textos a ano
 que correspondana a cada atributo protegido. Adem\'as, este \emph{script} almacena continuamente las anotaciones en un archivo
 \emph{CSV}, para evitar p\'erdidas de informaci\'on en caso de que ocurra alg\'un error. El segundo \emph{script} se encarga de
 mezclar las anotaciones de los anotadores no expertos, resaltando los conflictos y permitiendo la selecci\'on de la anotaci\'on
-m\'as acertada por parte del anotador experto. Este \emph{script} tambi\'en almacena las anotaciones en un archivo nuevo archivo
+m\'as acertada por parte del experto. Este \emph{script} tambi\'en almacena las anotaciones en un archivo nuevo archivo
 \emph{CSV}.
 
-
 \section{Estad\'isticas del Corpus}
+El corpus fue construido a partir un fichero \emph{CSV}, tomado de la plataforma 
+Kaggle\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}. 
+Este fichero contiene 24904 rese\~nas de pel\'iculas en idioma espa\~nol. Cada entrada del fichero contiene el texto de la rese\~na, 
+y un atributo binario anotado que indica si la rese\~na es positiva o negativa. Se contaba inicialmente con un conjunto de 70 textos 
+preseleccionados, a los que se a\~nadieron 80 nuevos textos seleccionados de manera aleatoria.
 
+Usando este conjunto de textos, se implement\'o un proceso de anotaci\'on para etiquetar manualmente el g\'enero y la raza seg\'un 
+el modelo descrito en la secci\'on~\ref{section:annotation_scheme}. Este proceso de anotaci\'on se describe en detalle en la 
+secci\'on~\ref{section:annotation_process}. La figura (REFERENCIAR FIGURA DEL PROCESO REALIZADO) ilustra el procesamiento realizado.
+Luego del proceso de anotaci\'on, se obtuvo un total de 150 textos anotados con g\'enero, raza y sentimiento, que constituyen el 
+corpus final. Las tablas~\ref{table:stats},~\ref{table:stats_gen} y~\ref{table:stats_race}  resumen las estad\'isticas fundamentales 
+del corpus final.
+
+\begin{table}[htpb]
+    \centering
+        \begin{tabular}{lc}
+        \toprule
+        \textbf{M\'etrica} & \textbf{Total} \\
+        \midrule
+                    Textos & 150 \\
+          G\'enero Anotado & 122 \\
+              Raza Anotada & 107 \\
+
+        \bottomrule
+        \end{tabular}
+    \caption{Resumen de las estad\'isticas generales del corpus.}
+    \label{table:stats}
+\end{table}
+
+\begin{table}[htpb]
+    \centering
+        \begin{tabular}{lc}
+        \toprule
+          \textbf{Clase} & \textbf{Total} \\
+        \midrule
+            Male, Female & 63 \\
+                    Male & 39 \\
+                  Female & 20 \\
+
+        \bottomrule
+        \end{tabular}
+    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo g\'enero.}
+    \label{table:stats_gen}
+\end{table}
+
+\begin{table}[htpb]
+    \centering
+        \begin{tabular}{lc}
+        \toprule
+            \textbf{Clase} & \textbf{Total} \\
+        \midrule
+                     White & 87 \\
+                     Black & 17 \\
+                     Asian & 7 \\
+                    Latino & 6 \\
+                    Indian & 6 \\
+                      Arab & 2 \\
+           Native American & 1 \\
+
+        \bottomrule
+        \end{tabular}
+    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo raza.}
+    \label{table:stats_race}
+\end{table}
 
 \section{Baselines}
 
