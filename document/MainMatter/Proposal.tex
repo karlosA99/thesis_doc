@@ -49,6 +49,7 @@ fundamentales:
 
 Luego de estas tres fases, el conjunto de textos resultante de mezclar y revisar ambas anotaciones manuales constituye el corpus, el 
 cual debe ser evaluado como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
+
 \subsection{Evaluaci\'on de la anotaci\'on}\label{subsection:annotation_evaluation}
 Se sugiere calcular un \emph{micro-agreement} y un \emph{macro-agreement} para evaluar el grado de concordancia entre las anotaciones
 manuales del corpus. Adem\'as, se propone estudiar la consistencia estad\'istica de las anotaciones, mediante el c\'alculo  
@@ -59,7 +60,7 @@ La comparaci\'on anterior puede ser realizada en dos fases. En la primera fase, 
 realizadas por los anotadores no expertos. Luego, en la segunda fase, se realiza la comparaci\'on entre las anotaciones de los 
 anotadores no expertos y el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\textbf{X} se 
 muestran los resultados obtenidos en la evaluaci\'on del corpus.
-%#TODO: Reemplazar X por la secci\'on correspondiente
+%#TODO: Reemplazar X por la secci\'on correspondiente, en 3 lugares por ahora.
 
 Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
 determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as 
@@ -76,10 +77,22 @@ considera coincidencia parcial entre las anotaciones. Se calcula:
 Se define el conjunto $C_{attr} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Para analizar la consistencia estad\'istica 
 de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de los conjuntos $C_{g\acute{e}nero}$ y $C_{raza}$.
 
+Para calcular el \emph{micro-agreement}, se realiza la uni\'on de las anotaciones de ambos atributos protegidos, obteniendo as\'i
+el conjunto $C_{g\acute{e}nero, raza} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Luego, se calcula la media, varianza y
+desviaci\'on est\'andar del conjunto obtenido. Estos resultados son una medida detallada de la concordancia en t\'erminos puntuales.
+Se muestran en la secci\'on~\textbf{X}.
+
+Por otra parte, la m\'etrica \emph{macro-agreement} se calcula como la media de los \emph{micro-agreements} de cada atributo protegido. 
+Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones. Se muestran en la secci\'on~\textbf{X}.
 
 \subsection{Directrices de anotaci\'on}
 %Hablar que para anotar cierto atributo no hacer falta que el texto lo mencione explicitamente, sino que se puede inferir
 %Ejemplo las entidades nombradas
+La caracter\'istica m\'as importante de este modelo de anotaci\'on es que busca capturar cualquier tipo de referencia a los atributos 
+protegidos que se anotan. Por lo tanto, la anotaci\'on no se limita \'unicamente a menciones expl\'icitas de estos atributos en el 
+texto, sino que tambi\'en se extiende a situaciones donde la referencia a g\'enero y raza puede ser inferida. La inferencia puede 
+basarse en diversos elementos del texto, por ejemplo, entidades nombradas y pronombres. En caso de ser necesario el anotador podr\'a
+auxiliarse de informaci\'on externa, como la b\'usqueda de im\'agenes de los personajes mencionados en el texto.
 
 \subsection{Herramientas de anotaci\'on}
 %Describir los scripts que se hicieron para anotar, mezclar y todo eso
