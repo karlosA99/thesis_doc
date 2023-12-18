@@ -1,1 +1,34 @@
 \chapter{Detalles de Implementación y Experimentos}\label{chapter:implementation}
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llccc}
+        \toprule
+        \textbf{M\'etrica de concordancia} &&\textbf{Anot1 vs Anot2} & \textbf{Anot1 vs Final} & \textbf{Anot2 vs Final} \\
+        \midrule
+        \midrule
+        \multirow{3}{*}{G\'enero} & $\mu$                & 0.873 & 0.917 & 0.943\\
+        \cmidrule{2-5}
+                                  & $\sigma$             & 0.324 & 0.268 & 0.228\\
+        \cmidrule{2-5}
+                                  & $\sigma^2$           & 0.105 & 0.072 & 0.052\\
+        \midrule\midrule
+        \multirow{3}{*}{Raza}     & $\mu$                & 0.898 & 0.917 & 0.981\\
+        \cmidrule{2-5}
+                                  & $\sigma$             & 0.279 & 0.256 & 0.124\\
+        \cmidrule{2-5}
+                                  & $\sigma^2$           & 0.078 & 0.066 & 0.015\\
+        \midrule\midrule
+        \multirow{4}{*}{General}  & $\mu$ Micro Agr      & 0.870 & 0.903 & 0.956\\
+        \cmidrule{2-5}
+                                  & $\sigma$ Micro Agr   & 0.263 & 0.232 & 0.173\\
+        \cmidrule{2-5}
+                                  & $\sigma^2$ Micro Agr & 0.069 & 0.054 & 0.030\\
+        \cmidrule{2-5}
+                                  & Macro Agr            & 0.886 & 0.917 & 0.962\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de coincidencia entre anotadores.}
+    \label{table:agreement}
+\end{table}
