@@ -47,10 +47,34 @@ fundamentales:
     \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.
 \end{enumerate}
 
-Luego de estas tres fases, el conjunto de textos anotados manualmente y revisados constituye el corpus, el cual debe ser evaluado 
-como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
+Luego de estas tres fases, el conjunto de textos resultante de mezclar y revisar ambas anotaciones manuales constituye el corpus, el 
+cual debe ser evaluado como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
 \subsection{Evaluaci\'on de la anotaci\'on}\label{subsection:annotation_evaluation}
+Se sugiere calcular un \emph{micro-agreement} y un \emph{macro-agreement} para evaluar el grado de concordancia entre las anotaciones
+manuales del corpus. Adem\'as, se propone estudiar la consistencia estad\'istica de las anotaciones, mediante el c\'alculo  
+de media, varianza y desviaci\'on est\'andar de los acuerdos entre anotadores, para cada atributo protegido.
+%#TODO: Ver como disminuir el uso de la palabra anotadores, anotaciones...
 
+La comparaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
+realizadas por los anotadores no expertos. Luego, en la segunda fase, se realiza la comparaci\'on entre las anotaciones de los 
+anotadores no expertos y el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\textbf{X} se 
+muestran los resultados obtenidos en la evaluaci\'on del corpus.
+%#TODO: Reemplazar X por la secci\'on correspondiente
+
+Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
+determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as 
+considera coincidencia parcial entre las anotaciones. Se calcula:
+
+\begin{equation*}
+    \mathcal{J}_{attr}(A, B) = \frac{|A \cap B|}{|A \cup B|} = \begin{cases}
+        1, & \text{si coinciden ex\'actamente} \\
+        0, & \text{si la intersecci\'on es vac\'ia} \\
+        0 < p < 1, & \text{en otro caso}
+    \end{cases}
+\end{equation*}
+
+Se define el conjunto $C_{attr} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Para analizar la consistencia estad\'istica 
+de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de los conjuntos $C_{g\acute{e}nero}$ y $C_{raza}$.
 
 
 \subsection{Directrices de anotaci\'on}
