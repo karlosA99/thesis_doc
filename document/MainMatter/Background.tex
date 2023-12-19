@@ -57,12 +57,21 @@ el sistema COMPAS y los datos de la Encuesta de Gastos M\'edicos. Se presentan d
 
     Las principales fuentes de sesgo incluyen caracter\'isticas en los datos, decisiones de dise\~no algor\'itmico y las interacciones 
     con los usuarios~\parencite{resp_data}.
-    %#TODO acabar de hacer la figura del ciclo de vida de los datos con los sesgos
+    
     No existe una decisi\'on un\'anime en cuanto a la clasificaci\'on de sesgos seg\'un su tipo, sin embargo, 
-    algunos siempre son contemplados y se reconocen como los m\'as relevantes~\parencite{survey}. La figura $PONER FIGURA DEL CICLO$ 
+    algunos siempre son contemplados y se reconocen como los m\'as relevantes~\parencite{survey}. La figura~\ref{fig:cycle} 
     muestra el ciclo de vida de los datos en un sistema de aprendizaje autom\'atico; siguiendo este enfoque los sesgos pueden 
     clasificarse en funci\'on de la fase espec\'ifica en que puedan surgir dentro de dicho ciclo: 
     \textbf{sesgos de los datos al algoritmo}, \textbf{sesgos del algoritmo al usuario} y \textbf{sesgos del usuario a los datos}.
+
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{Graphics/data_cycle.png}
+        \end{center}
+        \caption{Ejemplos de definiciones de sesgo ubicadas en el ciclo de vida de los datos.}
+        \label{fig:cycle}
+    \end{figure}
+    
 
     \subsection{Sesgos de los datos al algoritmo}
     
