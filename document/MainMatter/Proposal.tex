@@ -112,10 +112,18 @@ preseleccionados, a los que se a\~nadieron 80 nuevos textos seleccionados de man
 
 Usando este conjunto de textos, se implement\'o un proceso de anotaci\'on para etiquetar manualmente el g\'enero y la raza seg\'un 
 el modelo descrito en la secci\'on~\ref{section:annotation_scheme}. Este proceso de anotaci\'on se describe en detalle en la 
-secci\'on~\ref{section:annotation_process}. La figura (REFERENCIAR FIGURA DEL PROCESO REALIZADO) ilustra el procesamiento realizado.
+secci\'on~\ref{section:annotation_process}. La figura~\ref{fig:ann_proc} ilustra el procesamiento realizado.
 Luego del proceso de anotaci\'on, se obtuvo un total de 150 textos anotados con g\'enero, raza y sentimiento, que constituyen el 
 corpus final. Las tablas~\ref{table:stats},~\ref{table:stats_gen} y~\ref{table:stats_race}  resumen las estad\'isticas fundamentales 
 del corpus final.
+
+\begin{figure}[htpb]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{Graphics/annotation_proc.png}
+    \end{center}
+    \caption{Ejemplos de definiciones de sesgo ubicadas en el ciclo de vida de los datos.}
+    \label{fig:ann_proc}
+\end{figure}
 
 \begin{table}[htpb]
     \centering
@@ -169,7 +177,7 @@ del corpus final.
     \label{table:stats_race}
 \end{table}
 
-\section{Baselines}
+\section{Baseline}
 
 \subsection{Detalles de implementaci\'on}
 
