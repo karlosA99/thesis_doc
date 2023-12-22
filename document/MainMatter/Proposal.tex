@@ -7,7 +7,7 @@ AQUI HAY QUE HACER UN PARRAFITO DESCRIBIENDO TODO LO QUE SE VA A HACER EN ESTE C
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
 %Hablar de cuales son los atributos protegidos que se anotaron. ok
 %Hablar de los valores de cada atributo protegido y mas cosas relacionadas.ok/2
-En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo y no una oraci\'on individual. 
+En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo, puede estar formado por varias oraciones. 
 Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, 
 lo cual es importante para poder realizar un an\'alisis m\'as profundo de (decir algo aqui como que es mejor asi para tratar los sesgos).
 
@@ -121,7 +121,7 @@ del corpus final.
     \begin{center}
         \includegraphics[width=0.8\textwidth]{Graphics/annotation_proc.png}
     \end{center}
-    \caption{Ejemplos de definiciones de sesgo ubicadas en el ciclo de vida de los datos.}
+    \caption{Representaci\'on esquem\'atica del proceso de anotaci\'on.}
     \label{fig:ann_proc}
 \end{figure}
 
@@ -137,7 +137,8 @@ del corpus final.
 
         \bottomrule
         \end{tabular}
-    \caption{Resumen de las estad\'isticas generales del corpus.}
+    \caption{Resumen de las estad\'isticas generales del corpus: cantidad de textos, cantidad de textos con g\'enero anotado y 
+    cantidad de textos con raza anotada.}
     \label{table:stats}
 \end{table}
 
@@ -147,13 +148,12 @@ del corpus final.
         \toprule
           \textbf{Clase} & \textbf{Total} \\
         \midrule
-            Male, Female & 63 \\
-                    Male & 39 \\
-                  Female & 20 \\
+                    Male & 102 \\
+                  Female & 83 \\
 
         \bottomrule
         \end{tabular}
-    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo g\'enero.}
+    \caption{Resumen de las estad\'isticas del corpus relacionadas con el atributo g\'enero: cantidad de textos por g\'enero.}
     \label{table:stats_gen}
 \end{table}
 
@@ -173,7 +173,7 @@ del corpus final.
 
         \bottomrule
         \end{tabular}
-    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo raza.}
+    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo raza: cantidad de textos por raza.}
     \label{table:stats_race}
 \end{table}
 
