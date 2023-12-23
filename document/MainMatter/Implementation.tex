@@ -4,26 +4,67 @@ descrito en el Cap\'itulo~\ref{chapter:proposal}, y la calidad del corpus genera
 par\'ametros utilizadas en el proceso de validaci\'on y evaluaci\'on. Adem\'as, se muestran los resultados obtenidos y 
 se realiza un an\'alisis de los mismos.
 
-\section{Marco Experimental}
+\section{Marco Experimental}\label{section:experimental_framework}
 El marco experimental dise\~nado tiene como objetivo evaluar la validez de la propuesta desarrollada. Se plantea 
 una experimentaci\'on que permite comprobar si la soluci\'on cumple con los requisitos y restricciones establecidos inicialmente.
 Para ello, se proporcionan especificaciones detalladas acerca del corpus utilizado y los escenarios de evaluaci\'on desarrollados.
 Adem\'as, se describen los hiperpar\'ametros utilizados y el hardware empleado para la experimentaci\'on.
 
 \subsection{Escenarios de Evaluaci\'on}
-La experimentaci\'on realizada se divide en dos escenarios. El primero de ellos consiste en evaluar la concordancia lograda entre 
-los anotadores humanos. El segundo escenario se basa en utilizar el corpus desarrollado para entrenar y evaluar un modelo de 
-clasificaci\'on de g\'enero y raza. 
+La experimentaci\'on realizada se divide en dos escenarios. El primero de ellos se centra en analizar la concordancia alcanzada entre 
+los anotadores humanos durante el proceso de construcci\'on del corpus. El segundo escenario, se orienta a utilizar el corpus 
+desarrollado para entrenar y evaluar la eficacia de un modelo de clasificaci\'on de g\'enero y raza. Esto tiene como objetivo determinar
+la capacidad de un anotador autom\'atico en replicar de manera confiable las anotaciones realizadas por los anotadores humanos. 
 
 \subsubsection{Escenario I: Concordancia entre Anotadores}
-Este escenario tiene como objetivo evaluar la concordancia entre anotadores planteada en la 
-secci\'on~\ref{subsection:annotation_evaluation}. 
+Este escenario tiene como objetivo examinar la concordancia entre anotadores planteada en la 
+secci\'on~\ref{subsection:annotation_evaluation}. El escenario busca obtener una estimaci\'on confiable de la dificultad de la 
+tarea de anotaci\'on, as\'i como evaluar la calidad global de las anotaciones obtenidas. Esto se logra mediante la comparaci\'on
+de las anotaciones realizadas de forma independiente por los dos anotadores no expertos, adem\'as de la comparaci\'on con la 
+versi\'on final del corpus.
+
+El an\'alisis de m\'etricas de concordancia inter-anotador permite determinar si las directrices propuestas en la 
+secci\'on~\ref{section:annotation_guidelines} fueron adecuadas. Tambi\'en verifica si el proceso dise\~nado logra generar
+anotaciones consistentes entre distintos anotadores. Una alta concordancia respalda la validez del proceso de anotaci\'on
+planteado.
+
+Adicionalmente, se quiere evaluar la calidad que tendr\'ia un anotador autom\'atico de prop\'osito general. Para esto, se 
+emplea \emph{ChatGPT}~3.5 como anotador autom\'atico, y se comparan sus anotaciones con el corpus final.
 
 \subsubsection{Escenario II}
 \subsection{Corpus de Evaluaci\'on}
+El corpus utilizado para la experimentaci\'on corresponde al conjunto de 150 textos con anotaciones de g\'enero y raza
+generadas durante la construcci\'on del mismo, tal como se describe en la secci\'on~\ref{section:annotation_process}.
+
+Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del corpus:
+\begin{itemize}
+    \item Corpus del Anotador 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador 1.
+    \item Corpus del Anotador 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador 2.
+    \item Corpus Final: Versi\'on final del corpus de 150 textos, luego del proceso de mezcla y revisi\'on por parte 
+    del anotador experto.
+\end{itemize}
+
+La comparaci\'on entre estas tres versiones del corpus permite estimar de manera realista la concordancia entre los anotadores 
+no expertos y la concordancia de cada uno de ellos con la versi\'on final revisada. 
+
 \subsection{Hiperpar\'ametros}
 \subsection{Hardware}
+Los experimentos fueron ejecutados en un equipo con las siguientes propiedades: 4 n\'ucleos de CPU \emph{Intel(R) Core(TM)} i7-6700K
+@ 4.00GHz de velocidad con 8 MB de cach\'e y 16 GB de RAM.
+
+El sistema operativo utilizado fue \emph{Windows 10 Pro}, versi\'on 21H2 y con una arquitectura de 64 bits.
+
 \section{Resultados}
+A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos de la forma descrita en la 
+secci\'on~\ref{section:experimental_framework}.
+
+La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del \textbf{Escenario I}.
+Estas tablas resumen los resultados de las m\'etricas de concordancia calculadas entre las distintas
+versiones del corpus y el anotador autom\'atico \emph{ChatGPT}~3.5, respectivamente. En ellas, se 
+calcula para los conjuntos $C_{g\acute{e}nero}$, $C_{raza}$ y $C_{g\acute{e}nero, raza}$ definidos
+en la secci\'on~\ref{subsection:annotation_evaluation} las m\'etricas: media, varianza y desviaci\'on
+est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha secci\'on.
+
 \begin{table}[htpb]
     \centering
     \resizebox{\textwidth}{!}{
@@ -32,31 +73,75 @@ secci\'on~\ref{subsection:annotation_evaluation}.
         \textbf{M\'etrica de concordancia} &&\textbf{Anot1 vs Anot2} & \textbf{Anot1 vs Final} & \textbf{Anot2 vs Final} \\
         \midrule
         \midrule
-        \multirow{3}{*}{G\'enero} & $\mu\mathcal{J}$                & 0.873 & 0.917 & 0.943\\
+        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.873 & 0.917 & 0.943\\
         \cmidrule{2-5}
-                                  & $\sigma\mathcal{J}$             & 0.324 & 0.268 & 0.228\\
+                                  & $\sigma C_{g\acute{e}nero}$             & 0.324 & 0.268 & 0.228\\
         \cmidrule{2-5}
-                                  & $\sigma^2\mathcal{J}$           & 0.105 & 0.072 & 0.052\\
+                                  & $\sigma^2 C_{g\acute{e}nero}$           & 0.105 & 0.072 & 0.052\\
         \midrule\midrule
-        \multirow{3}{*}{Raza}     & $\mu\mathcal{J}$                & 0.898 & 0.917 & 0.981\\
+        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & 0.898 & 0.917 & 0.981\\
         \cmidrule{2-5}
-                                  & $\sigma\mathcal{J}$             & 0.279 & 0.256 & 0.124\\
+                                  & $\sigma C_{raza}$                       & 0.279 & 0.256 & 0.124\\
         \cmidrule{2-5}
-                                  & $\sigma^2\mathcal{J}$           & 0.078 & 0.066 & 0.015\\
+                                  & $\sigma^2 C_{raza}$                     & 0.078 & 0.066 & 0.015\\
         \midrule\midrule
-        \multirow{4}{*}{General}  & $\mu$ Micro Agr                 & 0.870 & 0.903 & 0.956\\
+        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & 0.870 & 0.903 & 0.956\\
         \cmidrule{2-5}
-                                  & $\sigma$ Micro Agr              & 0.263 & 0.232 & 0.173\\
+                                  & $\sigma C_{g\acute{e}nero, raza}$       & 0.263 & 0.232 & 0.173\\
         \cmidrule{2-5}
-                                  & $\sigma^2$ Micro Agr            & 0.069 & 0.054 & 0.030\\
+                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.069 & 0.054 & 0.030\\
         \cmidrule{2-5}
-                                  & Macro Agr                       & 0.886 & 0.917 & 0.962\\
+                                  & Macro Agr                               & 0.886 & 0.917 & 0.962\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de coincidencia entre anotadores.}
-    \label{table:agreement}
+    \caption{Resumen de m\'etricas de concordancia entre anotadores.}
+    \label{table:agreement_humans}
 \end{table}
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llc}
+        \toprule
+        \textbf{M\'etrica de concordancia} &&\textbf{ChatGPT vs Final} \\
+        \midrule
+        \midrule
+        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.350\\
+        \cmidrule{2-3}
+                                  & $\sigma C_{g\acute{e}nero}$             & 0.455\\
+        \cmidrule{2-3}
+                                  & $\sigma^2 C_{g\acute{e}nero}$           & 0.207\\
+        \midrule\midrule
+        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & 0.371\\
+        \cmidrule{2-3}
+                                  & $\sigma C_{raza}$                       & 0.475\\
+        \cmidrule{2-3}
+                                  & $\sigma^2 C_{raza}$                     & 0.225\\
+        \midrule\midrule
+        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & 0.329\\
+        \cmidrule{2-3}
+                                  & $\sigma C_{g\acute{e}nero, raza}$       & 0.352\\
+        \cmidrule{2-3}
+                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.124\\
+        \cmidrule{2-3}
+                                  & Macro Agr                               & 0.361\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de concordancia entre anotadores.}
+    \label{table:agreement_gpt}
+\end{table}
+
+dsfsdfsd sdf 
+sd fsdf 
+ sdfsd facialsd fsdf sdasdf
+ sd facialsdf 
+ sdsdfsdfffffffffffffffff f
+  dadosfd
+  fd fdsfsd sdf dsf sdfsdjfksdbfjbsdjfbsdhjbfhjsdbflsj blsdfjkbsdlkfbsdjkbf lsdkjifb nlskdjfb 
 \section{Discusi\'on}
 
+asdasdasasd
+destacadasasdasd as das 
+a sdasd asdasdasasd ads
 
 
