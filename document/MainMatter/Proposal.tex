@@ -57,9 +57,8 @@ de media, varianza y desviaci\'on est\'andar de los acuerdos entre anotadores, p
 
 La comparaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
 realizadas por los anotadores no expertos. Luego, en la segunda fase, se realiza la comparaci\'on entre las anotaciones de los 
-anotadores no expertos y el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\textbf{X} se 
-muestran los resultados obtenidos en la evaluaci\'on del corpus.
-%#TODO: Reemplazar X por la secci\'on correspondiente, en 3 lugares por ahora.
+anotadores no expertos y el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\ref{section:results} 
+se muestran los resultados obtenidos en la evaluaci\'on del corpus.
 
 Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
 determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as 
@@ -80,10 +79,11 @@ de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de l
 Para calcular el \emph{micro-agreement}, se realiza la uni\'on de las anotaciones de ambos atributos protegidos, obteniendo as\'i
 el conjunto $C_{g\acute{e}nero, raza} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Luego, se calcula la media, varianza y
 desviaci\'on est\'andar del conjunto obtenido. Estos resultados son una medida detallada de la concordancia en t\'erminos puntuales.
-Se muestran en la secci\'on~\textbf{X}.
+Se muestran en la secci\'on~\ref{section:results}.
 
 Por otra parte, la m\'etrica \emph{macro-agreement} se calcula como la media de los \emph{micro-agreements} de cada atributo protegido. 
-Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones. Se muestran en la secci\'on~\textbf{X}.
+Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones. Se muestran en la 
+secci\'on~\ref{section:results}.
 
 \subsection{Directrices de anotaci\'on}\label{section:annotation_guidelines}
 %Hablar que para anotar cierto atributo no hacer falta que el texto lo mencione explicitamente, sino que se puede inferir
