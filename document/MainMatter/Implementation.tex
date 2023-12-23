@@ -38,8 +38,8 @@ generadas durante la construcci\'on del mismo, tal como se describe en la secci\
 
 Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del corpus:
 \begin{itemize}
-    \item Corpus del Anotador 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador 1.
-    \item Corpus del Anotador 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador 2.
+    \item Versi\'on 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador 1.
+    \item Versi\'on 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador 2.
     \item Corpus Final: Versi\'on final del corpus de 150 textos, luego del proceso de mezcla y revisi\'on por parte 
     del anotador experto.
 \end{itemize}
@@ -58,7 +58,7 @@ El sistema operativo utilizado fue \emph{Windows 10 Pro}, versi\'on 21H2 y con u
 A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos de la forma descrita en la 
 secci\'on~\ref{section:experimental_framework}.
 
-La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del \textbf{Escenario I}.
+La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del \textbf{Escenario~I}.
 Estas tablas resumen los resultados de las m\'etricas de concordancia calculadas entre las distintas
 versiones del corpus y el anotador autom\'atico \emph{ChatGPT}~3.5, respectivamente. En ellas, se 
 calcula para los conjuntos $C_{g\acute{e}nero}$, $C_{raza}$ y $C_{g\acute{e}nero, raza}$ definidos
@@ -70,7 +70,7 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
     \resizebox{\textwidth}{!}{
         \begin{tabular}{llccc}
         \toprule
-        \textbf{M\'etrica de concordancia} &&\textbf{Anot1 vs Anot2} & \textbf{Anot1 vs Final} & \textbf{Anot2 vs Final} \\
+        \textbf{M\'etrica de concordancia} &&\textbf{Ver. 1 - Ver. 2} & \textbf{Ver. 1 - Final} & \textbf{Ver. 2 - Final} \\
         \midrule
         \midrule
         \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.873 & 0.917 & 0.943\\
@@ -94,16 +94,16 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
                                   & Macro Agr                               & 0.886 & 0.917 & 0.962\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de concordancia entre anotadores.}
+    \caption{Resumen de m\'etricas de concordancia entre las distintas versiones del corpus.}
     \label{table:agreement_humans}
 \end{table}
 
 \begin{table}[htpb]
     \centering
-    \resizebox{\textwidth}{!}{
+    \resizebox{0.75\textwidth}{!}{
         \begin{tabular}{llc}
         \toprule
-        \textbf{M\'etrica de concordancia} &&\textbf{ChatGPT vs Final} \\
+        \textbf{M\'etrica de concordancia} &&\textbf{ChatGPT - Final} \\
         \midrule
         \midrule
         \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.350\\
@@ -127,21 +127,33 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
                                   & Macro Agr                               & 0.361\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de concordancia entre anotadores.}
+    \caption{Resumen de m\'etricas de concordancia entre \emph{ChatGPT} y corpus final.}
     \label{table:agreement_gpt}
 \end{table}
 
-dsfsdfsd sdf 
-sd fsdf 
- sdfsd facialsd fsdf sdasdf
- sd facialsdf 
- sdsdfsdfffffffffffffffff f
-  dadosfd
-  fd fdsfsd sdf dsf sdfsdjfksdbfjbsdjfbsdhjbfhjsdbflsj blsdfjkbsdlkfbsdjkbf lsdkjifb nlskdjfb 
+
 \section{Discusi\'on}
+Los resultados presentados en la Tabla~\ref{table:agreement_humans} indican un alto grado de concordancia entre las 
+anotaciones realizadas por los distintos anotadores humanos.
 
-asdasdasasd
-destacadasasdasd as das 
-a sdasd asdasdasasd ads
+Espec\'ificamente, la concordancia entre los anotadores no expertos (\textbf{Ver.~1 - Ver.~2}) es bastante alta. La
+media de las concordancias por anotaci\'on supera \textbf{0.85} para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
+lo que indica un alto grado de concordancia promedio. Adem\'as, la varianza y desviaci\'on est\'andar est\'an por debajo de 
+\textbf{0.11} y \textbf{0.33} respectivamente, lo que demuestra poca dispersi\'on en los valores de concordancia por texto. El
+\emph{macro-agreement} de \textbf{0.886}, refuerza la consistencia en t\'erminos generales. Todo esto sugiere que las directrices 
+de anotaci\'on fueron adecuadas y permitieron obtener anotaciones consistentes entre anotadores no expertos.
 
+Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 - Final} y \textbf{Ver.~2 - Final}), se
+observa una mejor\'ia en las m\'etricas. La media supera \textbf{0.90} en todos los casos, la varianza y desviaci\'on est\'andar
+disminuyen por debajo de \textbf{0.08} y \textbf{0.28} respectivamente, y el \emph{macro-agreement} aumenta a \textbf{0.917} y 
+\textbf{0.962}. Esto indica que la revisi\'on por el experto incrementa significativamente la calidad y consistencia de las 
+anotaciones.
 
+Los resultados de la Tabla~\ref{table:agreement_gpt} muestran m\'etricas de concordancia significativamente menores entre 
+el anotador autom\'atico \emph{ChatGPT} y el corpus final. La media se encuentra por debajo de \textbf{0.38} en todos los casos,
+indicando un bajo grado de coincidencia promedio. Adem\'as, la varianza supera \textbf{0.20} en los casos de g\'enero y raza, y 
+\textbf{0.12} en la uni\'on. La desviaci\'on est\'andar supera \textbf{0.35} en todos los casos. Todo esto indica una alta 
+dispersi\'on en los valores de concordancia por texto respecto a los obtenidos por los anotadores humanos. El 
+\emph{macro-agreement} de apenas \textbf{0.361} evidencia la falta de consistencia del anotador autom\'atico. En conjunto, estas
+m\'etricas proveen evidencia de que un anotador autom\'atico de prop\'osito general como \emph{ChatGPT} no es capaz de replicar
+de manera confiable las anotaciones realizadas por los anotadores humanos.  
