@@ -19,9 +19,15 @@
 % pr\'estamos bancarios \parencite{fairness_def}, evaluaci\'on de riesgos de salud, contrataci\'on, evaluaci\'on de desempe\~no laboral y
 % justicia penal \parencite{compas}, se genera una creciente preocupaci\'on acerca de su capacidad para mantener de manera involuntaria 
 % sesgos sociales y prejuicios hist\'oricos.
-Este cap\'itulo proporciona una base te\'orica s\'olida para los desaf\'ios que enfrentan los modelos de aprendizaje autom\'atico en t\'erminos
-de sesgos e injusticias. Para ello, se discute la presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico, como 
-el sistema COMPAS y los datos de la Encuesta de Gastos M\'edicos. Se presentan diversas fuentes y tipos de sesgos
+% Este cap\'itulo proporciona una base te\'orica s\'olida para los desaf\'ios que enfrentan los modelos de aprendizaje autom\'atico en t\'erminos
+% de sesgos e injusticias. Para ello, se discute la presencia de sesgos en sistemas que utilizan modelos de aprendizaje autom\'atico, como 
+% el sistema COMPAS y los datos de la Encuesta de Gastos M\'edicos. Se presentan diversas fuentes y tipos de sesgos
+Este cap\'itulo presenta una revisi\'on del estado del arte sobre la problem\'atica de la justicia y la equidad en los modelos de 
+aprendizaje autom\'atico. Se discuten conceptos clave como la existencia de sistemas algor\'itmicos sesgados, las principales fuentes
+y tipos de sesgos, as\'i como las definiciones predominantes de equidad y t\'ecnicas para la detecci\'on y mitigaci\'on de sesgos.
+Adem\'as, se pone especial \'enfasis en el papel que juegan los datasets con atributos protegidos anotados en el desarrollo
+y evaluaci\'on de t\'ecnicas para promover la justicia algor\'itmica. Por \'ultimo, el cap\'itulo presenta un an\'alisis de los 
+principales datasets utilizados en la literatura para el tratamiento de sesgos.
 
 \section{Sistemas sesgados}
 
@@ -29,7 +35,7 @@ el sistema COMPAS y los datos de la Encuesta de Gastos M\'edicos. Se presentan d
     ampliamente estudiado en los \'ultimos a\~nos. 
     
     En el \'ambito de la justicia penal, el caso m\'as conocido es el de COMPAS~\parencite{propublica}
-    (en ingl\'es \textit{Correctional Offender Management Profiling for Alternative Sanctions}). Este sistema es un algoritmo de predicci\'on
+    (en ingl\'es \emph{Correctional Offender Management Profiling for Alternative Sanctions}). Este sistema es un algoritmo de predicci\'on
     de riesgo de reincidencia criminal que se ha utilizado en las cortes de Estados Unidos para ayudar a los jueces a determinar la 
     probabilidad de que una persona reincurra en un delito. Se demostr\'o que el software estaba sesgado hacia las personas 
     afroamericanas, o sea, dados dos individuos con el mismo perfil criminal, solo basta que uno sea afroamericano para que el
@@ -194,8 +200,26 @@ clasificador base, solo dependen de la capacidad de este para ser reentrenado re
 un clasificador randomizado.
 
 \subsection{Anotaci\'on autom\'atica de atributos protegidos}
+La anotaci\'on autom\'atica de atributos protegidos es una t\'ecnica que demuestra ser prometedora para asistir en la detecci\'on y 
+mitigaci\'on de sesgos~\parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39,6906255,Rajendra_2021}. 
+Esta t\'ecnica involucra el uso de modelos de aprendizaje autom\'atico para predecir la pertenencia de los datos a grupos protegidos, 
+como g\'enero, raza, orientaci\'on sexual, entre otros. 
 
+Los modelos autom\'aticos entrenados para la detecci\'on de atributos protegidos pueden incorporarse en el desarrollo de t\'ecnicas
+de mitigaci\'on de sesgos de varias maneras:
+\begin{itemize}
+    \item Permitiendo una detecci\'on m\'as amplia de sesgos en conjuntos de datos a gran escala.
+    \item Proporcionando atributos protegidos predichos que pueden utilizarse en t\'ecnicas basadas en 
+    la equidad de grupos.
+    \item Generando conjuntos de datos sint\'eticos con atribuitos protegidos para el entrenamiento y evaluaci\'on de 
+    modelos.
+    \item Haciendo posible el an\'alisis de sesgos en casos donde la recopilaci\'on manual de los atributos protegidos
+    puede ser dif\'icil, invasiva o poco \'etica.
+\end{itemize}
 
+Sin embargo, la precisi\'on de los modelos autom\'aticos est\'a limitada por la calidad de los datos de entrenamiento. Por ello, es 
+recomendable complementar estas predicciones con revisiones manuales por parte de expertos.
+ 
 \section{Datasets en el tratamiento de sesgos}
     % \begin{itemize}
     %     \item empezar hablando de como los datasets ayudan a desarrollar y evaluar tecnicas de evaluacion y mitigacion de sesgos
@@ -347,5 +371,5 @@ Por lo tanto, en el contexto de esta tesis, que tiene como objetivo el dise\~no 
 con atributos protegidos anotados, es importante considerar la inclusi\'on de informaci\'on sobre las decisiones tomadas sobre los sujetos.
 El dataset de rese\~nas de pel\'iculas \emph{IMDb}\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}
 cumple con esta restricci\'on, ya que incluye el sentimiento presente en cada rese\~na, que puede considerarse como una decisi\'on de 
-recomendaci\'on. Adem\'as si se realiza la anotaci\'on manual de los atributos g\'enero y raza para cada textp, se obtendr\'ia un dataset
+recomendaci\'on. Adem\'as si se realiza la anotaci\'on manual de los atributos g\'enero y raza para cada texto, se obtendr\'ia un dataset
 que cumple con todas las restricciones planteadas en los Objetivos Generales.
