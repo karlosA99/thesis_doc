@@ -1,7 +1,11 @@
 \chapter{Descripci\'on del Corpus}\label{chapter:proposal}
-En este cap\'itulo se propone un modelo de anotaci\'on de prop\'osito general de atributos protegidos
-en textos. 
-AQUI HAY QUE HACER UN PARRAFITO DESCRIBIENDO TODO LO QUE SE VA A HACER EN ESTE CAPITULO Y COMO SE VA A ORGANIZAR
+El presente cap\'itulo describe en detalle la propuesta desarrollada para la construcci\'on de un corpus de datos no tabulares con 
+atributos protegidos anotados. En la secci\'on~\ref{section:annotation_scheme} se presenta el esquema de 
+anotaci\'on dise\~nado, especificando los atributos protegidos considerados y los valores definidos para cada uno. La
+secci\'on~\ref{section:annotation_process} explica el proceso de anotaci\'on llevado a cabo, incluyendo la evaluaci\'on de 
+la anotaci\'on, las directrices provistas a los anotadores y las herramientas desarrolladas para facilitar el proceso. En la
+secci\'on~\ref{section:corpus_stats} se resumen las principales estad\'isticas del corpus resultante. Finalmente, en la 
+secci\'on~\ref{section:baseline} se describe el \emph{baseline} propuesto sobre el corpus.
 
 \section{Esquema de anotaci\'on}\label{section:annotation_scheme}
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
@@ -104,7 +108,7 @@ mezclar las anotaciones de los anotadores no expertos, resaltando los conflictos
 m\'as acertada por parte del experto. Este \emph{script} tambi\'en almacena las anotaciones en un archivo nuevo archivo
 \emph{CSV}.
 
-\section{Estad\'isticas del Corpus}
+\section{Estad\'isticas del Corpus}\label{section:corpus_stats}
 El corpus fue construido a partir un fichero \emph{CSV}, tomado de la plataforma 
 Kaggle\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}. 
 Este fichero contiene 24904 rese\~nas de pel\'iculas en idioma espa\~nol. Cada entrada del fichero contiene el texto de la rese\~na, 
@@ -178,7 +182,7 @@ del corpus final.
     \label{table:stats_race}
 \end{table}
 
-\section{Baseline}
+\section{Baseline}\label{section:baseline}
 
 \subsection{Detalles de implementaci\'on}
 
