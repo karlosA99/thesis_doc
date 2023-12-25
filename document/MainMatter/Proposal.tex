@@ -182,7 +182,18 @@ del corpus final.
     \label{table:stats_race}
 \end{table}
 
-\section{Baseline}\label{section:baseline}
+\section{Baselines}\label{section:baseline}
+Uno de los objetivos del modelo de anotaci\'on propuesto en este trabajo es que pueda ser aprendido 
+y replicado por una computadora. En esta secci\'on, se describe un sistema para la extracci\'on
+autom\'atica de los atributos protegidos g\'enero y raza desde texto plano.
 
+Con el objetivo de evaluar el desempe\~no del corpus em esta tarea, se implement\'o un \emph{baseline}.
+El \emph{baseline} consiste en un clasificador \emph{Multilabel}  que predice 
+de manera autom\'atica el g\'enero y la raza en textos de prop\'osito general, utilizando el corpus construido 
+para su entrenamiento y evaluaci\'on. Esto permite determinar la capacidad de un anotador autom\'atico para 
+extraer los atributos protegidos de los textos.
+
+
+\subsection{Preprocesamiento}
 \subsection{Detalles de implementaci\'on}
 
