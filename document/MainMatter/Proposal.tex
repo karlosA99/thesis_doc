@@ -185,15 +185,63 @@ del corpus final.
 \section{Baselines}\label{section:baseline}
 Uno de los objetivos del modelo de anotaci\'on propuesto en este trabajo es que pueda ser aprendido 
 y replicado por una computadora. En esta secci\'on, se describe un sistema para la extracci\'on
-autom\'atica de los atributos protegidos g\'enero y raza desde texto plano.
+autom\'atica de los atributos protegidos g\'enero y raza desde texto plano. Para ello, se 
+implementan dos \emph{baselines}, descritos en las secciones~\ref{subsection:ml_baseline} 
+y~\ref{subsection:human_baseline}. Adem\'as se calculan para cada \emph{baseline} como m\'etricas de 
+desempe\~no la medida~F1, la exactitud, la precisi\'on y el recobrado para cada atributo por 
+separado, todas ellas en \emph{macro} y en \emph{micro}. 
 
-Con el objetivo de evaluar el desempe\~no del corpus em esta tarea, se implement\'o un \emph{baseline}.
-El \emph{baseline} consiste en un clasificador \emph{Multilabel}  que predice 
+\subsection{Baseline de Aprendizaje Autom\'atico}\label{subsection:ml_baseline}
+Este \emph{baseline} consiste en un clasificador \emph{Multilabel}  que predice 
 de manera autom\'atica el g\'enero y la raza en textos de prop\'osito general, utilizando el corpus construido 
 para su entrenamiento y evaluaci\'on. Esto permite determinar la capacidad de un anotador autom\'atico para 
-extraer los atributos protegidos de los textos.
+extraer los atributos protegidos de los textos. Los resultados son discutidos en la secci\'on~\ref{section:results}.
+
+\subsubsection{Arquitectura del Baseline}
+%parrafo de preprocesamiento
+%parrafo de prediccion (los modelos de sklearn)
+El preprocesamiento se basa en obtener representaciones vectoriales sem\'anticas de los textos. Para ello, 
+se utiliza el tokenizador y modelo 
+\emph{BERT}\footnote{\url{https://huggingface.co/docs/transformers/model_doc/bert}} preentrenados de 
+\emph{Hugging Face}\footnote{\url{https://huggingface.co}}. Primero, el texto se tokeniza con el 
+tokenizador de \emph{BERT}, convirtiendo a min\'usculas si el modelo lo requiere. Se agregan los 
+tokens especiales [CLS] y [SEP] para indicar el inicio y fin del texto respectivamente.
+Luego, el texto tokenizado se pasa a trav\'es del modelo \emph{BERT} para obtener el vector de 
+embeddings del token [CLS], que codifica la representaci\'on sem\'antica de toda la secuencia. 
+
+Se probaron varios modelos de clasificaci\'on supervisada brindados por la biblioteca 
+\emph{sklearn}\footnote{\url{https://scikit-learn.org/}} para la predicci\'on de g\'enero y raza 
+a partir de las representaciones de texto generadas por \emph{BERT}. Los modelos utilizados para 
+entrenar y evaluar el clasificador fueron: \emph{Logistic Regression}, 
+\emph{Random Forest Classifier}, \emph{Support Vector Machine} y \emph{Multilayer Perceptron}.
+Los resultados se discuten en la secci\'on~\ref{section:results}.
+
+\subsubsection{Hiperpar\'ametros}
+Se configuraron los seguientes hiperpar\'ametros para cada uno de los modelos entrenantes utilizados:
+\begin{itemize}
+    \item \emph{Logistic Regression}: \emph{max\_iter} = 1000
+    \item \emph{Random Forest Classifier}: \emph{n\_estimators} = 100
+    \item \emph{Support Vector Machine}: todos los valores por defecto.
+    \item \emph{Multilayer Perceptron}: \emph{hidden\_layer\_sizes} = (100, 50), \emph{max\_iter} = 1000
+\end{itemize}
 
 
-\subsection{Preprocesamiento}
+\subsection{Baseline Humano}\label{subsection:human_baseline}
+Para complementar el \emph{baseline} de aprendizaje autom\'atico, se propone un \emph{baseline} 
+basado en anotaciones realizadas por humanos. El objetivo es comparar el desempe\~no del 
+clasificador contra la habilidad de anotaci\'on humana en condiciones ideales, y as\'i 
+determinar qu\'e tan cerca o lejos est\'a el modelo de igualar la capacidad humana en 
+esta tarea.
+
+Es importante destacar que este \emph{baseline} no implica entrenar un modelo. En cambio,
+consiste en utilizar las anotaciones realizadas por los anotadores humanos como conjunto de
+evaluaci\'on para el clasificador entrenado en el \emph{baseline} de aprendizaje autom\'atico.
+
+La idea detr\'as de esto es establecer una estimaci\'on optimista de la habilidad humana en
+la tarea, ya que el corpus sobre el que se realiza la evaluaci\'on fue construido precisamente 
+mezclando y revisando las anotaciones humanas. En la pr\'actica, es de esperar que 
+anotadores humanos sin entrenamiento espec\'ifico rindan peor que este \emph{baseline}.
+%#TODO: Preguntar al profe aqui quien es el que debe rendir peor porque no me queda claro.
+
 \subsection{Detalles de implementaci\'on}
 
