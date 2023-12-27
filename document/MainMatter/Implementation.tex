@@ -31,7 +31,46 @@ planteado.
 Adicionalmente, se quiere evaluar la calidad que tendr\'ia un anotador autom\'atico de prop\'osito general. Para esto, se 
 emplea \emph{ChatGPT}~3.5 como anotador autom\'atico, y se comparan sus anotaciones con el corpus final.
 
-\subsubsection{Escenario II}
+\subsubsection{Escenario II: Evaluaci\'on de Baselines}
+Este escenario tiene como objetivo evaluar los baselines dise\~nados en la secci\'on~\ref{section:baseline}, con el fin de 
+validar su desempe\~no sobre el corpus desarrollado.
+
+Para el obtener los \emph{embeddings} de los textos utilizados en el proceso de entrenamiento del \emph{baseline} 
+de aprendizaje autom\'atico, se utilizaron cuatro modelos de \emph{BERT} que ofrece \emph{HuggingFace}.
+Por tanto se tienen cuatro conjuntos de \emph{embeddings} diferentes para el entrenamiento de cada uno de 
+los modelos estudiados. La Tabla~\ref{table:bert_models} muestra una comparaci\'on entre los modelos de \emph{BERT} utilizados.
+De esta forma, se analiza el impacto de utilizar distintos modelo de \emph{BERT} para la representaci\'on 
+sem\'antica de los textos sobre el desempe\~no de los \emph{baselines}. Los resultados obtenidos con cada 
+combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la secci\'on~\ref{section:results}.
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lccc}
+        \toprule
+                \textbf{Modelo BERT} & \textbf{Par\'ametros} & \textbf{Dimensi\'on de Embeddings} & \textbf{Sensibilidad a May\'usculas}\\
+                bert-base-uncased  & 110M & 768  & No\\
+                bert-base-cased    & 110M & 768  & S\'i\\
+                bert-large-uncased & 340M & 1024 & No\\
+                bert-large-cased   & 340M & 1024 & S\'i\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Comparativa de modelos de \emph{BERT} utilizados.}
+    \label{table:bert_models}
+\end{table}
+
+
+%#TODO: TENGO QUE PREGUNTAR AL PROFE QUE MAS DEBO PONER EN ESTE ESCENARIO
+
+Las f\'ormulas utilizadas para evaluar el desempe\~no de ambos \emph{baselines} son las siguientes:
+\begin{align*}
+    accuracy &= \frac{TP + TN}{TP + TN + FP + FN}\\
+    precision &= \frac{TP}{TP + FP}\\
+    recall &= \frac{TP}{TP + FN}\\
+    f1-score &= 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\end{align*}
+
+
 \subsection{Corpus de Evaluaci\'on}
 El corpus utilizado para la experimentaci\'on corresponde al conjunto de 150 textos con anotaciones de g\'enero y raza
 generadas durante la construcci\'on del mismo, tal como se describe en la secci\'on~\ref{section:annotation_process}.
@@ -47,7 +86,26 @@ Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del c
 La comparaci\'on entre estas tres versiones del corpus permite estimar de manera realista la concordancia entre los anotadores 
 no expertos y la concordancia de cada uno de ellos con la versi\'on final revisada. 
 
+En el Escenario II, se emplea la versi\'on final del corpus para entrenar y evaluar el \emph{baseline} de aprendizaje 
+autom\'atico. Para el \emph{baseline} humano, se utilizan las versiones 1 y 2 del corpus para evaluar el clasificador
+propuesto en el \emph{baseline} de aprendizaje autom\'atico. 
+
+Para llevar a cabo estas evaluaciones, se emplea la 
+metodolog\'ia \emph{K-fold cross-validation}. En este proceso, el modelo se entrena $K$ veces, utilizando 
+$K-1$ particiones del corpus como conjunto de entrenamiento y la partici\'on restante como conjunto de evaluaci\'on.
+Este enfoque enfoque permite obtener m\'etricas de rendimiento m\'as robustas y confiables, teniendo en cuenta 
+la limitada cantidad de datos disponibles.
+
+En ambos casos, se elimina el valor del atributo raza de uno de los textos. La raz\'on 
+detr\'as de esto es que dicho valor conten\'ia la \'unica instancia de la clase \emph{Native American} en el corpus. 
+Esto genera conflictos durante el proceso de validaci\'on cruzada, ya que idealmente deber\'ian existir al menos dos 
+instancias de cada clase en el corpus.
+
 \subsection{Hiperpar\'ametros}
+En el proceso de entrenamiento y evaluaci\'on de ambos \emph{baselines} el par\'ametro de la t\'ecnica de validaci\'on
+cruzada se fija en $K=5$. 
+
+
 \subsection{Hardware}
 Los experimentos fueron ejecutados en un equipo con las siguientes propiedades: 4 n\'ucleos de CPU \emph{Intel(R) Core(TM)} i7-6700K
 @ 4.00GHz de velocidad con 8 MB de cach\'e y 16 GB de RAM DDR4 a una velocidad de 3200MHz.
