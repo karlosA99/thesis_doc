@@ -316,7 +316,7 @@ los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g
                        {Anotaci\'on 2}      & 0.900 & 0.878 & 0.886 & 0.973\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 2 en cuanto a la predicci\'on del atributo g\'enero.}
+    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 2 en cuanto a la predicci\'on del atributo raza.}
     \label{table:eval_baseline2_race}
 \end{table}
 
@@ -359,5 +359,38 @@ un balance bastante aceptable entre precisi\'on y recobrado.
 En contraste, los resultados para la predicci\'on de raza con el \emph{baseline} de aprendizaje autom\'atico 
 muestran m\'etricas considerablemente m\'as bajas. Tanto la precisi\'on como el recobrado de los modelos se
 mantuvieron por debajo de \textbf{0.190}, y en consecuencia las puntuaciones F1 no superan \textbf{0.180}. Todo
-esto indica que los modelos no logran clasificar correctamente las instancias positivas. Los valores para la 
-exactitud superan el puntanje de \textbf{0.870}  
+esto indica de manera consistente que los modelos no logran clasificar correctamente las instancias positivas. 
+Los valores para la exactitud superan el puntanje de \textbf{0.870}, lo cual resulta enga\~noso debido al 
+predominio de la raza \emph{White} en el corpus. El alto valor de exactitud puede atribuirse al hecho de que 
+los modelos tienden a indentificar de manera relativamente precisa los ejemplos de esta clase mayoritaria. Esta 
+desproporci\'on en la distribuci\'on de clases en el corpus puede sesgar la m\'etrica de exactitud, ya que los 
+modelos logran un rendimiento aparentemente alto al acertar en la clase dominante, incluso si no tiene un 
+desempe\~no adecuado en las clases minoritarias. 
+
+Estas diferencias tan marcadas en las m\'etricas de g\'enero y raza sugieren que predecir autom\'aticamente la 
+raza a partir de texto presenta un desaf\'io significativamente mayor en comparaci\'on con la predicci\'on de 
+g\'enero. 
+
+Las m\'etricas obtenidas para el \emph{baseline} humano, mostradas en las 
+Tablas~\ref{table:eval_baseline2_gender} y~\ref{table:eval_baseline2_race}, indican un desempe\~no muy 
+superior al de los modelos de aprendizaje autom\'atico. 
+
+Para la tarea de g\'enero (Tabla~\ref{table:eval_baseline2_gender}), la precisi\'on, recobrado, 
+puntuaci\'on F1 y exactitud superan \textbf{0.930} para ambos anotadores. Lo que sugiere un 
+rendimiento muy consistente y preciso en la clasificaci\'on tanto de instancias positivas, 
+como de instancias negativas. En general se observa un desempe\~no superior del 
+\emph{baseline} humano en comparaci\'on com el \emph{baseline} de aprendizaje autom\'atico en 
+esta tarea.
+
+Del mismo modo, para la predicci\'on de la raza, se obtienen valores de precisi\'on, recobrado,
+puntuaci\'on F1 y exactitud muy prometedores para ambos anotadores. La precisi\'on y 
+recobrado alcanzada por los anotadores superan \textbf{0.810}, y la puntuaci\'on F1 estuvo 
+por encima de \textbf{0.80}. La exactitud tambi\'en fue muy alta, con valores de \textbf{0.973}
+y \textbf{0.980}, evidenciando la gran habilidad de los humanos para replicar las anotaciones
+de raza presentes en el corpus.
+
+A pesar de que el \emph{baseline} humano logra m\'etricas de evaluaci\'on muy altas en ambas 
+tareas, se aprecia cierto aumento en la dificultad de la tarea de predicci\'on de raza. Si bien 
+los resultados alcanzados en la predicci\'on de la raza son muy buenos, su disminuci\'on 
+comparados con los obtenidos en la predicci\'on de g\'enero sugiere que incluso para los humanos, 
+no es una tarea trivial inferir la raza a partir de texto.
