@@ -39,7 +39,7 @@ Para el obtener los \emph{embeddings} de los textos utilizados en el proceso de 
 de aprendizaje autom\'atico, se utilizaron cuatro modelos de \emph{BERT} que ofrece \emph{HuggingFace}.
 Por tanto se tienen cuatro conjuntos de \emph{embeddings} diferentes para el entrenamiento de cada uno de 
 los modelos estudiados. La Tabla~\ref{table:bert_models} muestra una comparaci\'on entre los modelos de \emph{BERT} utilizados.
-De esta forma, se analiza el impacto de utilizar distintos modelo de \emph{BERT} para la representaci\'on 
+De esta forma, se analiza el impacto de utilizar distintos modelos de \emph{BERT} para la representaci\'on 
 sem\'antica de los textos sobre el desempe\~no de los \emph{baselines}. Los resultados obtenidos con cada 
 combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la secci\'on~\ref{section:results}.
 
@@ -86,9 +86,8 @@ Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del c
 La comparaci\'on entre estas tres versiones del corpus permite estimar de manera realista la concordancia entre los anotadores 
 no expertos y la concordancia de cada uno de ellos con la versi\'on final revisada. 
 
-En el Escenario II, se emplea la versi\'on final del corpus para entrenar y evaluar el \emph{baseline} de aprendizaje 
-autom\'atico. Para el \emph{baseline} humano, se utilizan las versiones 1 y 2 del corpus para evaluar el clasificador
-propuesto en el \emph{baseline} de aprendizaje autom\'atico. 
+En el Escenario II, se emplea la versi\'on final del corpus tanto para entrenar y evaluar el \emph{baseline} de aprendizaje 
+autom\'atico, como para evaluar el \emph{baseline} humano.
 
 Para llevar a cabo estas evaluaciones, se emplea la 
 metodolog\'ia \emph{K-fold cross-validation}. En este proceso, el modelo se entrena $K$ veces, utilizando 
@@ -96,8 +95,8 @@ $K-1$ particiones del corpus como conjunto de entrenamiento y la partici\'on res
 Este enfoque enfoque permite obtener m\'etricas de rendimiento m\'as robustas y confiables, teniendo en cuenta 
 la limitada cantidad de datos disponibles.
 
-En ambos casos, se elimina el valor del atributo raza de uno de los textos. La raz\'on 
-detr\'as de esto es que dicho valor conten\'ia la \'unica instancia de la clase \emph{Native American} en el corpus. 
+Para ambos \emph{baselines}, se elimina una fila del corpus. La raz\'on detr\'as de esto es que el atributo raza de dicha 
+fila conten\'ia la \'unica instancia de la clase \emph{Native American} en el corpus. 
 Esto genera conflictos durante el proceso de validaci\'on cruzada, ya que idealmente deber\'ian existir al menos dos 
 instancias de cada clase en el corpus.
 
@@ -189,6 +188,138 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
     \label{table:agreement_gpt}
 \end{table}
 
+En cuanto al \textbf{Escenario~II}, la Tabla~\ref{table:eval_baseline1_gender} y la Tabla~\ref{table:eval_baseline1_race}
+muestran las m\'etricas alcanzadas por el \emph{baseline} de aprendizaje autom\'atico en la tarea de 
+predicci\'on de los atribuitos g\'enero y raza respectivamente. Se presentan los resultados considerando 
+diversas combinaciones entre los modelos de \emph{BERT} utilizados para obtener los \emph{embeddings} de los textos, y los
+modelos de clasificaci\'on evaluados. 
+
+Por otro lado, en la Tabla~\ref{table:eval_baseline2_gender} y la Tabla\ref{table:eval_baseline2_race} se detallan
+los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g\'enero y raza. 
+
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llcccc}
+        \toprule
+        \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+        \midrule
+        \midrule
+        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.740 & 0.788 & 0.757 & 0.693\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.695 & 0.816 & 0.744 & 0.667\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.671 & 0.867 & 0.749 & 0.660\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.733 & 0.788 & 0.753 & 0.667\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.707 & 0.768 & 0.732 & 0.670\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.673 & 0.718 & 0.689 & 0.620\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.621 & 1.000 & 0.764 & 0.623\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.743 & 0.734 & 0.727 & 0.677\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.707 & 0.787 & 0.741 & 0.673\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.684 & 0.771 & 0.719 & 0.657\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.617 & 1.000 & 0.761 & 0.617\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.695 & 0.751 & 0.718 & 0.640\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.713 & 0.790 & 0.744 & 0.677\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.691 & 0.739 & 0.709 & 0.633\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.639 & 0.848 & 0.722 & 0.623\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.725 & 0.755 & 0.728 & 0.657\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 1 en cuanto a la predicci\'on del atributo g\'enero.}
+    \label{table:eval_baseline1_gender}
+\end{table}
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llcccc}
+        \toprule
+        \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+        \midrule
+        \midrule
+        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.153 & 0.142 & 0.143 & 0.903\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.141 & 0.132 & 0.133 & 0.888\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.098 & 0.165 & 0.123 & 0.888\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.162 & 0.151 & 0.154 & 0.889\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.158 & 0.147 & 0.148 & 0.905\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.114 & 0.136 & 0.124 & 0.896\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.888\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.181 & 0.188 & 0.177 & 0.897\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.112 & 0.119 & 0.115 & 0.889\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.100 & 0.113 & 0.106 & 0.878\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.888\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.124 & 0.117 & 0.118 & 0.879\\
+        \midrule\midrule
+        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.124 & 0.138 & 0.129 & 0.907\\
+        \cmidrule{2-6}
+                                            & \emph{Random Forest}        & 0.110 & 0.123 & 0.116 & 0.894\\
+        \cmidrule{2-6}
+                                            & \emph{SVC}                  & 0.098 & 0.167 & 0.123 & 0.889\\
+        \cmidrule{2-6}
+                                            & \emph{MLP}                  & 0.119 & 0.112 & 0.111 & 0.876\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 1 en cuanto a la predicci\'on del atributo raza.}
+    \label{table:eval_baseline1_race}
+\end{table}
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{0.75\textwidth}{!}{
+        \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+        \midrule
+        \midrule
+                       {Anotaci\'on 1}      & 0.937 & 1.000 & 0.967 & 0.957\\
+                       {Anotaci\'on 2}      & 1.000 & 0.947 & 0.971 & 0.967\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 2 en cuanto a la predicci\'on del atributo g\'enero.}
+    \label{table:eval_baseline2_gender}
+\end{table}
+
+\begin{table}[htpb]
+    \centering
+    \resizebox{0.75\textwidth}{!}{
+        \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+        \midrule
+        \midrule
+                       {Anotaci\'on 1}      & 0.816 & 0.815 & 0.803 & 0.980\\
+                       {Anotaci\'on 2}      & 0.900 & 0.878 & 0.886 & 0.973\\
+        \bottomrule
+        \end{tabular}}
+    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} 2 en cuanto a la predicci\'on del atributo g\'enero.}
+    \label{table:eval_baseline2_race}
+\end{table}
+
 
 \section{Discusi\'on}
 Los resultados presentados en la Tabla~\ref{table:agreement_humans} indican un alto grado de concordancia entre las 
@@ -215,3 +346,18 @@ dispersi\'on en los valores de concordancia por texto respecto a los obtenidos p
 \emph{macro-agreement} de apenas \textbf{0.361} evidencia la falta de consistencia del anotador autom\'atico. En conjunto, estas
 m\'etricas proveen evidencia de que un anotador autom\'atico de prop\'osito general como \emph{ChatGPT} no es capaz de replicar
 de manera confiable las anotaciones realizadas por los anotadores humanos.  
+
+Analizando los resultados mostrados en la Tabla~\ref{table:eval_baseline1_gender} para la predicci\'on de g\'enero con el 
+\emph{baseline} de aprendizaje autom\'atico se observa que la exactitud se ubica entre \textbf{0.620} y \textbf{0.693}, 
+evidenciando una capacidad moderada del clasificador para acertar en la predicci\'on de g\'enero. La precisi\'on se 
+mantuvo en un rango entre \textbf{0.617} y \textbf{0.743} para todos los modelos, lo cual sugiere que los modelos no
+clasifican demasiados falsos positivos. Las puntuaciones de recobrado fueron en general altas, superando \textbf{0.718}
+en la mayor\'ia de los casos. Esto indica que los modelos en general clasifican bien las intancias positivas. Luego, las 
+puntuaciones F1 se mantuvieron en un rango entre \textbf{0.689} y \textbf{0.764}, lo que indica que los modelos logran
+un balance bastante aceptable entre precisi\'on y recobrado.
+
+En contraste, los resultados para la predicci\'on de raza con el \emph{baseline} de aprendizaje autom\'atico 
+muestran m\'etricas considerablemente m\'as bajas. Tanto la precisi\'on como el recobrado de los modelos se
+mantuvieron por debajo de \textbf{0.190}, y en consecuencia las puntuaciones F1 no superan \textbf{0.180}. Todo
+esto indica que los modelos no logran clasificar correctamente las instancias positivas. Los valores para la 
+exactitud superan el puntanje de \textbf{0.870}  
