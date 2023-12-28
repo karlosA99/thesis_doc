@@ -227,13 +227,14 @@ Se configuraron los seguientes hiperpar\'ametros para cada uno de los modelos en
 \subsection{Baseline Humano}\label{subsection:human_baseline}
 Para complementar el \emph{baseline} de aprendizaje autom\'atico, se propone un \emph{baseline} 
 basado en anotaciones realizadas por humanos. El objetivo es comparar el desempe\~no del 
-clasificador contra la habilidad de anotaci\'on humana en condiciones ideales, y as\'i 
+clasificador contra la habilidad de anotaci\'on humana, y as\'i 
 determinar qu\'e tan cerca o lejos est\'a el modelo de igualar la capacidad humana en 
 esta tarea.
 
 Es importante destacar que este \emph{baseline} no implica entrenar un modelo. En cambio,
-consiste en utilizar las anotaciones realizadas por los anotadores humanos como conjunto de
-evaluaci\'on para el clasificador entrenado en el \emph{baseline} de aprendizaje autom\'atico.
+consiste en utilizar las anotaciones realizadas por los anotadores humanos como modelo de 
+clasificaci\'on. De modo que, si se quiere la predicci\'on de este clasificador para un texto, 
+esta corresponde a la anotaci\'on previamente realizada por el humano.
 
 La idea detr\'as de esto es establecer una estimaci\'on optimista de la habilidad humana en
 la tarea, ya que el corpus sobre el que se realiza la evaluaci\'on fue construido precisamente 
