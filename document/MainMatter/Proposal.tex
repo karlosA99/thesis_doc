@@ -2,8 +2,8 @@
 El presente cap\'itulo describe en detalle la propuesta desarrollada para la construcci\'on de un corpus de datos no tabulares con 
 atributos protegidos anotados. En la secci\'on~\ref{section:annotation_scheme} se presenta el esquema de 
 anotaci\'on dise\~nado, especificando los atributos protegidos considerados y los valores definidos para cada uno. La
-secci\'on~\ref{section:annotation_process} explica el proceso de anotaci\'on llevado a cabo, incluyendo la evaluaci\'on de 
-la anotaci\'on, las directrices provistas a los anotadores y las herramientas desarrolladas para facilitar el proceso. En la
+secci\'on~\ref{section:annotation_process} explica el proceso de anotaci\'on llevado a cabo, incluyendo la evaluaci\'on del 
+mismo, las directrices provistas a los anotadores y las herramientas desarrolladas para facilitar el proceso. En la
 secci\'on~\ref{section:corpus_stats} se resumen las principales estad\'isticas del corpus resultante. Finalmente, en la 
 secci\'on~\ref{section:baseline} se describen dos \emph{baselines} propuestos sobre el corpus.
 
@@ -11,9 +11,9 @@ secci\'on~\ref{section:baseline} se describen dos \emph{baselines} propuestos so
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
 %Hablar de cuales son los atributos protegidos que se anotaron. ok
 %Hablar de los valores de cada atributo protegido y mas cosas relacionadas.ok/2
-En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo, puede estar formado por varias oraciones. 
-Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, 
-lo cual es importante para poder realizar un an\'alisis m\'as profundo de (decir algo aqui como que es mejor asi para tratar los sesgos).
+En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo que puede estar formado por varias oraciones. 
+Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, lo cual es fundamentale
+para lograr una comprensi\'on m\'as precisa y contextualizada de los mismos.
 
 En este caso, los atributos protegidos que se van a anotar son el g\'enero y la raza.
 Fueron seleccionados estos atributos no solo por su relevancia en diversas \'areas de estudio y aplicaci\'on, sino tambi\'en 
@@ -21,36 +21,36 @@ por la naturaleza de los textos que se van a anotar. Dado que las rese\~nas de p
 pueden contener un amplia gama de discusiones sobre actores, directores y personajes, es muy probable que se haga menci\'on a 
 estos atributos.
 
-Para el atributo g\'enero los valores a anotar son: ``Male'' para g\'enero masculino, ``Female'' para g\'enero femenino, 
-``Male, Female'' cuando se detectan ambos g\'eneros y ``Null'' en caso de no detectar ninguno.
+Para el atributo g\'enero los valores a anotar son: ``\emph{Male}'' para g\'enero masculino, ``\emph{Female}'' para g\'enero femenino, 
+``\emph{Male, Female}'' cuando se detectan ambos g\'eneros y ``\emph{Null}'' en caso de no detectar ninguno.
 
-En cuanto a la raza, los valores a anotar son: ``White'' para raza blanca, ``Black'' para raza negra, ``Indian'' para 
-personas originarias de la India, ``Arab'' para personas de origen \'arabe, que incluye a pa\'ises del medio oriente y el norte de 
-\'Africa. Adem\'as se incorpora el valor ``Latino'' para personas de origen latinoamericano, ``Native American'' para personas 
-originarias de los pueblos nativos de Am\'erica del Norte y ``Asian'' para personas asi\'aticas. Al igual que con el g\'enero, 
-``Null'' indica que no se detecta ninguna raza en el texto. N\'otese que, en caso de ser necesario la anotaci\'on de la raza de un 
+En cuanto a la raza, los valores a anotar son: ``\emph{White}'' para raza blanca, ``\emph{Black}'' para raza negra, ``\emph{Indian}'' para 
+personas originarias de la India, ``\emph{Arab}'' para personas de origen \'arabe, que incluye a pa\'ises del medio oriente y el norte de 
+\'Africa. Adem\'as se incorpora el valor ``\emph{Latino}'' para personas de origen latinoamericano, ``\emph{Native American}'' para personas 
+originarias de los pueblos nativos de Am\'erica del Norte y ``\emph{Asian}'' para personas asi\'aticas. Al igual que con el g\'enero, 
+``\emph{Null}'' indica que no se detecta ninguna raza en el texto. N\'otese que, en caso de ser necesario la anotaci\'on de la raza de un 
 texto puede incluir m\'as de un valor.
 
 \section{Proceso de anotaci\'on}\label{section:annotation_process}
 El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos 
 extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.imdb.com/}}, previamente anotados con g\'enero, producto 
-de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as extra\'idos de la misma fuente, con el 
+de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as, extra\'idos de la misma fuente, con el 
 objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan de manera aleatoria.
 
 Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en tres fases 
 fundamentales:
 
 \begin{enumerate}
-    \item Anotaci\'on exhaustiva de ambos atributos protegidos por parte de dos anotadores no expertos en la prolem\'tica. 
+    \item Anotaci\'on exhaustiva de ambos atributos por parte de dos anotadores no expertos en la prolem\'atica. 
     Generando as\'i dos anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas
-    con un anotador experto, pero no deben discutir las oraciones espec\'ificas que anotan.
+    con un anotador experto, pero no deben discutir los textos espec\'ificos que anotan.
     \item Mezcla de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
     anotaci\'on m\'as acertada. Esta etapa puede ser asistida por \emph{scripts} de mezcla que detecten y resalten autom\'aticamente
     los conflictos.
     \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.
 \end{enumerate}
 
-Luego de estas tres fases, el conjunto de textos resultante de mezclar y revisar ambas anotaciones manuales constituye el corpus, el 
+Luego de estas tres fases, el conjunto de textos resultante de mezclar y revisar ambas anotaciones manuales, constituye el corpus, el 
 cual debe ser evaluado como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
 
 \subsection{Evaluaci\'on de la anotaci\'on}\label{subsection:annotation_evaluation}
@@ -59,22 +59,22 @@ manuales del corpus. Adem\'as, se propone estudiar la consistencia estad\'istica
 de media, varianza y desviaci\'on est\'andar de los acuerdos entre anotadores, para cada atributo protegido.
 %#TODO: Ver como disminuir el uso de la palabra anotadores, anotaciones...
 
-La comparaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
-realizadas por los anotadores no expertos. Luego, en la segunda fase, se realiza la comparaci\'on entre las anotaciones de los 
-anotadores no expertos y el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\ref{section:results} 
+La evaluaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
+realizadas por los anotadores no expertos. Luego, en la segunda fase, se comparan las anotaciones de los 
+no expertos con el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\ref{section:results} 
 se muestran los resultados obtenidos en la evaluaci\'on del corpus.
 
 Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
 determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as 
 considera coincidencia parcial entre las anotaciones. Se calcula:
 
-\begin{equation*}
+\begin{equation}
     \mathcal{J}_{attr}(A, B) = \frac{|A \cap B|}{|A \cup B|} = \begin{cases}
         1, & \text{si coinciden ex\'actamente} \\
         0, & \text{si la intersecci\'on es vac\'ia} \\
         0 < p < 1, & \text{en otro caso}
     \end{cases}
-\end{equation*}
+\end{equation}
 
 Se define el conjunto $C_{attr} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Para analizar la consistencia estad\'istica 
 de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de los conjuntos $C_{g\acute{e}nero}$ y $C_{raza}$.
@@ -102,16 +102,15 @@ auxiliarse de informaci\'on externa, como la b\'usqueda de im\'agenes de los per
 %Describir los scripts que se hicieron para anotar, mezclar y todo eso
 Se desarrollaron dos \emph{scripts} de \emph{Python} para asistir en el proceso de anotaci\'on. Un primer \emph{script}
 se encarga de guiar al anotador en todo este proceso, mostrando los textos a anotar y permitiendo la selecci\'on de los valores
-que correspondana a cada atributo protegido. Adem\'as, este \emph{script} almacena continuamente las anotaciones en un archivo
-\emph{CSV}, para evitar p\'erdidas de informaci\'on en caso de que ocurra alg\'un error. El segundo \emph{script} se encarga de
-mezclar las anotaciones de los anotadores no expertos, resaltando los conflictos y permitiendo la selecci\'on de la anotaci\'on
-m\'as acertada por parte del experto. Este \emph{script} tambi\'en almacena las anotaciones en un archivo nuevo archivo
-\emph{CSV}.
+que correspondana a cada atributo protegido. El segundo \emph{script} se encarga de mezclar las anotaciones de los anotadores 
+no expertos, resaltando los conflictos y permitiendo la selecci\'on de la anotaci\'on m\'as acertada por parte del experto. 
+Ambos \emph{scripts} almacenan continuamente las anotaciones en archivos \emph{CSV} para evitar posibles p\'erdidas de 
+informaci\'on en caso de que ocurra alg\'un error.
 
 \section{Estad\'isticas del Corpus}\label{section:corpus_stats}
 El corpus fue construido a partir un fichero \emph{CSV}, tomado de la plataforma 
 Kaggle\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}. 
-Este fichero contiene 24904 rese\~nas de pel\'iculas en idioma espa\~nol. Cada entrada del fichero contiene el texto de la rese\~na, 
+Este fichero contiene 24904 rese\~nas de pel\'iculas en idioma ingl\'es. Cada entrada del fichero contiene el texto de la rese\~na, 
 y un atributo binario anotado que indica si la rese\~na es positiva o negativa. Se contaba inicialmente con un conjunto de 70 textos 
 preseleccionados, a los que se a\~nadieron 80 nuevos textos seleccionados de manera aleatoria.
 
@@ -199,13 +198,13 @@ extraer los atributos protegidos de los textos. Los resultados son discutidos en
 %parrafo de preprocesamiento
 %parrafo de prediccion (los modelos de sklearn)
 El preprocesamiento realizado en este caso se basa en obtener representaciones vectoriales sem\'anticas 
-de los textos. Para ello, se utiliza el tokenizador y modelo 
+de los textos. Para ello, se utiliza el \emph{tokenizador} y modelo 
 \emph{BERT}\footnote{\url{https://huggingface.co/docs/transformers/model_doc/bert}} preentrenados de 
-\emph{Hugging Face}\footnote{\url{https://huggingface.co}}. Primero, el texto se tokeniza con el 
+\emph{Hugging Face}\footnote{\url{https://huggingface.co}}. Primero, el texto se \emph{tokeniza} con el 
 tokenizador de \emph{BERT}, convirtiendo a min\'usculas si el modelo lo requiere. Se agregan los 
-tokens especiales [CLS] y [SEP] para indicar el inicio y fin del texto respectivamente.
-Luego, el texto tokenizado se pasa a trav\'es del modelo \emph{BERT} para obtener el vector de 
-embeddings del token [CLS], que codifica la representaci\'on sem\'antica de toda la secuencia. 
+\emph{tokens} especiales [CLS] y [SEP] para indicar el inicio y fin del texto respectivamente.
+Luego, el texto \emph{tokenizado} se pasa a trav\'es del modelo \emph{BERT} para obtener el vector de 
+embeddings del \emph{token} [CLS], que codifica la representaci\'on sem\'antica de toda la secuencia. 
 
 Se probaron varios modelos de clasificaci\'on supervisada brindados por la biblioteca 
 \emph{sklearn}\footnote{\url{https://scikit-learn.org/}} para la predicci\'on de g\'enero y raza 
@@ -233,8 +232,8 @@ esta tarea.
 
 Es importante destacar que este \emph{baseline} no implica entrenar un modelo. En cambio,
 consiste en utilizar las anotaciones realizadas por los anotadores humanos como modelo de 
-clasificaci\'on. De modo que, si se quiere la predicci\'on de este clasificador para un texto, 
-esta corresponde a la anotaci\'on previamente realizada por el humano.
+clasificaci\'on. De modo que, si se requiere la predicci\'on de este clasificador para un texto, 
+esta corresponda a la anotaci\'on previamente realizada por el humano.
 
 La idea detr\'as de esto es establecer una estimaci\'on optimista de la habilidad humana en
 la tarea, ya que el corpus sobre el que se realiza la evaluaci\'on fue construido precisamente 
@@ -243,4 +242,12 @@ anotadores humanos sin entrenamiento espec\'ifico rindan peor que este \emph{bas
 
 
 \subsection{Detalles de implementaci\'on}
-%No se que poner aqui, xq en general todo lo que implementacion esta descrito a los largo del trabajo en distintas secciones
+
+En el proceso de obtenci\'on de las representaciones vectoriales de los textos, se presenta el caso
+de textos que superaban el tama\~no m\'aximo de entrada admitido por \emph{BERT}, que es de 512 \emph{tokens}.
+Esto se debe a que algunos textos del corpus son rese\~nas bastante extensas. Para solucionar este problema en 
+los casos que se requiera, se divide el texto en segmentos que no superen los 512 \emph{tokens}. Luego, se obtiene
+la representaci\'on vectorial de cada segmento y se promedian para obtener un \'unico vector de \emph{embedding}
+representativo de todo el texto original.
+
+%No se si debe annadir algo mas aqui, pero por ahora lo dejo asi
