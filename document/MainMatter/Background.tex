@@ -25,7 +25,7 @@
 Este cap\'itulo presenta una revisi\'on del estado del arte sobre la problem\'atica de la justicia y la equidad en los modelos de 
 aprendizaje autom\'atico. Se discuten conceptos clave como la existencia de sistemas algor\'itmicos sesgados, las principales fuentes
 y tipos de sesgos, as\'i como las definiciones predominantes de equidad y t\'ecnicas para la detecci\'on y mitigaci\'on de sesgos.
-Adem\'as, se pone especial \'enfasis en el papel que juegan los datasets con atributos protegidos anotados en el desarrollo
+Adem\'as, se hace especial \'enfasis en el papel que juegan los datasets con atributos protegidos anotados en el desarrollo
 y evaluaci\'on de t\'ecnicas para promover la justicia algor\'itmica. Por \'ultimo, el cap\'itulo presenta un an\'alisis de los 
 principales datasets utilizados en la literatura para el tratamiento de sesgos.
 
@@ -43,19 +43,19 @@ principales datasets utilizados en la literatura para el tratamiento de sesgos.
     en comparaci\'on con la evaluaci\'on realizada por personas no expertas, el desempe\~no del sistema no demostr\'o mejoras 
     significativas~\parencite{compas2}. 
     
-    Los datos de la Encuesta de Gastos M\'edicos (\texttt{MEPS}\footnote{\url{https://meps.ahrq.gov/mepsweb/about_meps/spanish.jsp}}, 
+    Los datos de la Encuesta de Gastos M\'edicos (MEPS\footnote{\url{https://meps.ahrq.gov/mepsweb/about_meps/spanish.jsp}}, 
     por sus siglas en ingl\'es) son una colecci\'on de encuestas representativas a nivel nacional, de acceso p\'ublico, que proporcionan 
     datos sobre el uso y los costos de los servicios de atenci\'on m\'edica para la poblaci\'on civil no institucionalizada de los Estados Unidos. 
     Es com\'un el empleo de estos datos para el desarrollo de modelos predictivos de gastos de salud con el objetivo de guiar decisiones 
     en la gesti\'on de la atenci\'on m\'edica, enfermedades y costos asociados. Se ha comprobado que estos modelos tambi\'en capturan sesgos, 
-    generando uun sesgo significativo en perjuicio de las personas afroamericanas. Concretamentea, existe una menor probabilidad de que 
+    generando un sesgo significativo en perjuicio de las personas afroamericanas. Concretamente, existe una menor probabilidad de que 
     las personas afroamericanas sean identificadas como pacientes con altos gastos futuros en comparaci\'on con las personas personas blancas, 
     lo que resulta en una menor probabilidad de recibir gesti\'on de atenci\'on~\parencite{understanding}.
 
     Los sesgos presentes en la sociedad tambi\'en se han identificado en anuncios generados por modelos de aprendizaje 
     autom\'atico~\parencite{sweeney2013discrimination,datta2015automated} y en motores de b\'usqueda web~\parencite{unequal_rep}, 
-    pricipalmente en relaci\'on al g\'enero. Adem\'as, se han identificado sesgos en otros sistemas como los 
-    chatbots~\parencite{chatbot_bias}, as\'i como en sistemas de reconocimiento facial~\parencite{facial_bias} y algunos 
+    pricipalmente en relaci\'on al g\'enero. Adem\'as, se han detectado sesgos en otros sistemas como los 
+    chatbots~\parencite{chatbot_bias}, as\'i como en algoritmos de reconocimiento facial~\parencite{facial_bias} y algunos 
     sistemas empleados en concursos de belleza~\parencite{beauty}.
 
     La rama de la inteligencia artificial que se ocupa del Procesamiento del Lenguaje Natural (NLP, por sus siglas en ingl\'es) ha sido 
@@ -91,11 +91,11 @@ principales datasets utilizados en la literatura para el tratamiento de sesgos.
     \subsection{Sesgos de los datos al algoritmo}
     
     \begin{itemize}
-        \item \textbf{Sesgo por medici\'on}: Este sesgo surge de como se eligen, utilizan y miden atributos particulares. Un ejemplo de esto se observa 
+        \item \textbf{Sesgo por medici\'on}: Surge de como se eligen, utilizan y miden atributos particulares. Un ejemplo de esto se observa 
         en la herramienta de predicci\'on de riesgo de reincidencia COMPAS, donde detenciones anteriores y detenciones de amigos o familiares se utilizaron 
         como variables para medir peligrosidad.
         
-        \item \textbf{Sesgo por variable omitida}: Este sesgo ocurre cuando una o m\'as variables importantes son excluidas del modelo. Decir algo mas
+        \item \textbf{Sesgo por variable omitida}: Ocurre cuando una o m\'as variables importantes son excluidas del modelo.
         
         \item \textbf{Sesgo por representaci\'on}: Este sesgo se produce de c\'omo se seleccionan las muestras de una poblaci\'on durante el proceso de
         recopilaci\'on de datos. Las muestras no representativas carecen de la diversidad de la poblaci\'on, con subgrupos faltantes y otras anomal\'ias.
@@ -104,16 +104,16 @@ principales datasets utilizados en la literatura para el tratamiento de sesgos.
     \subsection{Sesgos del algoritmo al usuario}
 
     \begin{itemize}
-        \item \textbf{Sesgo algor\'itmico}: El sesgo algor\'itmico se presenta cuando el sesgo no est\'a presente en los datos de entrada
+        \item \textbf{Sesgo algor\'itmico}: Se presenta cuando el sesgo no est\'a presente en los datos de entrada
         y se agrega puramente por el algoritmo. Las elecciones de dise\~no algor\'itmico, como el uso de ciertas funciones de optimizaci\'on, 
         regularizaciones, decisiones en la aplicaci\'on de modelos de regresi\'on en los datos en su totalidad o considerando subgrupos, y el uso
-        general de estimadores estad\'isticamente sesgados en algoritmos, todos pueden contribuir a decisiones algor\'itmicas sesgadas que 
+        general de estimadores estad\'isticamente sesgados en algoritmos, todos pueden contribuir a decisiones sesgadas que 
         afectan los resultados de los algoritmos. 
         
         \item \textbf{Sesgo por la interacci\'on del usuario}: El sesgo de interacci\'on del usuario no solo puede observarse en la web, sino que 
         tambi\'en puede ser producido por dos fuentes: la interfaz de usuario y cuando el propio usuario impone su comportamiento sesgado.
         
-        \item \textbf{Sesgo de evaluaci\'on}: El sesgo de evaluci\'on ocurre durante la evaluaci\'on del modelo. Esto incluye el uso de m\'etricas
+        \item \textbf{Sesgo de evaluaci\'on}: Ocurre durante la evaluaci\'on del modelo. Esto incluye el uso de m\'etricas
         inapropiadas y desproporcionadas para la evaluaci\'on del modelo. Un ejemplo de esto son las m\'etricas \textit{Adience} y \textit{IJB-A}, 
         que se utilizan en la evaluaci\'on de sistemas de reconocimiento facial que estaban sesgados hacia el color de la piel y el g\'enero.
     \end{itemize}
@@ -121,24 +121,24 @@ principales datasets utilizados en la literatura para el tratamiento de sesgos.
     \subsection{Sesgos del usuario a los datos}
 
     \begin{itemize}
-        \item \textbf{Sesgo hist\'orico}: El sesgo hist\'orico es el sesgo y los problemas sociot\'ecnicos ya existentes en el mundo y puede 
-        generarse desde el proceso de generaci\'on de datos incluso con un muestreo y selecci\'on de caracter\'isticas perfectos.
-
-        \item \textbf{Sesgo poblacional}: El sesgo poblacional surge cuando las estad\'isticas, demograf\'ias, representantes y caracter\'isticas 
-        de los usuarios son diferentes en la poblaci\'on de usuarios de la plataforma con respecto a la poblaci\'on objetivo original, creando datos no
-        representativos. Un ejemplo de este tipo de sesgo puede surgir de las diferentes demograf\'ias de usuarios en las plataformas sociales, como las
+        \item \textbf{Sesgo hist\'orico}: Es el sesgo y los problemas sociot\'ecnicos ya existentes en el mundo y puede 
+        producirse desde el proceso de generaci\'on de datos incluso con un muestreo y selecci\'on de caracter\'isticas perfectos.
+        
+        \item \textbf{Sesgo poblacional}: Surge cuando las estad\'isticas, demograf\'ias y caracter\'isticas 
+        de la poblaci\'on de usuarios de la plataforma son diferentes respecto a la poblaci\'on objetivo original, creando datos no
+        representativos. Este tipo de sesgo puede surgir de las diferentes demograf\'ias de usuarios en las plataformas sociales, como las
         mujeres que son m\'as propensas a usar \textit{Pinterest}, \textit{Facebook}, \textit{Instagram}, mientras que los hombres son m\'as activos en 
         foros en l\'inea como \textit{Reddit} o \textit{X}.
 
-        \item \textbf{Sesgo social}: El sesgo social se produce cuando las acciones de otros afectan el juicio de una persona. Un ejemplo de este tipo de 
-        sesgo podr\'ia ser un caso en el que la persona quiere calificar o revisar un elemento con puntuaci\'on baja, pero al ser influenciada por otras
-        calificaciones altas, cambia su puntuaci\'on a una calificaci\'on m\'as alta, pensando que quiz\'as esta siendo demasiado severa.
+        \item \textbf{Sesgo social}: Se produce cuando las acciones de otros afectan el juicio de una persona. Un ejemplo de este tipo de 
+        sesgo podr\'ia ser un caso en el que la persona quiere otorgar a un elemento una calificaci\'on baja, pero al ser influenciada por otras
+        altas, cambia su puntuaci\'on a una calificaci\'on m\'as alta, pensando que quiz\'as esta siendo demasiado severa.
     \end{itemize}
 
 \section{Detecci\'on y mitigaci\'on de sesgos}
 
-Las definiciones de equidad en el contexto de los modelos de aprendizaje de m\'aquinas nos llevan 
-a un panorama complejo y en constante evoluci\'on. A d\'ia de hoy, no existe una definici\'on \'unica y precisa
+Las definiciones de equidad en el contexto de los modelos de aprendizaje autom\'atico conducen 
+a un escenario complejo y en constante evoluci\'on. A d\'ia de hoy, no existe una definici\'on \'unica y precisa
 de lo que constituye la equidad en este \'ambito. La implementaci\'on de algoritmos en la toma de decisiones automatizada ha desatado 
 debates acerca de c\'omo conceptualizar y medir tanto la equidad como la justicia. Estos conceptos no solo involucran consideraciones 
 t\'ecnicas, sino que tambi\'en se ven influidos por matices culturales y dilemas \'eticos.
@@ -182,11 +182,11 @@ A continuaci\'on se presentan algunas de las definiciones de equidad m\'as relev
 Los algoritmos destinados a la mitigaci\'on de sesgos se pueden clasificar esencialmente en m\'etodos de 
 pre-procesamiento~\parencite{osti_10182459}, durante el procesamiento~\parencite{ml_in_admissions} y 
 post-procesamiento~\parencite{compas}, seg\'un la fase del proceso de aprendizaje en que se realizen. Recientemente, 
-han surgido nuevos m\'etodos llamados meta-algoritmos que ofrecen resultados interesantes en diversos escenarios.
+han surgido nuevos m\'etodos llamados meta-algoritmos que ofrecen resultados prometedores en diversos escenarios.
 
 Las estrategias de pre-procesamiento buscan la equidad al modificar la representaci\'on de los datos antes de aplicar un modelo de aprendizaje
 autom\'atico. En este proceso se pueden aplicar diversas t\'ecnicas sobre los datos, como eliminar atributos protegidos y atributos correlacionados
-con estos, o bien, modificar las etiquetas de algunos objetos en el datset~\parencite{preproc}. Una ventaja de estas t\'ecnicas es que son independientes
+con estos, o bien, modificar las etiquetas de algunos objetos en el dataset~\parencite{preproc}. Una ventaja de estas t\'ecnicas es que son independientes
 al modelo. Sin embargo, requieren ajustes de hiperpar\'ametros tanto propios como del modelo seleccionado para optimizar su desempe\~no.
 
 Los m\'etodos aplicados durante el procesamiento, modifican los algoritmos de aprendizaje para eliminar la fuente de discriminaci\'on. Esto se 
@@ -202,9 +202,9 @@ modelo, y a partir de esto, ajustan la predicci\'on~\parencite{seymour2018bias}.
 en esta fase es inherentemente sub\'optimo y puede resultar en un peor equilibrio entre eficacia y equidad.
 
 Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos, una categor\'ia de m\'etodos recientemente propuesta para problemas de 
-mitigaci\'on de sesgos. Estos simplifican la tarea de mitigaci\'on de sesgos a una serie de problemas de clasificaci\'on, cada uno con 
+mitigaci\'on de sesgos. Estos simplifican dicha tarea a una serie de problemas de clasificaci\'on, cada uno con 
 un costo asociado a sus errores de predicci\'on~\parencite{agarwal2018reductions, agarwal2019fair}.
-A diferencia de los m\'etodos operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
+A diferencia de los m\'etodos que operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
 clasificador base, solo dependen de la capacidad de este para ser reentrenado repetidamente. Las soluciones a estos problemas suelen generar
 un clasificador randomizado.
 
@@ -220,7 +220,7 @@ de mitigaci\'on de sesgos de varias maneras:
     \item Permitiendo una detecci\'on m\'as amplia de sesgos en conjuntos de datos a gran escala.
     \item Proporcionando atributos protegidos predichos que pueden utilizarse en t\'ecnicas basadas en 
     la equidad de grupos.
-    \item Generando conjuntos de datos sint\'eticos con atribuitos protegidos para el entrenamiento y evaluaci\'on de 
+    \item Generando conjuntos de datos sint\'eticos con atributos protegidos para el entrenamiento y evaluaci\'on de 
     modelos.
     \item Haciendo posible el an\'alisis de sesgos en casos donde la recopilaci\'on manual de los atributos protegidos
     puede ser dif\'icil, invasiva o poco \'etica.
@@ -229,7 +229,7 @@ de mitigaci\'on de sesgos de varias maneras:
 Sin embargo, la precisi\'on de los modelos autom\'aticos est\'a limitada por la calidad de los datos de entrenamiento. Por ello, es 
 recomendable complementar estas predicciones con revisiones manuales por parte de expertos.
  
-\section{Datasets en el tratamiento de sesgos}
+\section{Datasets en el an\'alisis de sesgos}
     % \begin{itemize}
     %     \item empezar hablando de como los datasets ayudan a desarrollar y evaluar tecnicas de evaluacion y mitigacion de sesgos
     %     \item luego mencionar y decir algo de los datasets clasicos con datos tabulares
@@ -255,20 +255,20 @@ recomendable complementar estas predicciones con revisiones manuales por parte d
 
     %#TODO deberia annadir una tabla tambien de tabulares?????
     \begin{itemize}
-        \item \textbf{Adult}: Tambi\'en conocido como \textit{Census Income}, este dataset contiene 48842 registros de 
+        \item \textbf{Adult}: Tambi\'en conocido como \emph{Census Income}, este dataset contiene 48842 registros de 
         datos sobre el censo de 1994 en Estados Unidos. Incluye 14 atributos, como edad, educaci\'on, estado civil,
-        ocupaci\'on, raza, g\'enero, pa\'is de origen, horas de trabajo por semana, entre otros. Adem\'as para cada 
-        persona dice si sus ingresos son mayores o menores a 50 mil d\'olares anuales.
+        ocupaci\'on, raza, g\'enero, pa\'is de origen, horas de trabajo por semana, entre otros. Adem\'as, para cada 
+        persona indica si sus ingresos son mayores o menores a 50 mil d\'olares anuales.
         \item \textbf{Compas}: Este dataset contiene 18610 registros de los acusados del condado de Broward, Florida,
         indicando sus tiempos en la c\'arcel y prisi\'on, datos demogr\'aficos, antecedentes penales y puntuaciones 
         de riesgo, desde 2013 hasta 2014.
-        \item \textbf{German Credit}: El dataset \textit{German Credit} contiene 1000 registros crediticios que incluyen atributos 
-        como estado personal y g\'enero, puntaje crediticio, monto del cr\'edito, estado de vivienda, entre otros. Adem\'as cada 
+        \item \textbf{German Credit}: El dataset \emph{German Credit} contiene registros del estado financiero de 1000 individuos,
+        que incluye atributos como g\'enero, puntaje crediticio, monto del cr\'edito, estado de vivienda, entre otros. Adem\'as cada 
         persona es clasificada como un riesgo crediticio bueno o malo, seg\'un el conjunto de atributos.
         \item \textbf{Communities and Crime}: Este dataset recopila informaci\'on de diversas comunidades en Estados Unidos, 
         relacionada con varios factores que pueden influir significativamente en algunos delitos comunes, como robos, asesinatos o 
-        violaciones. Los datos incluyen informaci\'on sobre delitos obtenida de la encuesta \textit{LEMAS} de Estados Unidos en 1990 y 
-        del \textit{Informe Unificado de Delitos del FBI} en 1995. Adem\'as, se incluyen datos demogr\'aficos y socioecon\'omicos del 
+        violaciones. Los datos incluyen informaci\'on sobre delitos obtenida de la encuesta \emph{LEMAS} de Estados Unidos en 1990 y 
+        del \emph{Informe Unificado de Delitos del FBI} en 1995. Adem\'as, se incluyen datos demogr\'aficos y socioecon\'omicos del 
         censo de 1990.
 
     \end{itemize}
@@ -276,10 +276,10 @@ recomendable complementar estas predicciones con revisiones manuales por parte d
     \subsection{Datasets con datos no tabulares}
     Los datasets con datos no tabulares y atributos protegidos anotados, como im\'agenes, audio, texto y otros formatos complejos, 
     son considerablemente menos comunes que los datasets con datos tabulares. Esto se debe a la complejidad y el costo asociado a la 
-    recopilaci\'on, etiquetado y mantenimientode datos no tabulares.
+    recopilaci\'on, etiquetado y mantenimiento de datos no tabulares.
 
     Mientras que los datos tabulares son adecuados para problemas estructurados, los datos no tabulares permiten abordar tareas m\'as diversas, 
-    como reconocimiento de im\'agenes, procesamiento de lenguaje natural, an\'alisis de audio y textos. Esto los convierte en un recurso muy importantes
+    como reconocimiento de im\'agenes, procesamiento de lenguaje natural, an\'alisis de audio y textos. Esto los convierte en un recurso muy importante
     para el desarrollo y evaluaci\'on de t\'ecnicas de mitigaci\'on de sesgos en estos escenarios. En la tabla~\ref{table:datasets} 
     se presentan algunos ejemplos relevantes de datasets con datos no tabulares y atributos protegidos anotados de inter\'es para el 
     an\'alisis de sesgos.
@@ -344,7 +344,7 @@ recomendable complementar estas predicciones con revisiones manuales por parte d
     entrenamiento, prueba y validaci\'on.
     %#TODO ver como hacer para que las urls no me queden tan largan en los pie de pagina
     El dataset \textit{Bias in Toxicity}\footnote{\url{https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification}}
-    est\'a formado por comentarios, con gran cantidad de atributos protegidos anotados: male, female, white, asian, entre otros. Tambi\'en se 
+    est\'a formado por comentarios de individuos, con gran cantidad de atributos protegidos anotados. Tambi\'en se 
     indica el nivel de toxicidad y toxicidad severa de cada comentario. Cada atributo es un valor entre $0$ y $1$ que indica la probabilidad de 
     que el comentario pertenezca a la clase correspondiente. Este dataset aporta tambi\'en los subconjuntos de entrenamiento y prueba, adem\'as 
     de otros subconjuntos relacionados con la anotaci\'on del mismo.  
@@ -370,13 +370,13 @@ Los datasets presentados anteriormente constituyen un recurso valioso para apoya
 mitigaci\'on de sesgos en modelos de aprendizaje autom\'atico. Sin embargo, la principal limitante de estos es que ninguno ofrece 
 informaci\'on sobre decisiones tomadas sobre los sujetos, como la decisi\'on de otorgar un pr\'estamo o la de contratar a una persona.
 
-Esta limitaci\'on es significativa porque impide una evaluaci\'on completa de si las decisiones tomadas por los algoritmos basados 
+Esta limitante es significativa porque impide una evaluaci\'on completa sobre si las decisiones tomadas por los algoritmos basados 
 en los datos son sesgadas o no. Por ejemplo, si un algoritmo se utiliza para tomar decisiones de contrataci\'on bas\'andose en datos
 sobre solicitantes de empleo, incluyendo su g\'enero y raza, ser\'ia \'util conocer si a cada solicitante se le ofreci\'o 
 un trabajo o no. Esta informaci\'on permitir\'ia evaluar si el algoritmo se inclina a ofrecer trabajos a personas con cierto g\'enero o raza
 por encima de otras.
 
-Por lo tanto, en el contexto de esta tesis, que tiene como objetivo el dise\~no y evaluaci\'on de un dataset de datos no tabulares
+Por lo tanto, en el contexto de esta tesis, que tiene como objetivo el dise\~no y evaluaci\'on de un dataset de estructura no tabular
 con atributos protegidos anotados, es importante considerar la inclusi\'on de informaci\'on sobre las decisiones tomadas sobre los sujetos.
 El dataset de rese\~nas de pel\'iculas \emph{IMDb}\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}
 cumple con esta restricci\'on, ya que incluye el sentimiento presente en cada rese\~na, que puede considerarse como una decisi\'on de 
