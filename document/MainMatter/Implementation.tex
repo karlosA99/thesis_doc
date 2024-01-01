@@ -14,7 +14,7 @@ Adem\'as, se describen los hiperpar\'ametros utilizados y el hardware empleado p
 La experimentaci\'on realizada se divide en dos escenarios. El primero de ellos se centra en analizar la concordancia alcanzada entre 
 los anotadores humanos durante el proceso de construcci\'on del corpus. El segundo escenario, se orienta a utilizar el corpus 
 desarrollado para entrenar y evaluar la eficacia de un modelo de clasificaci\'on de g\'enero y raza. Esto tiene como objetivo determinar
-la capacidad de un anotador autom\'atico en replicar de manera confiable las anotaciones realizadas por los anotadores humanos. 
+la capacidad de un anotador autom\'atico en replicar de manera confiable las anotaciones realizadas por los humanos. 
 
 \subsubsection{Escenario I: Concordancia entre Anotadores}
 Este escenario tiene como objetivo examinar la concordancia entre anotadores planteada en la 
@@ -35,7 +35,7 @@ emplea \emph{ChatGPT}~3.5 como anotador autom\'atico, y se comparan sus anotacio
 Este escenario tiene como objetivo evaluar los baselines dise\~nados en la secci\'on~\ref{section:baseline}, con el fin de 
 validar su desempe\~no sobre el corpus desarrollado.
 
-Para el obtener los \emph{embeddings} de los textos utilizados en el proceso de entrenamiento del \emph{baseline} 
+Para obtener los \emph{embeddings} de los textos utilizados en el proceso de entrenamiento del \emph{baseline} 
 de aprendizaje autom\'atico, se utilizaron cuatro modelos de \emph{BERT} que ofrece \emph{HuggingFace}.
 Por tanto se tienen cuatro conjuntos de \emph{embeddings} diferentes para el entrenamiento de cada uno de 
 los modelos estudiados. La Tabla~\ref{table:bert_models} muestra una comparaci\'on entre los modelos de \emph{BERT} utilizados.
@@ -60,7 +60,7 @@ combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la secci\'o
 \end{table}
 
 \subsubsection{M\'etricas de evaluaci\'on}
-Las m\'etricas empleadas fueron macro precisi\'on, macro recobrado, macro puntuaci\'on F1 y 
+Las m\'etricas empleadas fueron macro precisi\'on, macro recobrado, macro $F_1$ y 
 macro exactitud. Estas fueron calculadas apoy\'andose en las siguientes variables: 
 
 \begin{itemize}
@@ -72,12 +72,12 @@ macro exactitud. Estas fueron calculadas apoy\'andose en las siguientes variable
 
 Las versiones macro de las m\'etricas se calculan promediando cada valor obtenido de las siguientes ecuaciones:
 
-\begin{align*}
+\begin{align}
     Precision_{attr} &= \frac{TP_{attr}}{TP_{attr} + FP_{attr}}\\
     Recobrado_{attr} &= \frac{TP_{attr}}{TP_{attr} + FN_{attr}}\\
     F1_{attr} &= 2 \cdot \frac{{Precision_{attr}} \cdot {Recobrado_{attr}}}{{Precision_{attr}} + {Recobrado_{attr}}}\\
     Exactitud_{multiclase} &= \frac{TP_{multiclase} + TN_{multiclase}}{TP_{multiclase} + TN_{multiclase} + FP_{multiclase} + FN_{multiclase}}\\
-\end{align*}
+\end{align}
 
 
 \subsection{Corpus de Evaluaci\'on}
@@ -101,7 +101,7 @@ autom\'atico, como para evaluar el \emph{baseline} humano.
 Para llevar a cabo estas evaluaciones, se emplea la 
 metodolog\'ia \emph{K-fold cross-validation}. En este proceso, el modelo se entrena $K$ veces, utilizando 
 $K-1$ particiones del corpus como conjunto de entrenamiento y la partici\'on restante como conjunto de evaluaci\'on.
-Este enfoque enfoque permite obtener m\'etricas de rendimiento m\'as robustas y confiables, teniendo en cuenta 
+Este enfoque permite obtener m\'etricas de rendimiento m\'as robustas y confiables, teniendo en cuenta 
 la limitada cantidad de datos disponibles.
 
 Para ambos \emph{baselines}, se elimina una fila del corpus. La raz\'on detr\'as de esto es que el atributo raza de dicha 
@@ -120,7 +120,7 @@ Los experimentos fueron ejecutados en un equipo con las siguientes propiedades: 
 El sistema operativo utilizado fue \emph{Windows 10 Pro}, versi\'on 21H2 y con una arquitectura de 64 bits.
 
 \section{Resultados}\label{section:results}
-A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos de la forma descrita en la 
+A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos descritos en la 
 secci\'on~\ref{section:experimental_framework}.
 
 La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del \textbf{Escenario~I}.
@@ -358,36 +358,36 @@ de manera confiable las anotaciones realizadas por los anotadores humanos.
 Analizando los resultados mostrados en la Tabla~\ref{table:eval_baseline1_gender} para la predicci\'on de g\'enero con el 
 \emph{baseline} de aprendizaje autom\'atico se observa que la exactitud alcanza valores hasta de \textbf{0.404}, 
 evidenciando una capacidad moderada del clasificador para acertar en la predicci\'on de g\'enero. La precisi\'on se 
-mantuvo en un rango entre \textbf{0.617} y \textbf{0.743} para todos los modelos, lo cual sugiere que los modelos no
+mantuvo en un rango entre \textbf{0.617} y \textbf{0.743} para todos los modelos, lo cual sugiere que estos no
 clasifican demasiados falsos positivos. Las puntuaciones de recobrado fueron en general altas, superando \textbf{0.718}
 en la mayor\'ia de los casos. Esto indica que los modelos en general clasifican bien las intancias positivas. Luego, las 
-puntuaciones F1 se mantuvieron en un rango entre \textbf{0.689} y \textbf{0.764}, lo que indica que los modelos logran
-un balance bastante aceptable entre precisi\'on y recobrado.
+puntuaciones $F_1$ se mantuvieron en un rango entre \textbf{0.689} y \textbf{0.764}, demostrando que se logra
+un balance bastante aceptable entre precisi\'on y recobrado.%A lo mejor se puede decir algo mejor que bastante aceptable
 
 En contraste, los resultados para la predicci\'on de raza (Tabla~\ref{table:eval_baseline1_race}) con el 
 \emph{baseline} de aprendizaje autom\'atico muestran m\'etricas considerablemente m\'as bajas. Tanto la 
 precisi\'on como el recobrado de los modelos se mantuvieron por debajo de \textbf{0.190}, y en consecuencia 
-las puntuaciones F1 no superan \textbf{0.180}. Todo esto indica de manera consistente que los modelos no 
+las puntuaciones $F_1$ no superan \textbf{0.180}. Todo esto evidencia de manera consistente que los modelos no 
 logran clasificar correctamente las instancias positivas. Los valores para la exactitud no superan el puntanje 
 de \textbf{0.205}. 
 
 Estas diferencias tan marcadas en las m\'etricas de g\'enero y raza sugieren que predecir autom\'aticamente la 
-raza a partir de texto presenta un desaf\'io significativamente mayor en comparaci\'on con la predicci\'on de 
+raza a partir de texto representa un desaf\'io significativamente mayor en comparaci\'on con la predicci\'on de 
 g\'enero. 
 
 Las m\'etricas obtenidas para el \emph{baseline} humano, mostradas en las 
 Tablas~\ref{table:eval_baseline2_gender} y~\ref{table:eval_baseline2_race}, indican un desempe\~no muy 
 superior al de los modelos de aprendizaje autom\'atico. 
 
-Para la tarea de g\'enero (Tabla~\ref{table:eval_baseline2_gender}), la precisi\'on, recobrado, 
-puntuaci\'on F1 y exactitud superan \textbf{0.870} para ambos anotadores. Lo que sugiere un 
+Para la tarea de g\'enero (Tabla~\ref{table:eval_baseline2_gender}), todos los valores alcanzados
+por las m\'etricas superan \textbf{0.870} para ambos anotadores. Lo que sugiere un 
 rendimiento muy consistente y preciso en la clasificaci\'on tanto de instancias positivas, 
-como de instancias negativas. En general se observa un desempe\~no superior del 
+como negativas. En general se observa un desempe\~no superior del 
 \emph{baseline} humano en comparaci\'on com el \emph{baseline} de aprendizaje autom\'atico en 
 esta tarea.
 
-Del mismo modo, para la predicci\'on de la raza, se obtienen valores de precisi\'on, recobrado,
-puntuaci\'on F1 y exactitud muy prometedores para ambos anotadores. La precisi\'on y 
+Del mismo modo, para la predicci\'on de la raza, los valores obtenidos en las m\'etricas calculadas son 
+muy prometedores para ambos anotadores. La precisi\'on y 
 recobrado alcanzada por los anotadores superan \textbf{0.810}, y la puntuaci\'on F1 estuvo 
 por encima de \textbf{0.80}. La exactitud tambi\'en fue muy alta, con valores de \textbf{0.810}
 y \textbf{0.959}, evidenciando la gran habilidad de los humanos para replicar las anotaciones
