@@ -18,13 +18,13 @@ la capacidad de un anotador autom\'atico en replicar de manera confiable las ano
 
 \subsubsection{Escenario I: Concordancia entre Anotadores}
 Este escenario tiene como objetivo examinar la concordancia entre anotadores planteada en la 
-secci\'on~\ref{subsection:annotation_evaluation}. El escenario busca obtener una estimaci\'on confiable de la dificultad de la 
+Secci\'on~\ref{subsection:annotation_evaluation}. El escenario busca obtener una estimaci\'on confiable de la dificultad de la 
 tarea de anotaci\'on, as\'i como evaluar la calidad global de las anotaciones obtenidas. Esto se logra mediante la comparaci\'on
 de las anotaciones realizadas de forma independiente por los dos anotadores no expertos, adem\'as de la comparaci\'on con la 
 versi\'on final del corpus.
 
 El an\'alisis de m\'etricas de concordancia inter-anotador permite determinar si las directrices propuestas en la 
-secci\'on~\ref{section:annotation_guidelines} fueron adecuadas. Tambi\'en verifica si el proceso dise\~nado logra generar
+Secci\'on~\ref{section:annotation_guidelines} fueron adecuadas. Tambi\'en verifica si el proceso dise\~nado logra generar
 anotaciones consistentes entre distintos anotadores. Una alta concordancia respalda la validez del proceso de anotaci\'on
 planteado.
 
@@ -32,16 +32,16 @@ Adicionalmente, se quiere evaluar la calidad que tendr\'ia un anotador autom\'at
 emplea \emph{ChatGPT}~3.5 como anotador autom\'atico, y se comparan sus anotaciones con el corpus final.
 
 \subsubsection{Escenario II: Evaluaci\'on de Baselines}
-Este escenario tiene como objetivo evaluar los baselines dise\~nados en la secci\'on~\ref{section:baseline}, con el fin de 
+Este escenario tiene como objetivo evaluar los baselines dise\~nados en la Secci\'on~\ref{section:baseline}, con el fin de 
 validar su desempe\~no sobre el corpus desarrollado.
 
 Para obtener los \emph{embeddings} de los textos utilizados en el proceso de entrenamiento del \emph{baseline} 
 de aprendizaje autom\'atico, se utilizaron cuatro modelos de \emph{BERT} que ofrece \emph{HuggingFace}.
 Por tanto se tienen cuatro conjuntos de \emph{embeddings} diferentes para el entrenamiento de cada uno de 
-los modelos estudiados. La Tabla~\ref{table:bert_models} muestra una comparaci\'on entre los modelos de \emph{BERT} utilizados.
+los modelos estudiados. La Tabla~\ref{table:bert_models} resume las arquitecturas de los modelos de \emph{BERT} utilizados.
 De esta forma, se analiza el impacto de utilizar distintos modelos de \emph{BERT} para la representaci\'on 
 sem\'antica de los textos sobre el desempe\~no de los \emph{baselines}. Los resultados obtenidos con cada 
-combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la secci\'on~\ref{section:results}.
+combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la Secci\'on~\ref{section:results}.
 
 \begin{table}[htpb]
     \centering
@@ -64,10 +64,10 @@ Las m\'etricas empleadas fueron macro precisi\'on, macro recobrado, macro $F_1$ 
 macro exactitud. Estas fueron calculadas apoy\'andose en las siguientes variables: 
 
 \begin{itemize}
-    \item \textbf{Anotaciones Positivas Correctas (TP)}: N\'umero de instancias positivas correctamente clasificadas.
-    \item \textbf{Anotaciones Positivas Incorrectas (FP)}: N\'umero de instancias negativas clasificadas como positivas.
-    \item \textbf{Anotaciones Negativas Correctas (TN)}: N\'umero de instancias negativas correctamente clasificadas.
-    \item \textbf{Anotaciones Negativas Incorrectas (FN)}: N\'umero de instancias positivas clasificadas como negativas.
+    \item \textbf{Anotaciones Positivas Correctas ($TP$)}: N\'umero de instancias positivas correctamente clasificadas.
+    \item \textbf{Anotaciones Positivas Incorrectas ($FP$)}: N\'umero de instancias negativas clasificadas como positivas.
+    \item \textbf{Anotaciones Negativas Correctas ($TN$)}: N\'umero de instancias negativas correctamente clasificadas.
+    \item \textbf{Anotaciones Negativas Incorrectas ($FN$)}: N\'umero de instancias positivas clasificadas como negativas.
 \end{itemize}
 
 Las versiones macro de las m\'etricas se calculan promediando cada valor obtenido de las siguientes ecuaciones:
@@ -82,12 +82,12 @@ Las versiones macro de las m\'etricas se calculan promediando cada valor obtenid
 
 \subsection{Corpus de Evaluaci\'on}
 El corpus utilizado para la experimentaci\'on corresponde al conjunto de 150 textos con anotaciones de g\'enero y raza
-generadas durante la construcci\'on del mismo, tal como se describe en la secci\'on~\ref{section:annotation_process}.
+generadas durante la construcci\'on del mismo, tal como se describe en la Secci\'on~\ref{section:annotation_process}.
 
 Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del corpus:
 \begin{itemize}
-    \item Versi\'on 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador 1.
-    \item Versi\'on 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador 2.
+    \item Versi\'on 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador~1.
+    \item Versi\'on 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador~2.
     \item Corpus Final: Versi\'on final del corpus de 150 textos, luego del proceso de mezcla y revisi\'on por parte 
     del anotador experto.
 \end{itemize}
@@ -343,8 +343,7 @@ de anotaci\'on fueron adecuadas y permitieron obtener anotaciones consistentes e
 Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 - Final} y \textbf{Ver.~2 - Final}), se
 observa una mejor\'ia en las m\'etricas. La media supera \textbf{0.90} en todos los casos, la varianza y desviaci\'on est\'andar
 disminuyen por debajo de \textbf{0.08} y \textbf{0.28} respectivamente, y el \emph{macro-agreement} aumenta a \textbf{0.917} y 
-\textbf{0.962}. Esto indica que la revisi\'on por el experto incrementa significativamente la calidad y consistencia de las 
-anotaciones.
+\textbf{0.962}. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece establece un punto medio entre ambos anotadores, evidenciando una mayor calidad y consistencia en las anotaciones.
 
 Los resultados de la Tabla~\ref{table:agreement_gpt} muestran m\'etricas de concordancia significativamente menores entre 
 el anotador autom\'atico \emph{ChatGPT} y el corpus final. La media se encuentra por debajo de \textbf{0.38} en todos los casos,

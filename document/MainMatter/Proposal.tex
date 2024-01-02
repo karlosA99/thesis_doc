@@ -1,11 +1,11 @@
 \chapter{Descripci\'on del Corpus}\label{chapter:proposal}
 El presente cap\'itulo describe en detalle la propuesta desarrollada para la construcci\'on de un corpus de datos no tabulares con 
-atributos protegidos anotados. En la secci\'on~\ref{section:annotation_scheme} se presenta el esquema de 
+atributos protegidos anotados. En la Secci\'on~\ref{section:annotation_scheme} se presenta el esquema de 
 anotaci\'on dise\~nado, especificando los atributos protegidos considerados y los valores definidos para cada uno. La
-secci\'on~\ref{section:annotation_process} explica el proceso de anotaci\'on llevado a cabo, incluyendo la evaluaci\'on del 
+Secci\'on~\ref{section:annotation_process} explica el proceso de anotaci\'on llevado a cabo, incluyendo la evaluaci\'on del 
 mismo, las directrices provistas a los anotadores y las herramientas desarrolladas para facilitar el proceso. En la
-secci\'on~\ref{section:corpus_stats} se resumen las principales estad\'isticas del corpus resultante. Finalmente, en la 
-secci\'on~\ref{section:baseline} se describen dos \emph{baselines} propuestos sobre el corpus.
+Secci\'on~\ref{section:corpus_stats} se resumen las principales estad\'isticas del corpus resultante. Finalmente, en la 
+Secci\'on~\ref{section:baseline} se describen dos \emph{baselines} propuestos sobre el corpus.
 
 \section{Esquema de anotaci\'on}\label{section:annotation_scheme}
 %Hablar de que cada elemento a anotar es un texto, no una sola oracion.ok
@@ -18,8 +18,7 @@ para lograr una comprensi\'on m\'as precisa y contextualizada de los mismos.
 En este caso, los atributos protegidos que se van a anotar son el g\'enero y la raza.
 Fueron seleccionados estos atributos no solo por su relevancia en diversas \'areas de estudio y aplicaci\'on, sino tambi\'en 
 por la naturaleza de los textos que se van a anotar. Dado que las rese\~nas de pel\'iculas y series de televisi\'on
-pueden contener un amplia gama de discusiones sobre actores, directores y personajes, es muy probable que se haga menci\'on a 
-estos atributos.
+pueden contener un amplia gama de discusiones sobre actores, directores y personajes, es muy probable que se pueda hacer una asociaci\'on con los atributos de esos individuos.
 
 Para el atributo g\'enero los valores a anotar son: ``\emph{Male}'' para g\'enero masculino, ``\emph{Female}'' para g\'enero femenino, 
 ``\emph{Male, Female}'' cuando se detectan ambos g\'eneros y ``\emph{Null}'' en caso de no detectar ninguno.
@@ -41,17 +40,16 @@ Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos p
 fundamentales:
 
 \begin{enumerate}
-    \item Anotaci\'on exhaustiva de ambos atributos por parte de dos anotadores no expertos en la prolem\'atica. 
-    Generando as\'i dos anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas
+    \item Anotaci\'on exhaustiva de ambos atributos por parte de dos anotadores no expertos en la problem\'atica, generando as\'i dos anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas
     con un anotador experto, pero no deben discutir los textos espec\'ificos que anotan.
-    \item Mezcla de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
-    anotaci\'on m\'as acertada. Esta etapa puede ser asistida por \emph{scripts} de mezcla que detecten y resalten autom\'aticamente
+    \item Mezcla autom\'atica de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
+    anotaci\'on m\'as acertada. Esta etapa es asistida por \emph{scripts} de mezcla que detectan y resaltan autom\'aticamente
     los conflictos.
     \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.
 \end{enumerate}
 
 Luego de estas tres fases, el conjunto de textos resultante de mezclar y revisar ambas anotaciones manuales, constituye el corpus, el 
-cual debe ser evaluado como se describe en la secci\'on~\ref{subsection:annotation_evaluation}.
+cual debe ser evaluado como se describe en la Secci\'on~\ref{subsection:annotation_evaluation}.
 
 \subsection{Evaluaci\'on de la anotaci\'on}\label{subsection:annotation_evaluation}
 Se sugiere calcular un \emph{micro-agreement} y un \emph{macro-agreement} para evaluar el grado de concordancia entre las anotaciones
@@ -61,7 +59,7 @@ de media, varianza y desviaci\'on est\'andar de los acuerdos entre anotadores, p
 
 La evaluaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
 realizadas por los anotadores no expertos. Luego, en la segunda fase, se comparan las anotaciones de los 
-no expertos con el resultado de la mezcla y revisi\'on por parte del anotador experto. En la secci\'on~\ref{section:results} 
+no expertos con el resultado de la mezcla y revisi\'on por parte del anotador experto. En la Secci\'on~\ref{section:results} 
 se muestran los resultados obtenidos en la evaluaci\'on del corpus.
 
 Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
@@ -83,11 +81,11 @@ de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de l
 Para calcular el \emph{micro-agreement}, se realiza la uni\'on de las anotaciones de ambos atributos protegidos, obteniendo as\'i
 el conjunto $C_{g\acute{e}nero, raza} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Luego, se calcula la media, varianza y
 desviaci\'on est\'andar del conjunto obtenido. Estos resultados son una medida detallada de la concordancia en t\'erminos puntuales.
-Se muestran en la secci\'on~\ref{section:results}.
+Se muestran en la Secci\'on~\ref{section:results}.
 
 Por otra parte, la m\'etrica \emph{macro-agreement} se calcula como la media de los \emph{micro-agreements} de cada atributo protegido. 
-Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones. Se muestran en la 
-secci\'on~\ref{section:results}.
+Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones, y permite detectar desbalance entre el \emph{agreement} por cada clase de los atributos protegidos. Se muestran en la 
+Secci\'on~\ref{section:results}.
 
 \subsection{Directrices de anotaci\'on}\label{section:annotation_guidelines}
 %Hablar que para anotar cierto atributo no hacer falta que el texto lo mencione explicitamente, sino que se puede inferir
@@ -213,6 +211,15 @@ entrenar y evaluar el clasificador fueron: \emph{Logistic Regression},
 \emph{Random Forest Classifier}, \emph{Support Vector Machine} y \emph{Multilayer Perceptron}.
 Los resultados de cada uno se discuten en la secci\'on~\ref{section:results}.
 
+\subsubsection{Detalles de implementaci\'on}
+
+En el proceso de obtenci\'on de las representaciones vectoriales de los textos, se presenta el caso
+de textos que superaban el tama\~no m\'aximo de entrada admitido por \emph{BERT}, que es de 512 \emph{tokens}.
+Esto se debe a que algunos textos del corpus son rese\~nas bastante extensas. Para solucionar este problema en 
+los casos que se requiera, se divide el texto en segmentos que no superen los 512 \emph{tokens}. Luego, se obtiene
+la representaci\'on vectorial de cada segmento y se promedian para obtener un \'unico vector de \emph{embedding}
+representativo de todo el texto original.
+
 \subsubsection{Hiperpar\'ametros}
 Se configuraron los seguientes hiperpar\'ametros para cada uno de los modelos entrenantes utilizados:
 \begin{itemize}
@@ -239,15 +246,3 @@ La idea detr\'as de esto es establecer una estimaci\'on optimista de la habilida
 la tarea, ya que el corpus sobre el que se realiza la evaluaci\'on fue construido precisamente 
 mezclando y revisando las anotaciones humanas. En la pr\'actica, es de esperar que 
 anotadores humanos sin entrenamiento espec\'ifico rindan peor que este \emph{baseline}.
-
-
-\subsection{Detalles de implementaci\'on}
-
-En el proceso de obtenci\'on de las representaciones vectoriales de los textos, se presenta el caso
-de textos que superaban el tama\~no m\'aximo de entrada admitido por \emph{BERT}, que es de 512 \emph{tokens}.
-Esto se debe a que algunos textos del corpus son rese\~nas bastante extensas. Para solucionar este problema en 
-los casos que se requiera, se divide el texto en segmentos que no superen los 512 \emph{tokens}. Luego, se obtiene
-la representaci\'on vectorial de cada segmento y se promedian para obtener un \'unico vector de \emph{embedding}
-representativo de todo el texto original.
-
-%No se si debe annadir algo mas aqui, pero por ahora lo dejo asi

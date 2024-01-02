@@ -53,29 +53,33 @@ en el an\'alisis de sesgos en algoritmos de aprendizaje autom\'atico.
 
 \section*{Objetivos}
 Este trabajo propone como objetivo fundamental el dise\~no y validaci\'on de un corpus de datos no tabulares para
-asistir en el desarrollo y evaluaci\'on de t\'ecnicas destinadas a la mitigaci\'on de sesgos. El contenido del corpus
+asistir en el desarrollo de t\'ecnicas destinadas a la mitigaci\'on de sesgos y la anotaci\'on autom\'atica de atributos protegidos. El contenido del corpus
 es de tipo textual y de dominio general. Adem\'as, se garantiza que contenga entidades nombradas, sustantivos y pronombres
 que hagan referencia a atributos protegidos. Estos atributos son el g\'enero y la raza.
 
 Se proponen los siguientes objetivos espec\'ificos:
 \begin{itemize}
-    \item Consultar la literatura especializada para identificar las t\'ecnicas de mitigaci\'on de sesgos y creaci\'on
-    de corpus predominantes en el estado del arte.
+    \item Consultar la literatura especializada en el an\'alisis de sesgos y las caracter\'isticas predominantes de los corpus en el estado del arte.
     \item Analizar las posibles alternativas encontradas en la literatura para identificar la variante a desarrollar.
-    \item Dise\~nar una propuesta propia de un corpus para asistir t\'ecnicas de mitigaci\'on de sesgos. 
-    \item Construir un prototipo computacional para comprobar la eficacia de la propuesta.
+    \item Dise\~nar un modelo de anotaci\'on de atributos protegidos y desarrollar herramientas para asistirlo.
+    \item Anotar un corpus a partir del modelo dise\~nado.
+    \item Construir un prototipo computacional para comprobar la eficacia del modelo de anotaci\'on y del corpus anotado.
     \item Evaluar marco experimental y arribar a conclusiones.
 \end{itemize}
 
 \section*{Contribuciones}
 La realizaci\'on de esta tesis aporta contribuciones sustanciales en el \'ambito del an\'alisis de sesgos en modelos de aprendizaje 
-autom\'atico. Al abordar la carencia de datasets con datos no tabulares y atributos protegidos anotados, se brindar\'a la oportunidad
-de realizar investigaciones m\'as exhaustivas y aplicaciones pr\'acticas que impactar\'an positivamente en la equidad y justicia de 
-los algoritmos de aprendizaje autom\'atico.
-%De esto no estoy muy convencido
+autom\'atico. Al abordar la carencia de \emph{datasets} con datos no tabulares y atributos protegidos anotados, el corpus desarrollado podr\'a ser utilizado para:
+\begin{itemize}
+    \item Entrenar y evaluar modelos de extracci\'on autom\'atica de atributos protegidos en texto.
+    \item Evaluar t\'ecnicas de mitigaci\'on de sesgos identidicadas en la literatura, mediante su aplicaci\'on en modelos entrenados con el corpus.
+    \item Organizar competencias y retos internacionales de equidad algor\'itmica que utilicen el corpus como conjunto de evaluaci\'on.
+\end{itemize}
+
+%se brindar\'a la oportunidad
+%de realizar investigaciones m\'as exhaustivas y aplicaciones pr\'acticas que %impactar\'an positivamente en la equidad y justicia de 
+%los algoritmos de aprendizaje autom\'atico.
+
 
 \section*{Organizaci\'on de la Tesis}
-El contenido de la tesis se organiza de la siguiente forma. El Cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del arte 
-en los temas relacionados con el problema a resolver. Luego el Cap\'itulo 2 presenta detalladamente el m\'etodo de soluci\'on propuesto. 
-El Cap\'itulo 3 describe la experimentaci\'on realizada, los resultados obtenidos y un an\'alisis en profundidad de los mismos. 
-Finalmente se arriban a conclusiones y se discuten la l\'ineas de investigaci\'on futuras.  
+El contenido de la tesis se organiza de la siguiente forma. El Cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del arte en temas relacionados con el sesgo en modelos de aprendizaje autom\'atico. Adem\'as se analizan los principales corpus utilizados en el an\'alisis de sesgos. Luego, el Cap\'itulo 2 describe la metodolog\'ia propuesta para la contrucci\'on de un corpus con anotaciones de atributos protegidos. Se describen el modelo de anotaci\'on y el proceso de etiquetado manual realizado. El Cap\'itulo 3 explica el marco experimental propuesto para evaluar la efectividad, tanto del corpus generado, como del modelo de anotaci\'on propuesto, y se analizan los resultados obtenidos. Finalmente se arriban a conclusiones y se discuten la l\'ineas de investigaci\'on futuras.  
