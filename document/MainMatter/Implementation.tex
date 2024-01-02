@@ -156,7 +156,7 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
         \cmidrule{2-5}
                                   & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.069 & 0.054 & 0.030\\
         \cmidrule{2-5}
-                                  & Macro Agr                               & 0.886 & 0.917 & 0.962\\
+                                  & Macro Agr.                              & 0.886 & 0.917 & 0.962\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de m\'etricas de concordancia entre las distintas versiones del corpus.}
@@ -189,22 +189,66 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
         \cmidrule{2-3}
                                   & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.124\\
         \cmidrule{2-3}
-                                  & Macro Agr                               & 0.361\\
+                                  & Macro Agr.                              & 0.361\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de m\'etricas de concordancia entre \emph{ChatGPT} y el corpus final.}
     \label{table:agreement_gpt}
 \end{table}
 
-En cuanto al \textbf{Escenario~II}, la Tabla~\ref{table:eval_baseline1_gender} y la Tabla~\ref{table:eval_baseline1_race}
-muestran las m\'etricas alcanzadas por el \emph{baseline} de aprendizaje autom\'atico en la tarea de 
-predicci\'on de los atribuitos g\'enero y raza respectivamente. Se presentan los resultados considerando 
-diversas combinaciones entre los modelos de \emph{BERT} utilizados para obtener los \emph{embeddings} de los textos, y los
-modelos de clasificaci\'on evaluados. 
+En cuanto al \textbf{Escenario~II}, la Tabla~\ref{table:eval_baselines_gender} y la Tabla~\ref{table:eval_baselines_race}
+muestran las m\'etricas alcanzadas por el \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano en las tareas de 
+predicci\'on de los atribuitos g\'enero y raza respectivamente. Para el \emph{baseline} de aprendizaje autom\'atico se presentan 
+los resultados considerando diversas combinaciones entre los modelos de \emph{BERT} utilizados para obtener los 
+\emph{embeddings} de los textos, y los modelos de clasificaci\'on evaluados. 
 
-Por otro lado, en la Tabla~\ref{table:eval_baseline2_gender} y la Tabla~\ref{table:eval_baseline2_race} se detallan
-los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g\'enero y raza. 
+% Por otro lado, en la Tabla~\ref{table:eval_baseline2_gender} y la Tabla~\ref{table:eval_baseline2_race} se detallan
+% los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g\'enero y raza. 
 
+% \begin{table}[htpb]
+%     \centering
+%     \resizebox{\textwidth}{!}{
+%         \begin{tabular}{llcccc}
+%         \toprule
+%         \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+%         \midrule
+%         \midrule
+%         \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.740 & 0.788 & 0.757 & 0.366\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.695 & 0.816 & 0.744 & 0.308\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.671 & 0.867 & 0.749 & 0.302\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.733 & 0.788 & 0.753 & 0.375\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.707 & 0.768 & 0.732 & 0.356\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.673 & 0.718 & 0.689 & 0.300\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.621 & 1.000 & 0.764 & 0.257\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.743 & 0.734 & 0.727 & 0.387\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.707 & 0.787 & 0.741 & 0.366\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.684 & 0.771 & 0.719 & 0.343\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.617 & 1.000 & 0.761 & 0.250\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.695 & 0.751 & 0.718 & 0.404\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.713 & 0.790 & 0.744 & 0.366\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.691 & 0.739 & 0.709 & 0.319\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.639 & 0.848 & 0.722 & 0.275\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.725 & 0.755 & 0.728 & 0.345\\
+%         \bottomrule
+%         \end{tabular}}
+%     \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico en cuanto a la predicci\'on del atributo g\'enero.}
+%     \label{table:eval_baseline1_gender}
+% \end{table}
 
 \begin{table}[htpb]
     \centering
@@ -245,10 +289,15 @@ los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g
                                             & \emph{SVC}                  & 0.639 & 0.848 & 0.722 & 0.275\\
         \cmidrule{2-6}
                                             & \emph{MLP}                  & 0.725 & 0.755 & 0.728 & 0.345\\
+        \midrule\midrule
+        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & 0.937 & 1.000 & 0.967 & 0.872\\
+        \cmidrule{2-6}
+                                            & \emph{Anotaci\'on 2}        & 1.000 & 0.947 & 0.971 & 0.957\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico en cuanto a la predicci\'on del atributo g\'enero.}
-    \label{table:eval_baseline1_gender}
+    \caption{Resumen de las m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano 
+    en cuanto a la predicci\'on del atributo g\'enero.}
+    \label{table:eval_baselines_gender}
 \end{table}
 
 \begin{table}[htpb]
@@ -290,43 +339,93 @@ los resultados del \emph{baseline} humano en la misma tarea de predicci\'on de g
                                             & \emph{SVC}                  & 0.098 & 0.167 & 0.123 & 0.132\\
         \cmidrule{2-6}
                                             & \emph{MLP}                  & 0.119 & 0.112 & 0.111 & 0.170\\
+        \midrule\midrule
+        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & 0.816 & 0.815 & 0.803 & 0.810\\
+        \cmidrule{2-6}
+                                            & \emph{Anotaci\'on 2}        & 0.900 & 0.878 & 0.886 & 0.959\\
         \bottomrule
         \end{tabular}}
-    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico en cuanto a la predicci\'on del atributo raza.}
-    \label{table:eval_baseline1_race}
+    \caption{Resumen de las m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano 
+    en cuanto a la predicci\'on del atributo raza.}
+    \label{table:eval_baselines_race}
 \end{table}
 
-\begin{table}[htpb]
-    \centering
-    \resizebox{0.75\textwidth}{!}{
-        \begin{tabular}{lcccc}
-        \toprule
-        \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
-        \midrule
-        \midrule
-                       {Anotaci\'on 1}      & 0.937 & 1.000 & 0.967 & 0.872\\
-                       {Anotaci\'on 2}      & 1.000 & 0.947 & 0.971 & 0.957\\
-        \bottomrule
-        \end{tabular}}
-    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} humano en cuanto a la predicci\'on del atributo g\'enero.}
-    \label{table:eval_baseline2_gender}
-\end{table}
+% \begin{table}[htpb]
+%     \centering
+%     \resizebox{\textwidth}{!}{
+%         \begin{tabular}{llcccc}
+%         \toprule
+%         \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+%         \midrule
+%         \midrule
+%         \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.153 & 0.142 & 0.143 & 0.177\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.141 & 0.132 & 0.133 & 0.192\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.098 & 0.165 & 0.123 & 0.132\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.162 & 0.151 & 0.154 & 0.186\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.158 & 0.147 & 0.148 & 0.179\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.114 & 0.136 & 0.124 & 0.151\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.129\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.181 & 0.188 & 0.177 & 0.205\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.112 & 0.119 & 0.115 & 0.155\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.100 & 0.113 & 0.106 & 0.149\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.129\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.124 & 0.117 & 0.118 & 0.171\\
+%         \midrule\midrule
+%         \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.124 & 0.138 & 0.129 & 0.188\\
+%         \cmidrule{2-6}
+%                                             & \emph{Random Forest}        & 0.110 & 0.123 & 0.116 & 0.151\\
+%         \cmidrule{2-6}
+%                                             & \emph{SVC}                  & 0.098 & 0.167 & 0.123 & 0.132\\
+%         \cmidrule{2-6}
+%                                             & \emph{MLP}                  & 0.119 & 0.112 & 0.111 & 0.170\\
+%         \bottomrule
+%         \end{tabular}}
+%     \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico en cuanto a la predicci\'on del atributo raza.}
+%     \label{table:eval_baseline1_race}
+% \end{table}
 
-\begin{table}[htpb]
-    \centering
-    \resizebox{0.75\textwidth}{!}{
-        \begin{tabular}{lcccc}
-        \toprule
-        \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
-        \midrule
-        \midrule
-                       {Anotaci\'on 1}      & 0.816 & 0.815 & 0.803 & 0.810\\
-                       {Anotaci\'on 2}      & 0.900 & 0.878 & 0.886 & 0.959\\
-        \bottomrule
-        \end{tabular}}
-    \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} humano en cuanto a la predicci\'on del atributo raza.}
-    \label{table:eval_baseline2_race}
-\end{table}
+% \begin{table}[htpb]
+%     \centering
+%     \resizebox{0.75\textwidth}{!}{
+%         \begin{tabular}{lcccc}
+%         \toprule
+%         \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+%         \midrule
+%         \midrule
+%                        {Anotaci\'on 1}      & 0.937 & 1.000 & 0.967 & 0.872\\
+%                        {Anotaci\'on 2}      & 1.000 & 0.947 & 0.971 & 0.957\\
+%         \bottomrule
+%         \end{tabular}}
+%     \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} humano en cuanto a la predicci\'on del atributo g\'enero.}
+%     \label{table:eval_baseline2_gender}
+% \end{table}
+
+% \begin{table}[htpb]
+%     \centering
+%     \resizebox{0.75\textwidth}{!}{
+%         \begin{tabular}{lcccc}
+%         \toprule
+%         \textbf{Modelo} &\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
+%         \midrule
+%         \midrule
+%                        {Anotaci\'on 1}      & 0.816 & 0.815 & 0.803 & 0.810\\
+%                        {Anotaci\'on 2}      & 0.900 & 0.878 & 0.886 & 0.959\\
+%         \bottomrule
+%         \end{tabular}}
+%     \caption{Resumen de m\'etricas de evaluaci\'on del \emph{baseline} humano en cuanto a la predicci\'on del atributo raza.}
+%     \label{table:eval_baseline2_race}
+% \end{table}
 
 
 \section{Discusi\'on}
@@ -354,7 +453,7 @@ dispersi\'on en los valores de concordancia por texto respecto a los obtenidos p
 m\'etricas proveen evidencia de que un anotador autom\'atico de prop\'osito general como \emph{ChatGPT} no es capaz de replicar
 de manera confiable las anotaciones realizadas por los anotadores humanos.  
 
-Analizando los resultados mostrados en la Tabla~\ref{table:eval_baseline1_gender} para la predicci\'on de g\'enero con el 
+Analizando los resultados mostrados en la Tabla~\ref{table:eval_baselines_gender} para la predicci\'on de g\'enero con el 
 \emph{baseline} de aprendizaje autom\'atico se observa que la exactitud alcanza valores hasta de \textbf{0.404}, 
 evidenciando una capacidad moderada del clasificador para acertar en la predicci\'on de g\'enero. La precisi\'on se 
 mantuvo en un rango entre \textbf{0.617} y \textbf{0.743} para todos los modelos, lo cual sugiere que estos no
@@ -363,7 +462,7 @@ en la mayor\'ia de los casos. Esto indica que los modelos en general clasifican 
 puntuaciones $F_1$ se mantuvieron en un rango entre \textbf{0.689} y \textbf{0.764}, demostrando que se logra
 un balance bastante aceptable entre precisi\'on y recobrado.%A lo mejor se puede decir algo mejor que bastante aceptable
 
-En contraste, los resultados para la predicci\'on de raza (Tabla~\ref{table:eval_baseline1_race}) con el 
+En contraste, los resultados para la predicci\'on de raza (Tabla~\ref{table:eval_baselines_race}) con el 
 \emph{baseline} de aprendizaje autom\'atico muestran m\'etricas considerablemente m\'as bajas. Tanto la 
 precisi\'on como el recobrado de los modelos se mantuvieron por debajo de \textbf{0.190}, y en consecuencia 
 las puntuaciones $F_1$ no superan \textbf{0.180}. Todo esto evidencia de manera consistente que los modelos no 
@@ -375,10 +474,10 @@ raza a partir de texto representa un desaf\'io significativamente mayor en compa
 g\'enero. 
 
 Las m\'etricas obtenidas para el \emph{baseline} humano, mostradas en las 
-Tablas~\ref{table:eval_baseline2_gender} y~\ref{table:eval_baseline2_race}, indican un desempe\~no muy 
+Tablas~\ref{table:eval_baselines_gender} y~\ref{table:eval_baselines_race}, indican un desempe\~no muy 
 superior al de los modelos de aprendizaje autom\'atico. 
 
-Para la tarea de g\'enero (Tabla~\ref{table:eval_baseline2_gender}), todos los valores alcanzados
+Para la tarea de g\'enero (Tabla~\ref{table:eval_baselines_gender}), todos los valores alcanzados
 por las m\'etricas superan \textbf{0.870} para ambos anotadores. Lo que sugiere un 
 rendimiento muy consistente y preciso en la clasificaci\'on tanto de instancias positivas, 
 como negativas. En general se observa un desempe\~no superior del 
