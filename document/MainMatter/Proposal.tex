@@ -32,9 +32,9 @@ originarias de los pueblos nativos de Am\'erica del Norte y ``\emph{Asian}'' par
 texto puede incluir m\'as de un valor.
 
 \section{Proceso de anotaci\'on}\label{section:annotation_process}
-El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de 70 textos 
+El proceso de anotaci\'on comienza con la selecci\'on de los textos a anotar. Inicialmente se contaba con un conjunto de $70$ textos 
 extra\'idos de rese\~nas de pel\'iculas de ImDb\footnote{\url{https://www.imdb.com/}}, previamente anotados con g\'enero, producto 
-de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden 80 textos m\'as, extra\'idos de la misma fuente, con el 
+de una tesis del grupo de investigaci\'on. A esta selecci\'on se a\~naden $80$ textos m\'as, extra\'idos de la misma fuente, con el 
 objetivo de aumentar el tama\~no y la diversidad del corpus. Los nuevos textos se seleccionan de manera aleatoria.
 
 Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos protegidos. Esta etapa se divide en tres fases 
@@ -78,7 +78,6 @@ considera coincidencia parcial entre las anotaciones. Se calcula:
 Se define el conjunto $C_{attr} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Para analizar la consistencia estad\'istica 
 de las anotaciones, se calcula la media, varianza y desviaci\'on est\'andar de los conjuntos $C_{g\acute{e}nero}$ y $C_{raza}$.
 
-%#TODO: Pedirle al profe que se lea este parrafo a ver si queda claro lo que se propone en el
 Para calcular el \emph{micro-agreement}, se realiza la uni\'on de las anotaciones de ambos atributos protegidos, obteniendo as\'i
 el conjunto $C_{g\acute{e}nero, raza} = \{\mathcal{J}_{attr}(A, B) \mid \forall (A, B)\}$. Luego, se calcula la media, varianza y
 desviaci\'on est\'andar del conjunto obtenido. Estos resultados son una medida detallada de la concordancia en t\'erminos puntuales.
@@ -114,10 +113,10 @@ y un atributo binario anotado que indica si la rese\~na es positiva o negativa. 
 preseleccionados, a los que se a\~nadieron $80$ nuevos textos seleccionados de manera aleatoria.
 
 Usando este conjunto de textos, se implement\'o un proceso de anotaci\'on para etiquetar manualmente el g\'enero y la raza seg\'un 
-el modelo descrito en la secci\'on~\ref{section:annotation_scheme}. Este proceso de anotaci\'on se describe en detalle en la 
-secci\'on~\ref{section:annotation_process}. La Figura~\ref{fig:ann_proc} ilustra el procesamiento realizado.
-Luego del proceso de anotaci\'on, se obtuvo un total de 150 textos anotados con g\'enero, raza y sentimiento, que constituyen el 
-corpus final. Las tablas~\ref{table:stats},~\ref{table:stats_gen} y~\ref{table:stats_race}  resumen las estad\'isticas fundamentales 
+el modelo descrito en la Secci\'on~\ref{section:annotation_scheme}. Este proceso de anotaci\'on se describe en detalle en la 
+Secci\'on~\ref{section:annotation_process}. La Figura~\ref{fig:ann_proc} ilustra el procesamiento realizado.
+Luego del proceso de anotaci\'on, se obtuvo un total de $150$ textos anotados con g\'enero, raza y sentimiento, que constituyen el 
+corpus final. Las Tablas~\ref{table:stats}, \ref{table:stats_gen} y \ref{table:stats_race}  resumen las estad\'isticas fundamentales 
 del corpus final.
 
 \begin{figure}[htpb]
@@ -184,14 +183,14 @@ del corpus final.
 Uno de los objetivos del modelo de anotaci\'on propuesto en este trabajo es que pueda ser aprendido 
 y replicado por una computadora. En esta secci\'on, se describe un sistema para la extracci\'on
 autom\'atica de los atributos protegidos g\'enero y raza desde texto plano. Para ello, se 
-implementan dos \emph{baselines}, descritos en las secciones~\ref{subsection:ml_baseline} 
+implementan dos \emph{baselines}, descritos en las Secciones~\ref{subsection:ml_baseline} 
 y~\ref{subsection:human_baseline}.
 
 \subsection{Baseline de Aprendizaje Autom\'atico}\label{subsection:ml_baseline}
 Este \emph{baseline} consiste en un clasificador \emph{Multilabel}  que predice 
 de manera autom\'atica el g\'enero y la raza en textos de prop\'osito general, utilizando el corpus construido 
 para su entrenamiento y evaluaci\'on. Esto permite determinar la capacidad de un anotador autom\'atico para 
-extraer los atributos protegidos de los textos. Los resultados son discutidos en la secci\'on~\ref{section:results}.
+extraer los atributos protegidos de los textos. Los resultados son discutidos en la Secci\'on~\ref{section:results}.
 
 \subsubsection{Arquitectura del Baseline}
 %parrafo de preprocesamiento
@@ -210,14 +209,14 @@ Se probaron varios modelos de clasificaci\'on supervisada brindados por la bibli
 a partir de las representaciones de texto generadas por \emph{BERT}. Los modelos utilizados para 
 entrenar y evaluar el clasificador fueron: \emph{Logistic Regression}, 
 \emph{Random Forest Classifier}, \emph{Support Vector Machine} (SVC) y \emph{Multilayer Perceptron} (MLP).
-Los resultados de cada uno se discuten en la secci\'on~\ref{section:results}.
+Los resultados de cada uno se discuten en la Secci\'on~\ref{section:results}.
 
 \subsubsection{Detalles de implementaci\'on}
 
 En el proceso de obtenci\'on de las representaciones vectoriales de los textos, se presenta el caso
-de textos que superaban el tama\~no m\'aximo de entrada admitido por \emph{BERT}, que es de 512 \emph{tokens}.
+de textos que superaban el tama\~no m\'aximo de entrada admitido por \emph{BERT}, que es de $512$ \emph{tokens}.
 Esto se debe a que algunos textos del corpus son rese\~nas bastante extensas. Para solucionar este problema en 
-los casos que se requiera, se divide el texto en segmentos que no superen los 512 \emph{tokens}. Luego, se obtiene
+los casos que se requiera, se divide el texto en segmentos que no superen los $512$ \emph{tokens}. Luego, se obtiene
 la representaci\'on vectorial de cada segmento y se promedian para obtener un \'unico vector de \emph{embedding}
 representativo de todo el texto original.
 

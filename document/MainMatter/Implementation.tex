@@ -49,10 +49,10 @@ combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la Secci\'o
         \begin{tabular}{lccc}
         \toprule
                 \textbf{Modelo BERT} & \textbf{Par\'ametros} & \textbf{Dimensi\'on de Embeddings} & \textbf{Sensibilidad a May\'usculas}\\
-                bert-base-uncased  & 110M & 768  & No\\
-                bert-base-cased    & 110M & 768  & S\'i\\
-                bert-large-uncased & 340M & 1024 & No\\
-                bert-large-cased   & 340M & 1024 & S\'i\\
+                bert-base-uncased  & $110$M & $768$    & No\\
+                bert-base-cased    & $110$M & $768$    & S\'i\\
+                bert-large-uncased & $340$M & $1\,024$ & No\\
+                bert-large-cased   & $340$M & $1\,024$ & S\'i\\
         \bottomrule
         \end{tabular}}
     \caption{Arquitecturas de modelos de \emph{BERT} utilizados.}
@@ -81,14 +81,14 @@ Las versiones macro de las m\'etricas se calculan promediando cada valor obtenid
 
 
 \subsection{Corpus de Evaluaci\'on}
-El corpus utilizado para la experimentaci\'on corresponde al conjunto de 150 textos con anotaciones de g\'enero y raza
+El corpus utilizado para la experimentaci\'on corresponde al conjunto de $150$ textos con anotaciones de g\'enero y raza
 generadas durante la construcci\'on del mismo, tal como se describe en la Secci\'on~\ref{section:annotation_process}.
 
 Espec\'ificamente, para el Escenario~I~(\ref{subsection:scenery1}) se emplean las siguientes versiones del corpus:
 \begin{itemize}
-    \item Versi\'on 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador~1.
-    \item Versi\'on 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador~2.
-    \item Corpus Final: Versi\'on final del corpus de 150 textos, luego del proceso de mezcla y revisi\'on por parte 
+    \item Versi\'on 1: Conjunto de $150$ textos con las anotaciones realizadas por el anotador~1.
+    \item Versi\'on 2: Conjunto de $150$ textos con las anotaciones realizadas por el anotador~2.
+    \item Corpus Final: Versi\'on final del corpus de $150$ textos, luego del proceso de mezcla y revisi\'on por parte 
     del anotador experto.
 \end{itemize}
 
@@ -121,14 +121,14 @@ El sistema operativo utilizado fue \emph{Windows 10 Pro}, versi\'on 21H2 y con u
 
 \section{Resultados}\label{section:results}
 A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos descritos en la 
-secci\'on~\ref{section:experimental_framework}.
+Secci\'on~\ref{section:experimental_framework}.
 
 La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del 
 Escenario~I~(\ref{subsection:scenery1}).
 Estas tablas resumen los resultados de las m\'etricas de concordancia calculadas entre las distintas
 versiones del corpus y el anotador autom\'atico \emph{ChatGPT}~3.5, respectivamente. En ellas, se 
 calcula para los conjuntos $C_{g\acute{e}nero}$, $C_{raza}$ y $C_{g\acute{e}nero, raza}$ definidos
-en la secci\'on~\ref{subsection:annotation_evaluation} las m\'etricas: media, varianza y desviaci\'on
+en la Secci\'on~\ref{subsection:annotation_evaluation} las m\'etricas: media, varianza y desviaci\'on
 est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha secci\'on.
 
 \begin{table}[htpb]
@@ -434,42 +434,42 @@ Los resultados presentados en la Tabla~\ref{table:agreement_humans} indican un a
 anotaciones realizadas por los distintos anotadores humanos.
 
 Espec\'ificamente, la concordancia entre los anotadores no expertos (\textbf{Ver.~1 - Ver.~2}) es bastante alta. La
-media de las concordancias por anotaci\'on supera \textbf{$0.85$} para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
+media de las concordancias por anotaci\'on supera $0.85$ para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
 lo que indica un alto grado de concordancia promedio. Adem\'as, la varianza y desviaci\'on est\'andar est\'an por debajo de 
-\textbf{0.11} y \textbf{0.33} respectivamente, lo que demuestra poca dispersi\'on en los valores de concordancia por texto. El
-\emph{macro-agreement} de \textbf{0.886}, refuerza la consistencia en t\'erminos generales. Todo esto sugiere que las directrices 
+$0.11$ y $0.33$ respectivamente, lo que demuestra poca dispersi\'on en los valores de concordancia por texto. El
+\emph{macro-agreement} de $0.886$, refuerza la consistencia en t\'erminos generales. Todo esto sugiere que las directrices 
 de anotaci\'on fueron adecuadas y permitieron obtener anotaciones consistentes entre anotadores no expertos.
 
 Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 - Final} y \textbf{Ver.~2 - Final}), se
-observa una mejor\'ia en las m\'etricas. La media supera \textbf{0.90} en todos los casos, la varianza y desviaci\'on est\'andar
-disminuyen por debajo de \textbf{0.08} y \textbf{0.28} respectivamente, y el \emph{macro-agreement} aumenta a \textbf{0.917} y 
-\textbf{0.962}. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece un 
+observa una mejor\'ia en las m\'etricas. La media supera $0.90$ en todos los casos, la varianza y desviaci\'on est\'andar
+disminuyen por debajo de $0.08$ y $0.28$ respectivamente, y el \emph{macro-agreement} aumenta a $0.917$ y 
+$0.962$. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece un 
 punto medio entre ambos anotadores, evidenciando una mayor calidad y consistencia en las anotaciones.
 
 Los resultados de la Tabla~\ref{table:agreement_gpt} muestran m\'etricas de concordancia significativamente menores entre 
-el anotador autom\'atico \emph{ChatGPT} y el corpus final. La media se encuentra por debajo de \textbf{0.38} en todos los casos,
-indicando un bajo grado de coincidencia promedio. Adem\'as, la varianza supera \textbf{0.20} en los casos de g\'enero y raza, y 
-\textbf{0.12} en la uni\'on. La desviaci\'on est\'andar supera \textbf{0.35} en todos los casos. Todo esto indica una alta 
+el anotador autom\'atico \emph{ChatGPT} y el corpus final. La media se encuentra por debajo de $0.38$ en todos los casos,
+indicando un bajo grado de coincidencia promedio. Adem\'as, la varianza supera $0.20$ en los casos de g\'enero y raza, y 
+$0.12$ en la uni\'on. La desviaci\'on est\'andar supera $0.35$ en todos los casos. Todo esto indica una alta 
 dispersi\'on en los valores de concordancia por texto respecto a los obtenidos por los anotadores humanos. El 
-\emph{macro-agreement} de apenas \textbf{0.361} evidencia la falta de consistencia del anotador autom\'atico. En conjunto, estas
+\emph{macro-agreement} de apenas $0.361$ evidencia la falta de consistencia del anotador autom\'atico. En conjunto, estas
 m\'etricas proveen evidencia de que un anotador autom\'atico de prop\'osito general como \emph{ChatGPT} no es capaz de replicar
 de manera confiable las anotaciones realizadas por los anotadores humanos.  
 
 Analizando los resultados mostrados en la Tabla~\ref{table:eval_baselines_gender} para la predicci\'on de g\'enero con el 
-\emph{baseline} de aprendizaje autom\'atico se observa que la exactitud alcanza valores hasta de \textbf{0.404}, 
+\emph{baseline} de aprendizaje autom\'atico se observa que la exactitud alcanza valores hasta de $0.404$, 
 evidenciando una capacidad moderada del clasificador para acertar en la predicci\'on de g\'enero. La precisi\'on se 
-mantuvo en un rango entre \textbf{0.617} y \textbf{0.743} para todos los modelos, lo cual sugiere que estos no
-clasifican demasiados falsos positivos. Las puntuaciones de recobrado fueron en general altas, superando \textbf{0.718}
+mantuvo en un rango entre $0.617$ y $0.743$ para todos los modelos, lo cual sugiere que estos no
+clasifican demasiados falsos positivos. Las puntuaciones de recobrado fueron en general altas, superando $0.718$
 en la mayor\'ia de los casos. Esto indica que los modelos en general clasifican bien las intancias positivas. Luego, las 
-puntuaciones $F_1$ se mantuvieron en un rango entre \textbf{0.689} y \textbf{0.764}, demostrando que se logra
+puntuaciones $F_1$ se mantuvieron en un rango entre $0.689$ y $0.764$, demostrando que se logra
 un balance bastante aceptable entre precisi\'on y recobrado.%A lo mejor se puede decir algo mejor que bastante aceptable
 
 En contraste, los resultados para la predicci\'on de raza (Tabla~\ref{table:eval_baselines_race}) con el 
 \emph{baseline} de aprendizaje autom\'atico muestran m\'etricas considerablemente m\'as bajas. Tanto la 
-precisi\'on como el recobrado de los modelos se mantuvieron por debajo de \textbf{0.190}, y en consecuencia 
-las puntuaciones $F_1$ no superan \textbf{0.180}. Todo esto evidencia de manera consistente que los modelos no 
+precisi\'on como el recobrado de los modelos se mantuvieron por debajo de $0.190$, y en consecuencia 
+las puntuaciones $F_1$ no superan $0.180$. Todo esto evidencia de manera consistente que los modelos no 
 logran clasificar correctamente las instancias positivas. Los valores para la exactitud no superan el puntanje 
-de \textbf{0.205}. 
+de $0.205$. 
 
 Estas diferencias tan marcadas en las m\'etricas de g\'enero y raza sugieren que predecir autom\'aticamente la 
 raza a partir de texto representa un desaf\'io significativamente mayor en comparaci\'on con la predicci\'on de 
@@ -480,7 +480,7 @@ Tablas~\ref{table:eval_baselines_gender} y~\ref{table:eval_baselines_race}, indi
 superior al de los modelos de aprendizaje autom\'atico. 
 
 Para la tarea de g\'enero (Tabla~\ref{table:eval_baselines_gender}), todos los valores alcanzados
-por las m\'etricas superan \textbf{0.870} para ambos anotadores. Lo que sugiere un 
+por las m\'etricas superan $0.870$ para ambos anotadores. Lo que sugiere un 
 rendimiento muy consistente y preciso en la clasificaci\'on tanto de instancias positivas, 
 como negativas. En general se observa un desempe\~no superior del 
 \emph{baseline} humano en comparaci\'on com el \emph{baseline} de aprendizaje autom\'atico en 
@@ -488,9 +488,9 @@ esta tarea.
 
 Del mismo modo, para la predicci\'on de la raza, los valores obtenidos en las m\'etricas calculadas son 
 muy prometedores para ambos anotadores. La precisi\'on y 
-recobrado alcanzada por los anotadores superan \textbf{0.810}, y la puntuaci\'on F1 estuvo 
-por encima de \textbf{0.80}. La exactitud tambi\'en fue muy alta, con valores de \textbf{0.810}
-y \textbf{0.959}, evidenciando la gran habilidad de los humanos para replicar las anotaciones
+recobrado alcanzada por los anotadores superan $0.810$, y la puntuaci\'on F1 estuvo 
+por encima de $0.800$. La exactitud tambi\'en fue muy alta, con valores de $0.810$
+y $0.959$, evidenciando la gran habilidad de los humanos para replicar las anotaciones
 de raza presentes en el corpus.
 
 A pesar de que el \emph{baseline} humano logra m\'etricas de evaluaci\'on muy altas en ambas 
