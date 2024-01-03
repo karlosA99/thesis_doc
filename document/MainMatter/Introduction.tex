@@ -23,9 +23,9 @@ que los algoritmos se utilizan y actualizan con el tiempo, llevando a resultados
 
 %There are several techniques to detect and mitigate bias
 Entre las t\'ecnicas para la detecci\'on de sesgos se destacan las basadas en la equidad de grupos~\parencite{fairmodels}. 
-En estas t\'ecnicas se identifican grupos de individuos que comparten uno o m\'as atributos ``protegidos''. Existe tambi\'en una 
+En estas t\'ecnicas se identifican grupos de individuos que comparten uno o m\'as atributos protegidos. Existe tambi\'en una 
 t\'ecnica muy interesante que se basa en la anotaci\'on autom\'atica de atributos protegidos en los 
-datasets~\parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39}. Entre los atributos que se asocian 
+\emph{datasets}~\parencite{soumah2023radar,dinan2020multidimensional,10.1007/978-3-031-35320-8_39}. Entre los atributos que se asocian 
 con mayor frecuencia a grupos vulnerables se encuentran el g\'enero, la raza, la orientaci\'on sexual y la nacionalidad. 
 Siguiendo esta l\'inea se han logrado detectar injusticias en sistemas de contrataci\'on~\parencite{examples_dis}, sistemas de 
 seguros de salud~\parencite{examples_dis}, e incluso en modelos de reconocimiento de voz~\parencite{voice_bias}.
@@ -38,24 +38,24 @@ seguros de salud~\parencite{examples_dis}, e incluso en modelos de reconocimient
 
 \subsection*{Problem\'atica}
 %Need for a corpus to develop and evaluate these techniques - existence of complex cases where what is needed is non-tabular data
-Una caracter\'istica inherente a todas las t\'ecnicas para el an\'alisis de sesgos es la necesidad de datasets con 
+Una caracter\'istica inherente a todas las t\'ecnicas para el an\'alisis de sesgos es la necesidad de \emph{datasets} con 
 atributos protegidos correctamente anotados y balanceados. Por ende, es importante disponer de ellos con el fin de 
-asistir al desarrollo y evaluaci\'on de estas t\'ecnicas. No obstante, existen casos m\'as complejos donde un dataset que incluya 
+asistir al desarrollo y evaluaci\'on de estas t\'ecnicas. No obstante, existen casos m\'as complejos donde un \emph{dataset} que incluya 
 datos tabulares y atributos protegidos no se adapta al problema en cuesti\'on. Como ejemplo de estos se tiene:  
 el an\'alisis de sentimientos en textos, modelos de traducci\'on autom\'atica para lenguajes con diversidad 
 de g\'enero, o la detecci\'on de emociones en im\'agenes.
 
 %Datasets with non-tabular data and annotated protected attributes are scarce - solving this problem would be great
-La carencia y complejidad asociada a la obtenci\'on de datasets que incorporen datos no tabulares y atributos protegidos constituye un 
-desaf\'io de gran relevancia y discusi\'on en la literatura. La insuficiencia de recursos de este tipo impone restricciones 
+La carencia y complejidad asociada a la obtenci\'on de \emph{datasets} que incorporen datos no tabulares y atributos protegidos constituye un 
+desaf\'io de gran relevancia y discusi\'on en la literatura. La insuficiencia de recursos de este tipo, impone restricciones 
 significativas al desarrollo de investigaciones en el \'area. Es por eso que resolver este problema permitir\'ia un avance sustancial 
 en el an\'alisis de sesgos en algoritmos de aprendizaje autom\'atico.
 
 \section*{Objetivos}
 Este trabajo propone como objetivo fundamental el dise\~no y validaci\'on de un corpus de datos no tabulares para
-asistir en el desarrollo de t\'ecnicas destinadas a la mitigaci\'on de sesgos y la anotaci\'on autom\'atica de atributos protegidos. El contenido del corpus
-es de tipo textual y de dominio general. Adem\'as, se garantiza que contenga entidades nombradas, sustantivos y pronombres
-que hagan referencia a atributos protegidos. Estos atributos son el g\'enero y la raza.
+asistir en el desarrollo de t\'ecnicas destinadas a la mitigaci\'on de sesgos y la anotaci\'on autom\'atica de atributos protegidos. 
+El contenido del corpus es de tipo textual y de dominio general. Adem\'as, se garantiza que contenga entidades nombradas, sustantivos 
+y pronombres que hagan referencia a atributos protegidos. Estos atributos son el g\'enero y la raza.
 
 Se proponen los siguientes objetivos espec\'ificos:
 \begin{itemize}
@@ -69,10 +69,12 @@ Se proponen los siguientes objetivos espec\'ificos:
 
 \section*{Contribuciones}
 La realizaci\'on de esta tesis aporta contribuciones sustanciales en el \'ambito del an\'alisis de sesgos en modelos de aprendizaje 
-autom\'atico. Al abordar la carencia de \emph{datasets} con datos no tabulares y atributos protegidos anotados, el corpus desarrollado podr\'a ser utilizado para:
+autom\'atico. Al abordar la carencia de \emph{datasets} con estructura no tabular y atributos protegidos anotados, el corpus 
+desarrollado podr\'a ser utilizado para:
 \begin{itemize}
     \item Entrenar y evaluar modelos de extracci\'on autom\'atica de atributos protegidos en texto.
-    \item Evaluar t\'ecnicas de mitigaci\'on de sesgos identidicadas en la literatura, mediante su aplicaci\'on en modelos entrenados con el corpus.
+    \item Evaluar t\'ecnicas de mitigaci\'on de sesgos identificadas en la literatura, mediante su aplicaci\'on en 
+    modelos entrenados con el corpus.
     \item Organizar competencias y retos internacionales de equidad algor\'itmica que utilicen el corpus como conjunto de evaluaci\'on.
 \end{itemize}
 
@@ -82,4 +84,10 @@ autom\'atico. Al abordar la carencia de \emph{datasets} con datos no tabulares y
 
 
 \section*{Organizaci\'on de la Tesis}
-El contenido de la tesis se organiza de la siguiente forma. El Cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del arte en temas relacionados con el sesgo en modelos de aprendizaje autom\'atico. Adem\'as se analizan los principales corpus utilizados en el an\'alisis de sesgos. Luego, el Cap\'itulo 2 describe la metodolog\'ia propuesta para la contrucci\'on de un corpus con anotaciones de atributos protegidos. Se describen el modelo de anotaci\'on y el proceso de etiquetado manual realizado. El Cap\'itulo 3 explica el marco experimental propuesto para evaluar la efectividad, tanto del corpus generado, como del modelo de anotaci\'on propuesto, y se analizan los resultados obtenidos. Finalmente se arriban a conclusiones y se discuten la l\'ineas de investigaci\'on futuras.  
+El contenido de la tesis se organiza de la siguiente forma. El Cap\'itulo 1 realiza una revisi\'on de la literatura y el estado del 
+arte en temas relacionados con el sesgo en modelos de aprendizaje autom\'atico. Adem\'as se analizan los principales corpus 
+utilizados en el an\'alisis de sesgos. Luego, el Cap\'itulo 2 describe la metodolog\'ia propuesta para la contrucci\'on de un 
+corpus con anotaciones de atributos protegidos. Se describen el modelo de anotaci\'on y el proceso de etiquetado manual realizado. 
+El Cap\'itulo 3 explica el marco experimental propuesto para evaluar la efectividad, tanto del corpus generado, como del modelo de 
+anotaci\'on propuesto, y se analizan los resultados obtenidos. Finalmente se arriban a conclusiones y se discuten la l\'ineas de 
+investigaci\'on futuras.  

@@ -12,13 +12,14 @@ Secci\'on~\ref{section:baseline} se describen dos \emph{baselines} propuestos so
 %Hablar de cuales son los atributos protegidos que se anotaron. ok
 %Hablar de los valores de cada atributo protegido y mas cosas relacionadas.ok/2
 En el proceso de construcci\'on del corpus, cada elemento a anotar es un texto completo que puede estar formado por varias oraciones. 
-Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, lo cual es fundamentale
+Este enfoque permite capturar el contexto completo en el que se producen las menciones a los atributos protegidos, lo cual es fundamental
 para lograr una comprensi\'on m\'as precisa y contextualizada de los mismos.
 
 En este caso, los atributos protegidos que se van a anotar son el g\'enero y la raza.
 Fueron seleccionados estos atributos no solo por su relevancia en diversas \'areas de estudio y aplicaci\'on, sino tambi\'en 
 por la naturaleza de los textos que se van a anotar. Dado que las rese\~nas de pel\'iculas y series de televisi\'on
-pueden contener un amplia gama de discusiones sobre actores, directores y personajes, es muy probable que se pueda hacer una asociaci\'on con los atributos de esos individuos.
+pueden contener un amplia gama de discusiones sobre actores, directores y personajes, es muy probable que se pueda hacer una 
+asociaci\'on con los atributos de esos individuos.
 
 Para el atributo g\'enero los valores a anotar son: ``\emph{Male}'' para g\'enero masculino, ``\emph{Female}'' para g\'enero femenino, 
 ``\emph{Male, Female}'' cuando se detectan ambos g\'eneros y ``\emph{Null}'' en caso de no detectar ninguno.
@@ -40,10 +41,11 @@ Una vez seleccionados los textos, se procede a la anotaci\'on de los atributos p
 fundamentales:
 
 \begin{enumerate}
-    \item Anotaci\'on exhaustiva de ambos atributos por parte de dos anotadores no expertos en la problem\'atica, generando as\'i dos anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas
-    con un anotador experto, pero no deben discutir los textos espec\'ificos que anotan.
-    \item Mezcla autom\'atica de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de escoger la 
-    anotaci\'on m\'as acertada. Esta etapa es asistida por \emph{scripts} de mezcla que detectan y resaltan autom\'aticamente
+    \item Anotaci\'on exhaustiva de ambos atributos por parte de dos anotadores no expertos en la problem\'atica, generando as\'i dos 
+    anotaciones independientes. Los anotadores tienen permitido intercambiar opiniones y consultar dudas con un anotador experto, 
+    pero no deben discutir los textos espec\'ificos que anotan.
+    \item Mezcla autom\'atica de las anotaciones independientes. En caso de detectarse conflicto, un anotador experto se encarga de 
+    escoger la anotaci\'on m\'as acertada. Esta etapa es asistida por \emph{scripts} de mezcla que detectan y resaltan autom\'aticamente
     los conflictos.
     \item Revisi\'on del resultado final por parte de un anotador experto, en busca de posibles errores e inconsistencias.
 \end{enumerate}
@@ -55,7 +57,6 @@ cual debe ser evaluado como se describe en la Secci\'on~\ref{subsection:annotati
 Se sugiere calcular un \emph{micro-agreement} y un \emph{macro-agreement} para evaluar el grado de concordancia entre las anotaciones
 manuales del corpus. Adem\'as, se propone estudiar la consistencia estad\'istica de las anotaciones, mediante el c\'alculo  
 de media, varianza y desviaci\'on est\'andar de los acuerdos entre anotadores, para cada atributo protegido.
-%#TODO: Ver como disminuir el uso de la palabra anotadores, anotaciones...
 
 La evaluaci\'on anterior puede ser realizada en dos fases. En la primera fase, se realiza la comparaci\'on entre las anotaciones 
 realizadas por los anotadores no expertos. Luego, en la segunda fase, se comparan las anotaciones de los 
@@ -63,7 +64,7 @@ no expertos con el resultado de la mezcla y revisi\'on por parte del anotador ex
 se muestran los resultados obtenidos en la evaluaci\'on del corpus.
 
 Primero se define una m\'etrica $\mathcal{J}_{attr}(A, B) \in [0,1]$, conocida como \emph{coeficiente de Jaccard}. Dicha m\'etrica 
-determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as 
+determina para un texto el grado de concordancia entre sus dos anotaciones $A$ y $B$ de un atributo protegido $attr$, adem\'as, 
 considera coincidencia parcial entre las anotaciones. Se calcula:
 
 \begin{equation}
@@ -84,8 +85,8 @@ desviaci\'on est\'andar del conjunto obtenido. Estos resultados son una medida d
 Se muestran en la Secci\'on~\ref{section:results}.
 
 Por otra parte, la m\'etrica \emph{macro-agreement} se calcula como la media de los \emph{micro-agreements} de cada atributo protegido. 
-Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones, y permite detectar desbalance entre el \emph{agreement} por cada clase de los atributos protegidos. Se muestran en la 
-Secci\'on~\ref{section:results}.
+Esta m\'etrica ofrece una perspectiva m\'as general de la concordancia entre las anotaciones, y permite detectar desbalance entre 
+el \emph{agreement} por cada clase de los atributos protegidos. Se muestran en la Secci\'on~\ref{section:results}.
 
 \subsection{Directrices de anotaci\'on}\label{section:annotation_guidelines}
 %Hablar que para anotar cierto atributo no hacer falta que el texto lo mencione explicitamente, sino que se puede inferir
@@ -100,7 +101,7 @@ auxiliarse de informaci\'on externa, como la b\'usqueda de im\'agenes de los per
 %Describir los scripts que se hicieron para anotar, mezclar y todo eso
 Se desarrollaron dos \emph{scripts} de \emph{Python} para asistir en el proceso de anotaci\'on. Un primer \emph{script}
 se encarga de guiar al anotador en todo este proceso, mostrando los textos a anotar y permitiendo la selecci\'on de los valores
-que correspondana a cada atributo protegido. El segundo \emph{script} se encarga de mezclar las anotaciones de los anotadores 
+que correspondan a cada atributo protegido. El segundo \emph{script} se encarga de mezclar las anotaciones de los anotadores 
 no expertos, resaltando los conflictos y permitiendo la selecci\'on de la anotaci\'on m\'as acertada por parte del experto. 
 Ambos \emph{scripts} almacenan continuamente las anotaciones en archivos \emph{CSV} para evitar posibles p\'erdidas de 
 informaci\'on en caso de que ocurra alg\'un error.
@@ -108,13 +109,13 @@ informaci\'on en caso de que ocurra alg\'un error.
 \section{Estad\'isticas del Corpus}\label{section:corpus_stats}
 El corpus fue construido a partir un fichero \emph{CSV}, tomado de la plataforma 
 Kaggle\footnote{\url{https://www.kaggle.com/datasets/mantri7/imdb-movie-reviews-dataset}}. 
-Este fichero contiene 24904 rese\~nas de pel\'iculas en idioma ingl\'es. Cada entrada del fichero contiene el texto de la rese\~na, 
-y un atributo binario anotado que indica si la rese\~na es positiva o negativa. Se contaba inicialmente con un conjunto de 70 textos 
-preseleccionados, a los que se a\~nadieron 80 nuevos textos seleccionados de manera aleatoria.
+Este fichero contiene $24\,904$ rese\~nas de pel\'iculas en idioma ingl\'es. Cada entrada del fichero contiene el texto de la rese\~na, 
+y un atributo binario anotado que indica si la rese\~na es positiva o negativa. Se contaba inicialmente con un conjunto de $70$ textos 
+preseleccionados, a los que se a\~nadieron $80$ nuevos textos seleccionados de manera aleatoria.
 
 Usando este conjunto de textos, se implement\'o un proceso de anotaci\'on para etiquetar manualmente el g\'enero y la raza seg\'un 
 el modelo descrito en la secci\'on~\ref{section:annotation_scheme}. Este proceso de anotaci\'on se describe en detalle en la 
-secci\'on~\ref{section:annotation_process}. La figura~\ref{fig:ann_proc} ilustra el procesamiento realizado.
+secci\'on~\ref{section:annotation_process}. La Figura~\ref{fig:ann_proc} ilustra el procesamiento realizado.
 Luego del proceso de anotaci\'on, se obtuvo un total de 150 textos anotados con g\'enero, raza y sentimiento, que constituyen el 
 corpus final. Las tablas~\ref{table:stats},~\ref{table:stats_gen} y~\ref{table:stats_race}  resumen las estad\'isticas fundamentales 
 del corpus final.
@@ -139,7 +140,7 @@ del corpus final.
 
         \bottomrule
         \end{tabular}
-    \caption{Resumen de las estad\'isticas generales del corpus: cantidad de textos, cantidad de textos con g\'enero anotado y 
+    \caption{Resumen de las estad\'isticas generales del corpus: cantidad total de textos, cantidad de textos con g\'enero anotado y 
     cantidad de textos con raza anotada.}
     \label{table:stats}
 \end{table}
@@ -175,7 +176,7 @@ del corpus final.
 
         \bottomrule
         \end{tabular}
-    \caption{Resumen de las estad\'isticas del corpus, relacionadas con el atributo raza: cantidad de textos por raza.}
+    \caption{Resumen de las estad\'isticas del corpus relacionadas con el atributo raza: cantidad de textos por raza.}
     \label{table:stats_race}
 \end{table}
 
@@ -199,16 +200,16 @@ El preprocesamiento realizado en este caso se basa en obtener representaciones v
 de los textos. Para ello, se utiliza el \emph{tokenizador} y modelo 
 \emph{BERT}\footnote{\url{https://huggingface.co/docs/transformers/model_doc/bert}} preentrenados de 
 \emph{Hugging Face}\footnote{\url{https://huggingface.co}}. Primero, el texto se \emph{tokeniza} con el 
-tokenizador de \emph{BERT}, convirtiendo a min\'usculas si el modelo lo requiere. Se agregan los 
+\emph{tokenizador} de \emph{BERT}, convirtiendo a min\'usculas si el modelo lo requiere. Se agregan los 
 \emph{tokens} especiales [CLS] y [SEP] para indicar el inicio y fin del texto respectivamente.
 Luego, el texto \emph{tokenizado} se pasa a trav\'es del modelo \emph{BERT} para obtener el vector de 
-embeddings del \emph{token} [CLS], que codifica la representaci\'on sem\'antica de toda la secuencia. 
+\emph{embeddings} del \emph{token} [CLS], que codifica la representaci\'on sem\'antica de toda la secuencia. 
 
 Se probaron varios modelos de clasificaci\'on supervisada brindados por la biblioteca 
 \emph{sklearn}\footnote{\url{https://scikit-learn.org/}} para la predicci\'on de g\'enero y raza 
 a partir de las representaciones de texto generadas por \emph{BERT}. Los modelos utilizados para 
 entrenar y evaluar el clasificador fueron: \emph{Logistic Regression}, 
-\emph{Random Forest Classifier}, \emph{Support Vector Machine} y \emph{Multilayer Perceptron}.
+\emph{Random Forest Classifier}, \emph{Support Vector Machine} (SVC) y \emph{Multilayer Perceptron} (MLP).
 Los resultados de cada uno se discuten en la secci\'on~\ref{section:results}.
 
 \subsubsection{Detalles de implementaci\'on}
@@ -223,10 +224,10 @@ representativo de todo el texto original.
 \subsubsection{Hiperpar\'ametros}
 Se configuraron los seguientes hiperpar\'ametros para cada uno de los modelos entrenantes utilizados:
 \begin{itemize}
-    \item \emph{Logistic Regression}: \emph{max\_iter} = 1000
-    \item \emph{Random Forest Classifier}: \emph{n\_estimators} = 100
+    \item \emph{Logistic Regression}: \emph{max\_iter} = $1\,000$
+    \item \emph{Random Forest Classifier}: \emph{n\_estimators} = $100$
     \item \emph{Support Vector Machine}: todos los valores por defecto.
-    \item \emph{Multilayer Perceptron}: \emph{hidden\_layer\_sizes} = (100, 50), \emph{max\_iter} = 1000
+    \item \emph{Multilayer Perceptron}: \emph{hidden\_layer\_sizes} = ($100$, $50$), \emph{max\_iter} = $1\,000$
 \end{itemize}
 
 

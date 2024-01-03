@@ -16,7 +16,7 @@ los anotadores humanos durante el proceso de construcci\'on del corpus. El segun
 desarrollado para entrenar y evaluar la eficacia de un modelo de clasificaci\'on de g\'enero y raza. Esto tiene como objetivo determinar
 la capacidad de un anotador autom\'atico en replicar de manera confiable las anotaciones realizadas por los humanos. 
 
-\subsubsection{Escenario I: Concordancia entre Anotadores}
+\subsubsection{Escenario I: Concordancia entre Anotadores}\label{subsection:scenery1}
 Este escenario tiene como objetivo examinar la concordancia entre anotadores planteada en la 
 Secci\'on~\ref{subsection:annotation_evaluation}. El escenario busca obtener una estimaci\'on confiable de la dificultad de la 
 tarea de anotaci\'on, as\'i como evaluar la calidad global de las anotaciones obtenidas. Esto se logra mediante la comparaci\'on
@@ -31,7 +31,7 @@ planteado.
 Adicionalmente, se quiere evaluar la calidad que tendr\'ia un anotador autom\'atico de prop\'osito general. Para esto, se 
 emplea \emph{ChatGPT}~3.5 como anotador autom\'atico, y se comparan sus anotaciones con el corpus final.
 
-\subsubsection{Escenario II: Evaluaci\'on de Baselines}
+\subsubsection{Escenario II: Evaluaci\'on de Baselines}\label{subsection:scenery2}
 Este escenario tiene como objetivo evaluar los baselines dise\~nados en la Secci\'on~\ref{section:baseline}, con el fin de 
 validar su desempe\~no sobre el corpus desarrollado.
 
@@ -55,7 +55,7 @@ combinaci\'on de modelo de \emph{BERT} y clasificador se reportan en la Secci\'o
                 bert-large-cased   & 340M & 1024 & S\'i\\
         \bottomrule
         \end{tabular}}
-    \caption{Comparativa de modelos de \emph{BERT} utilizados.}
+    \caption{Arquitecturas de modelos de \emph{BERT} utilizados.}
     \label{table:bert_models}
 \end{table}
 
@@ -84,7 +84,7 @@ Las versiones macro de las m\'etricas se calculan promediando cada valor obtenid
 El corpus utilizado para la experimentaci\'on corresponde al conjunto de 150 textos con anotaciones de g\'enero y raza
 generadas durante la construcci\'on del mismo, tal como se describe en la Secci\'on~\ref{section:annotation_process}.
 
-Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del corpus:
+Espec\'ificamente, para el Escenario~I~(\ref{subsection:scenery1}) se emplean las siguientes versiones del corpus:
 \begin{itemize}
     \item Versi\'on 1: Conjunto de 150 textos con las anotaciones realizadas por el anotador~1.
     \item Versi\'on 2: Conjunto de 150 textos con las anotaciones realizadas por el anotador~2.
@@ -95,8 +95,8 @@ Espec\'ificamente, para el Escenario I se emplean las siguientes versiones del c
 La comparaci\'on entre estas tres versiones del corpus permite estimar de manera realista la concordancia entre los anotadores 
 no expertos y la concordancia de cada uno de ellos con la versi\'on final revisada. 
 
-En el Escenario II, se emplea la versi\'on final del corpus tanto para entrenar y evaluar el \emph{baseline} de aprendizaje 
-autom\'atico, como para evaluar el \emph{baseline} humano.
+En el Escenario~II~(\ref{subsection:scenery2}), se emplea la versi\'on final del corpus tanto para entrenar y evaluar el 
+\emph{baseline} de aprendizaje autom\'atico, como para evaluar el \emph{baseline} humano.
 
 Para llevar a cabo estas evaluaciones, se emplea la 
 metodolog\'ia \emph{K-fold cross-validation}. En este proceso, el modelo se entrena $K$ veces, utilizando 
@@ -123,7 +123,8 @@ El sistema operativo utilizado fue \emph{Windows 10 Pro}, versi\'on 21H2 y con u
 A continuaci\'on se muestran los resultados obtenidos a partir de realizar los experimentos descritos en la 
 secci\'on~\ref{section:experimental_framework}.
 
-La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del \textbf{Escenario~I}.
+La Tabla~\ref{table:agreement_humans} y la Tabla~\ref{table:agreement_gpt} muestran los resultados del 
+Escenario~I~(\ref{subsection:scenery1}).
 Estas tablas resumen los resultados de las m\'etricas de concordancia calculadas entre las distintas
 versiones del corpus y el anotador autom\'atico \emph{ChatGPT}~3.5, respectivamente. En ellas, se 
 calcula para los conjuntos $C_{g\acute{e}nero}$, $C_{raza}$ y $C_{g\acute{e}nero, raza}$ definidos
@@ -196,7 +197,7 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
     \label{table:agreement_gpt}
 \end{table}
 
-En cuanto al \textbf{Escenario~II}, la Tabla~\ref{table:eval_baselines_gender} y la Tabla~\ref{table:eval_baselines_race}
+En cuanto al Escenario~II~(\ref{subsection:scenery2}), la Tabla~\ref{table:eval_baselines_gender} y la Tabla~\ref{table:eval_baselines_race}
 muestran las m\'etricas alcanzadas por el \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano en las tareas de 
 predicci\'on de los atribuitos g\'enero y raza respectivamente. Para el \emph{baseline} de aprendizaje autom\'atico se presentan 
 los resultados considerando diversas combinaciones entre los modelos de \emph{BERT} utilizados para obtener los 
@@ -433,7 +434,7 @@ Los resultados presentados en la Tabla~\ref{table:agreement_humans} indican un a
 anotaciones realizadas por los distintos anotadores humanos.
 
 Espec\'ificamente, la concordancia entre los anotadores no expertos (\textbf{Ver.~1 - Ver.~2}) es bastante alta. La
-media de las concordancias por anotaci\'on supera \textbf{0.85} para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
+media de las concordancias por anotaci\'on supera \textbf{$0.85$} para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
 lo que indica un alto grado de concordancia promedio. Adem\'as, la varianza y desviaci\'on est\'andar est\'an por debajo de 
 \textbf{0.11} y \textbf{0.33} respectivamente, lo que demuestra poca dispersi\'on en los valores de concordancia por texto. El
 \emph{macro-agreement} de \textbf{0.886}, refuerza la consistencia en t\'erminos generales. Todo esto sugiere que las directrices 
@@ -442,7 +443,8 @@ de anotaci\'on fueron adecuadas y permitieron obtener anotaciones consistentes e
 Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 - Final} y \textbf{Ver.~2 - Final}), se
 observa una mejor\'ia en las m\'etricas. La media supera \textbf{0.90} en todos los casos, la varianza y desviaci\'on est\'andar
 disminuyen por debajo de \textbf{0.08} y \textbf{0.28} respectivamente, y el \emph{macro-agreement} aumenta a \textbf{0.917} y 
-\textbf{0.962}. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece establece un punto medio entre ambos anotadores, evidenciando una mayor calidad y consistencia en las anotaciones.
+\textbf{0.962}. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece un 
+punto medio entre ambos anotadores, evidenciando una mayor calidad y consistencia en las anotaciones.
 
 Los resultados de la Tabla~\ref{table:agreement_gpt} muestran m\'etricas de concordancia significativamente menores entre 
 el anotador autom\'atico \emph{ChatGPT} y el corpus final. La media se encuentra por debajo de \textbf{0.38} en todos los casos,
