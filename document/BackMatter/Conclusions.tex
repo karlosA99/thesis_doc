@@ -4,33 +4,33 @@
     detecci\'on y mitigaci\'on de sesgos. Adem\'as, los textos que conforman el corpus cuentan con: 
     entidades nombradas, sustantivos y pronombres que hacen referencia a atributos protegidos.
     Entre las contribuciones fundamentales del trabajo se encuentran: $(1)$ el 
-    dise\~no de un modelo de anotaci\'on de prop\'osito general con m\'ultiples revisiones y mezcla de anotaciones;
+    dise\~no de un esquema de anotaci\'on de prop\'osito general con m\'ultiples revisiones y mezcla de anotaciones;
     $(2)$ la construcci\'on de un corpus de anotado que apoya el desarrollo de t\'ecnicas de detecci\'on y mitigaci\'on
     de sesgos en textos de prop\'osito general; $(3)$ la implementaci\'on de un sistema de extracci\'on autom\'atica 
     de las anotaciones desde textos del lenguaje natural.
 
-    El modelo de anotaci\'on descrito en el trabajo se basa en el etiquetado manual de los atributos protegidos g\'enero 
+    El esquema de anotaci\'on descrito en el trabajo se basa en el etiquetado manual de los atributos protegidos g\'enero 
     y raza en textos de prop\'osito general. Se anotan todas las referencias expl\'icitas o inferidas a dichos 
     atributos contenidas en el texto, ya sea mediante entidades nombradas, pronombres u otros elementos. El proceso
     de anotaci\'on consiste en la realizaci\'on de dos anotaciones independientes por parte de anotadores no expertos,
     seguido de una mezcla autom\'atica con resoluci\'on de conflictos y revisi\'on final por un experto. Este enfoque en m\'ultiples 
     pasos busca maximizar la calidad y consistencia de las anotaciones resultantes.
 
-    A partir del modelo de anotaci\'on, se construy\'o un corpus de textos anotados. El corpus est\'a formado por un 
+    A partir del esquema de anotaci\'on, se construy\'o un corpus de textos anotados. El corpus est\'a formado por un 
     conjunto de 150 textos de prop\'osito general en idioma ingl\'es. Este corpus tiene una importancia significativa
     ya que permite el an\'alisis de sesgos en tareas de procesamiento de lenguaje natural sobre textos de dominio abierto, 
     superando limitaciones de otros corpus existentes. La mayor\'ia de los corpus disponibles para este prop\'osito
     contienen datos tabulares, o bien no cuentan con anotaciones de atributos protegidos, por lo que este corpus 
     ampl\'ia las posibilidades de investigaci\'on en el \'area.
     
-    Una de las caracter\'isticas fundamentales del modelo de anotaci\'on propuesto es que pueda ser extra\'ido 
-    autom\'aticamente. Se dise\~n\'o e implement\'o un sistema que permiti\'o comprobar la efectividad del modelo 
+    Una de las caracter\'isticas fundamentales del esquema de anotaci\'on propuesto es que pueda ser extra\'ido 
+    autom\'aticamente. Se dise\~n\'o e implement\'o un sistema que permiti\'o comprobar la efectividad del esquema 
     de anotaci\'on propuesto. Se utiliz\'o el corpus construido como escenario de evaluaci\'on del sistema. 
     Tras analizar los resultados obtenidos con los \emph{baselines} de aprendizaje autom\'atico y humano, se 
     evidencia la complejidad de replicar mediante clasificadores autom\'aticos las anotaciones realizadas por 
     humanos, especialmente para el atributo raza. Sin embargo, se lograron resultados alentadores, que pueden 
     mejorarse incrementando el tama\~no del corpus y la sofisticaci\'on del sistema de clasificaci\'on. La 
-    evaluaci\'on realizada confirma la viabilidad del modelo de anotaci\'on propuesto para ser extra\'ido 
+    evaluaci\'on realizada confirma la viabilidad del esquema de anotaci\'on propuesto para ser extra\'ido 
     autom\'aticamente y la utilidad del corpus construido.
 
 
