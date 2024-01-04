@@ -76,7 +76,7 @@ Las versiones macro de las m\'etricas se calculan promediando cada valor obtenid
     Precision_{attr} &= \frac{TP_{attr}}{TP_{attr} + FP_{attr}}\\
     Recobrado_{attr} &= \frac{TP_{attr}}{TP_{attr} + FN_{attr}}\\
     F1_{attr} &= 2 \cdot \frac{{Precision_{attr}} \cdot {Recobrado_{attr}}}{{Precision_{attr}} + {Recobrado_{attr}}}\\
-    Exactitud_{multiclase} &= \frac{TP_{multiclase} + TN_{multiclase}}{TP_{multiclase} + TN_{multiclase} + FP_{multiclase} + FN_{multiclase}}\\
+    Exactitud_{multiclase} &= \frac{TP_{multiclase} + TN_{multiclase}}{TP_{multiclase} + TN_{multiclase} + FP_{multiclase} + FN_{multiclase}}
 \end{align}
 
 
@@ -136,28 +136,28 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
     \resizebox{\textwidth}{!}{
         \begin{tabular}{llccc}
         \toprule
-        \textbf{M\'etrica de concordancia} &&\textbf{Ver. 1 - Ver. 2} & \textbf{Ver. 1 - Final} & \textbf{Ver. 2 - Final} \\
+        \textbf{M\'etrica de concordancia} &&\textbf{Ver. 1 vs Ver. 2} & \textbf{Ver. 1 vs Final} & \textbf{Ver. 2 vs Final} \\
         \midrule
         \midrule
-        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.873 & 0.917 & 0.943\\
+        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & $0.873$ & $0.917$ & $0.943$\\
         \cmidrule{2-5}
-                                  & $\sigma C_{g\acute{e}nero}$             & 0.324 & 0.268 & 0.228\\
+                                  & $\sigma C_{g\acute{e}nero}$             & $0.324$ & $0.268$ & $0.228$\\
         \cmidrule{2-5}
-                                  & $\sigma^2 C_{g\acute{e}nero}$           & 0.105 & 0.072 & 0.052\\
+                                  & $\sigma^2 C_{g\acute{e}nero}$           & $0.105$ & $0.072$ & $0.052$\\
         \midrule\midrule
-        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & 0.898 & 0.917 & 0.981\\
+        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & $0.898$ & $0.917$ & $0.981$\\
         \cmidrule{2-5}
-                                  & $\sigma C_{raza}$                       & 0.279 & 0.256 & 0.124\\
+                                  & $\sigma C_{raza}$                       & $0.279$ & $0.256$ & $0.124$\\
         \cmidrule{2-5}
-                                  & $\sigma^2 C_{raza}$                     & 0.078 & 0.066 & 0.015\\
+                                  & $\sigma^2 C_{raza}$                     & $0.078$ & $0.066$ & $0.015$\\
         \midrule\midrule
-        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & 0.870 & 0.903 & 0.956\\
+        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & $0.870$ & $0.903$ & $0.956$\\
         \cmidrule{2-5}
-                                  & $\sigma C_{g\acute{e}nero, raza}$       & 0.263 & 0.232 & 0.173\\
+                                  & $\sigma C_{g\acute{e}nero, raza}$       & $0.263$ & $0.232$ & $0.173$\\
         \cmidrule{2-5}
-                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.069 & 0.054 & 0.030\\
+                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & $0.069$ & $0.054$ & $0.030$\\
         \cmidrule{2-5}
-                                  & Macro Agr.                              & 0.886 & 0.917 & 0.962\\
+                                  & Macro Agr.                              & $0.886$ & $0.917$ & $0.962$\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de m\'etricas de concordancia entre las distintas versiones del corpus.}
@@ -169,28 +169,28 @@ est\'andar. Adem\'as, se calcula el \emph{macro-agreement} definido en dicha sec
     \resizebox{0.75\textwidth}{!}{
         \begin{tabular}{llc}
         \toprule
-        \textbf{M\'etrica de concordancia} &&\textbf{ChatGPT - Final} \\
+        \textbf{M\'etrica de concordancia} &&\textbf{ChatGPT vs Final} \\
         \midrule
         \midrule
-        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & 0.350\\
+        \multirow{3}{*}{G\'enero} & $\mu C_{g\acute{e}nero}$                & $0.350$\\
         \cmidrule{2-3}
-                                  & $\sigma C_{g\acute{e}nero}$             & 0.455\\
+                                  & $\sigma C_{g\acute{e}nero}$             & $0.455$\\
         \cmidrule{2-3}
-                                  & $\sigma^2 C_{g\acute{e}nero}$           & 0.207\\
+                                  & $\sigma^2 C_{g\acute{e}nero}$           & $0.207$\\
         \midrule\midrule
-        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & 0.371\\
+        \multirow{3}{*}{Raza}     & $\mu C_{raza}$                          & $0.371$\\
         \cmidrule{2-3}
-                                  & $\sigma C_{raza}$                       & 0.475\\
+                                  & $\sigma C_{raza}$                       & $0.475$\\
         \cmidrule{2-3}
-                                  & $\sigma^2 C_{raza}$                     & 0.225\\
+                                  & $\sigma^2 C_{raza}$                     & $0.225$\\
         \midrule\midrule
-        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & 0.329\\
+        \multirow{4}{*}{General}  & $\mu C_{g\acute{e}nero, raza}$          & $0.329$\\
         \cmidrule{2-3}
-                                  & $\sigma C_{g\acute{e}nero, raza}$       & 0.352\\
+                                  & $\sigma C_{g\acute{e}nero, raza}$       & $0.352$\\
         \cmidrule{2-3}
-                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & 0.124\\
+                                  & $\sigma^2 C_{g\acute{e}nero, raza}$     & $0.124$\\
         \cmidrule{2-3}
-                                  & Macro Agr.                              & 0.361\\
+                                  & Macro Agr.                              & $0.361$\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de m\'etricas de concordancia entre \emph{ChatGPT} y el corpus final.}
@@ -259,41 +259,41 @@ los resultados considerando diversas combinaciones entre los modelos de \emph{BE
         \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
         \midrule
         \midrule
-        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.740 & 0.788 & 0.757 & 0.366\\
+        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & $0.740$ & $0.788$ & $0.757$ & $0.366$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.695 & 0.816 & 0.744 & 0.308\\
+                                            & \emph{Random Forest}        & $0.695$ & $0.816$ & $0.744$ & $0.308$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.671 & 0.867 & 0.749 & 0.302\\
+                                            & \emph{SVC}                  & $0.671$ & $0.867$ & $0.749$ & $0.302$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.733 & 0.788 & 0.753 & 0.375\\
+                                            & \emph{MLP}                  & $0.733$ & $0.788$ & $0.753$ & $0.375$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.707 & 0.768 & 0.732 & 0.356\\
+        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & $0.707$ & $0.768$ & $0.732$ & $0.356$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.673 & 0.718 & 0.689 & 0.300\\
+                                            & \emph{Random Forest}        & $0.673$ & $0.718$ & $0.689$ & $0.300$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.621 & 1.000 & 0.764 & 0.257\\
+                                            & \emph{SVC}                  & $0.621$ & $1.000$ & $0.764$ & $0.257$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.743 & 0.734 & 0.727 & 0.387\\
+                                            & \emph{MLP}                  & $0.743$ & $0.734$ & $0.727$ & $0.387$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.707 & 0.787 & 0.741 & 0.366\\
+        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & $0.707$ & $0.787$ & $0.741$ & $0.366$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.684 & 0.771 & 0.719 & 0.343\\
+                                            & \emph{Random Forest}        & $0.684$ & $0.771$ & $0.719$ & $0.343$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.617 & 1.000 & 0.761 & 0.250\\
+                                            & \emph{SVC}                  & $0.617$ & $1.000$ & $0.761$ & $0.250$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.695 & 0.751 & 0.718 & 0.404\\
+                                            & \emph{MLP}                  & $0.695$ & $0.751$ & $0.718$ & $0.404$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.713 & 0.790 & 0.744 & 0.366\\
+        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & $0.713$ & $0.790$ & $0.744$ & $0.366$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.691 & 0.739 & 0.709 & 0.319\\
+                                            & \emph{Random Forest}        & $0.691$ & $0.739$ & $0.709$ & $0.319$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.639 & 0.848 & 0.722 & 0.275\\
+                                            & \emph{SVC}                  & $0.639$ & $0.848$ & $0.722$ & $0.275$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.725 & 0.755 & 0.728 & 0.345\\
+                                            & \emph{MLP}                  & $0.725$ & $0.755$ & $0.728$ & $0.345$\\
         \midrule\midrule
-        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & 0.937 & 1.000 & 0.967 & 0.872\\
+        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & $0.937$ & $1.000$ & $0.967$ & $0.872$\\
         \cmidrule{2-6}
-                                            & \emph{Anotaci\'on 2}        & 1.000 & 0.947 & 0.971 & 0.957\\
+                                            & \emph{Anotaci\'on 2}        & $1.000$ & $0.947$ & $0.971$ & $0.957$\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de las m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano 
@@ -309,41 +309,41 @@ los resultados considerando diversas combinaciones entre los modelos de \emph{BE
         \textbf{Combinaci\'on de Modelos} &&\textbf{Precisi\'on} & \textbf{Recobrado} & \textbf{F1} & \textbf{Exactitud}\\
         \midrule
         \midrule
-        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & 0.153 & 0.142 & 0.143 & 0.177\\
+        \multirow{4}{*}{bert-base-uncased}  & \emph{Logistic Regression}  & $0.153$ & $0.142$ & $0.143$ & $0.177$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.141 & 0.132 & 0.133 & 0.192\\
+                                            & \emph{Random Forest}        & $0.141$ & $0.132$ & $0.133$ & $0.192$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.098 & 0.165 & 0.123 & 0.132\\
+                                            & \emph{SVC}                  & $0.098$ & $0.165$ & $0.123$ & $0.132$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.162 & 0.151 & 0.154 & 0.186\\
+                                            & \emph{MLP}                  & $0.162$ & $0.151$ & $0.154$ & $0.186$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & 0.158 & 0.147 & 0.148 & 0.179\\
+        \multirow{4}{*}{bert-base-cased}    & \emph{Logistic Regression}  & $0.158$ & $0.147$ & $0.148$ & $0.179$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.114 & 0.136 & 0.124 & 0.151\\
+                                            & \emph{Random Forest}        & $0.114$ & $0.136$ & $0.124$ & $0.151$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.129\\
+                                            & \emph{SVC}                  & $0.097$ & $0.167$ & $0.123$ & $0.129$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.181 & 0.188 & 0.177 & 0.205\\
+                                            & \emph{MLP}                  & $0.181$ & $0.188$ & $0.177$ & $0.205$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & 0.112 & 0.119 & 0.115 & 0.155\\
+        \multirow{4}{*}{bert-large-uncased} & \emph{Logistic Regression}  & $0.112$ & $0.119$ & $0.115$ & $0.155$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.100 & 0.113 & 0.106 & 0.149\\
+                                            & \emph{Random Forest}        & $0.100$ & $0.113$ & $0.106$ & $0.149$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.097 & 0.167 & 0.123 & 0.129\\
+                                            & \emph{SVC}                  & $0.097$ & $0.167$ & $0.123$ & $0.129$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.124 & 0.117 & 0.118 & 0.171\\
+                                            & \emph{MLP}                  & $0.124$ & $0.117$ & $0.118$ & $0.171$\\
         \midrule\midrule
-        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & 0.124 & 0.138 & 0.129 & 0.188\\
+        \multirow{4}{*}{bert-large-cased}   & \emph{Logistic Regression}  & $0.124$ & $0.138$ & $0.129$ & $0.188$\\
         \cmidrule{2-6}
-                                            & \emph{Random Forest}        & 0.110 & 0.123 & 0.116 & 0.151\\
+                                            & \emph{Random Forest}        & $0.110$ & $0.123$ & $0.116$ & $0.151$\\
         \cmidrule{2-6}
-                                            & \emph{SVC}                  & 0.098 & 0.167 & 0.123 & 0.132\\
+                                            & \emph{SVC}                  & $0.098$ & $0.167$ & $0.123$ & $0.132$\\
         \cmidrule{2-6}
-                                            & \emph{MLP}                  & 0.119 & 0.112 & 0.111 & 0.170\\
+                                            & \emph{MLP}                  & $0.119$ & $0.112$ & $0.111$ & $0.170$\\
         \midrule\midrule
-        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & 0.816 & 0.815 & 0.803 & 0.810\\
+        \multirow{2}{*}{Modelo Humano}      & \emph{Anotaci\'on 1}        & $0.816$ & $0.815$ & $0.803$ & $0.810$\\
         \cmidrule{2-6}
-                                            & \emph{Anotaci\'on 2}        & 0.900 & 0.878 & 0.886 & 0.959\\
+                                            & \emph{Anotaci\'on 2}        & $0.900$ & $0.878$ & $0.886$ & $0.959$\\
         \bottomrule
         \end{tabular}}
     \caption{Resumen de las m\'etricas de evaluaci\'on del \emph{baseline} de aprendizaje autom\'atico y el \emph{baseline} humano 
@@ -433,14 +433,14 @@ los resultados considerando diversas combinaciones entre los modelos de \emph{BE
 Los resultados presentados en la Tabla~\ref{table:agreement_humans} indican un alto grado de concordancia entre las 
 anotaciones realizadas por los distintos anotadores humanos.
 
-Espec\'ificamente, la concordancia entre los anotadores no expertos (\textbf{Ver.~1 - Ver.~2}) es bastante alta. La
+Espec\'ificamente, la concordancia entre los anotadores no expertos (\textbf{Ver.~1 vs Ver.~2}) es bastante alta. La
 media de las concordancias por anotaci\'on supera $0.85$ para g\'enero, raza y la uni\'on de ambas en una \'unica categor\'ia,
 lo que indica un alto grado de concordancia promedio. Adem\'as, la varianza y desviaci\'on est\'andar est\'an por debajo de 
 $0.11$ y $0.33$ respectivamente, lo que demuestra poca dispersi\'on en los valores de concordancia por texto. El
 \emph{macro-agreement} de $0.886$, refuerza la consistencia en t\'erminos generales. Todo esto sugiere que las directrices 
 de anotaci\'on fueron adecuadas y permitieron obtener anotaciones consistentes entre anotadores no expertos.
 
-Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 - Final} y \textbf{Ver.~2 - Final}), se
+Al comparar las anotaciones de los no expertos con la versi\'on final (\textbf{Ver.~1 vs Final} y \textbf{Ver.~2 vs Final}), se
 observa una mejor\'ia en las m\'etricas. La media supera $0.90$ en todos los casos, la varianza y desviaci\'on est\'andar
 disminuyen por debajo de $0.08$ y $0.28$ respectivamente, y el \emph{macro-agreement} aumenta a $0.917$ y 
 $0.962$. Esto indica que, como se esperaba, la mezcla y revisi\'on por el experto establece un 
