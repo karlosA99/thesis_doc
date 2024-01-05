@@ -188,7 +188,7 @@ han surgido nuevos m\'etodos llamados meta-algoritmos que ofrecen resultados pro
 Las estrategias de pre-procesamiento buscan la equidad al modificar la representaci\'on de los datos antes de aplicar un modelo de 
 aprendizaje autom\'atico. En este proceso se pueden aplicar diversas t\'ecnicas sobre los datos, como eliminar atributos protegidos 
 y atributos correlacionados con estos, o bien, modificar las etiquetas de algunos objetos en el \emph{dataset}~\parencite{preproc}. 
-Una ventaja de estas t\'ecnicas es que son independientes al modelo. Sin embargo, requieren ajustes de hiperpar\'ametros tanto 
+Una ventaja de estas t\'ecnicas es que son independientes al modelo. Sin embargo, requieren ajustes de hiperpar\'ametros, tanto 
 propios como del modelo seleccionado para optimizar su desempe\~no.
 
 Los m\'etodos aplicados durante el procesamiento, modifican los algoritmos de aprendizaje para eliminar la fuente de discriminaci\'on. Esto se 
@@ -203,8 +203,8 @@ Entre las t\'ecnicas de post-procesamiento, se incluyen aquellas que buscan iden
 modelo, y a partir de esto, ajustan la predicci\'on~\parencite{seymour2018bias}. La principal limitaci\'on radica en que ajustar la predicci\'on 
 en esta fase es inherentemente sub\'optimo y puede resultar en un peor equilibrio entre eficacia y equidad.
 
-Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos, una categor\'ia de m\'etodos recientemente propuesta para problemas de 
-mitigaci\'on de sesgos. Estos simplifican dicha tarea a una serie de problemas de clasificaci\'on, cada uno con 
+Por \'ultimo, cabe destacar la relevancia de los meta-algoritmos. 
+Estos simplifican la tarea de mitigaci\'on de sesgos a una serie de problemas de clasificaci\'on, cada uno con 
 un costo asociado a sus errores de predicci\'on~\parencite{agarwal2018reductions, agarwal2019fair}.
 A diferencia de los m\'etodos que operan durante el procesamiento, los meta-algoritmos son independientes al tipo de modelo utilizado en el 
 clasificador base, solo dependen de la capacidad de este para ser reentrenado repetidamente. Las soluciones a estos problemas suelen generar
@@ -220,7 +220,7 @@ Los modelos autom\'aticos entrenados para la detecci\'on de atributos protegidos
 de mitigaci\'on de sesgos de varias maneras:
 \begin{itemize}
     \item Permitiendo una detecci\'on m\'as amplia de sesgos en conjuntos de datos a gran escala.
-    \item Proporcionando atributos protegidos predichos que pueden utilizarse en t\'ecnicas basadas en 
+    \item Proporcionando atributos protegidos predichos, que pueden utilizarse en t\'ecnicas basadas en 
     la equidad de grupos.
     \item Generando conjuntos de datos sint\'eticos con atributos protegidos para el entrenamiento y evaluaci\'on de 
     modelos.
@@ -255,7 +255,6 @@ recomendable complementar estas predicciones con revisiones manuales por parte d
     Entre los \emph{datasets} con estructura tabular m\'as relevantes utilizados para el an\'alisis y la evaluaci\'on de modelos destinados 
     a la mitigaci\'on de sesgos~\parencite{calmon2017optimized,wang2023mitigating,compas}, se incluyen:
 
-    %#TODO deberia annadir una tabla tambien de tabulares?????
     \begin{itemize}
         \item \textbf{Adult}: Tambi\'en conocido como \emph{Census Income}, este \emph{dataset} contiene $48\,842$ registros de 
         datos sobre el censo de 1994 en Estados Unidos. Incluye $14$ atributos, como edad, educaci\'on, estado civil,
