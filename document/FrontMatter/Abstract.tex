@@ -24,8 +24,8 @@
 	la preocupaci\'on por la equidad e imparcialidad de los mismos. Diversos estudios han investigado la presencia de posibles sesgos
     en modelos de aprendizaje autom\'atico, y en efecto, se han encontrado sistemas que no son justos con determinados grupos de personas.
 	A ra\'iz de esto, se han desarrollado t\'ecnicas para detectar y mitigar estos sesgos, las cuales necesitan de \emph{datasets} anotados
-	con atributos protegidos (g\'enero, raza, religi\'on, etc.). La mayor\'ia de los \emph{datasets} anotados con atributos protegidos 
-	disponibles, poseen una estructura tabular, lo cual limita su aplicabilidad para el an\'alisis de sesgos en tareas donde se 
+	con atributos protegidos (g\'enero, raza, religi\'on, etc.). La mayor\'ia de los \emph{datasets} anotados con atributos protegidos,
+	poseen una estructura tabular, lo cual limita su aplicabilidad para el an\'alisis de sesgos en tareas donde se 
 	requieren datos no estructurados como texto, audio e im\'agenes.
 	
 	Esta tesis propone el dise\~no y validaci\'on de un corpus de datos no tabulares, con atributos protegidos anotados y toma de 
@@ -40,5 +40,18 @@
 \end{resumen}
 
 \begin{abstract}
-	Resumen en inglés
+	In recent years, there has been a substantial increase in the use of machine learning algorithms, being used in increasingly critical scenarios.
+	As these systems are used for sensitive decision-making, concerns about their fairness and impartiality have arisen.
+	Various studies have investigated the presence of potential biases in machine learning models, and indeed, systems that are not fair to certain 
+	groups of people have been found. As a result, techniques have been developed to detect and mitigate these
+	biases, which require annotated datasets with protected attributes (gender, race, religion, etc.). 
+	Most of the available datasets, annotated with protected attributes, have a tabular structure, which limits their applicability for the
+	analysis of biases in tasks where unstructured data such as text, audio and images are required.
+
+	This thesis proposes the design and validation of a non-tabular dataset with annotated protected attributes and decision-making in movie review texts.
+	A general-purpose annotation scheme is designed to maximize the quality and consistency of the annotations.
+	A corpus of annotated texts is built according to this scheme.
+	To evaluate the effectiveness of the annotation scheme in being learned automatically, an automatic extraction system of the annotations is implemented, 
+	using the generated corpus as a training scenario.
+	The results demonstrate the feasibility of the proposed corpus and annotation scheme to assist in bias analysis.
 \end{abstract}
